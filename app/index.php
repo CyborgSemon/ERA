@@ -17,7 +17,23 @@ require 'includes/statement.php';
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
+		<div class="logo">
 
+		</div>
+		<div class="loginBox">
+			<form action="login.php" method="post">
+				<div class="inputField">
+					<input type="text" id="username" name="username" value="<?php echo $_SESSION['username']; ?>" autocomplete="off" placeholder="Username">
+					<label for="username">Username</label>
+					<div class="inputBorder"></div>
+				</div>
+				<div class="inputField">
+					<input type="text" id="password" name="password" autocomplete="off" placeholder="Password">
+					<label for="username">Password</label>
+					<div class="inputBorder"></div>
+				</div>
+			</form>
+		</div>
 		<script src="js/main.min.js"></script>
 	</body>
 </html>
