@@ -6,7 +6,7 @@ $dotenv = Dotenv\Dotenv::create(__DIR__.'../../');
 $dotenv->load();
 
 require 'includes/dbc.php';
-require 'includes/statment.php';
+require 'includes/statement.php';
 
 ?>
 <!DOCTYPE html>
