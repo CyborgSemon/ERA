@@ -1,9 +1,4 @@
-// $bgColor: ;
-// $txtColor: ;
-// $primaryColor: ;
-// $secondaryColor: ;
-
-$transition: 0.15s;
+@import 'variables';
 
 * {
 	margin: 0;
@@ -12,67 +7,5 @@ $transition: 0.15s;
 	font-family: 'Roboto', sans-serif;
 }
 
-.loginBox {
-	padding: 24px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-}
-
-.inputField {
-	min-width: 250px;
-	margin-bottom: 12px;
-	min-height: 40px;
-	position: relative;
-
-	label {
-		position: absolute;
-		top: 12px;
-		left: 8px;
-		font-size: 1em;
-		background-color: white;
-		padding: 0 4px;
-		z-index: 3;
-		transition: $transition;
-		pointer-events: none;
-	}
-
-	input {
-		width: 100%;
-		height: 100%;
-		padding: 12px;
-		font-size: 1em;
-		border: none;
-		outline: none;
-		&:focus ~ .inputBorder {
-			border: 2px solid rgb(0,0,0);
-		}
-
-		&:focus ~ label, &:not(:placeholder-shown) ~ label {
-			top: -6px;
-			left: 8px;
-			font-size: 0.7em;
-			padding: 0 4px;
-		}
-
-		&::placeholder {
-			color: rgba(0,0,0,0);
-		}
-	}
-
-	.inputBorder {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		border: 1px solid rgba(0,0,0,0.2);
-		transition: $transition;
-		pointer-events: none;
-		z-index: 2;
-	}
-	&:hover .inputBorder {
-		border: 1px solid rgba(0,0,0,0.5);
-	}
-}
+@import 'loginPage';
+@import 'homePage';
