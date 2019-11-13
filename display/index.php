@@ -18,6 +18,13 @@ require 'includes/statement.php';
 	</head>
 	<body>
 
+		<div class="landing container">
+			<h1 id="E" class="era">E</h1>
+			<h1 id="R" class="era">R</h1>
+			<h1 id="A" class="era">A</h1>
+		</div>
+
+
 		<script src="js/main.min.js"></script>
 	</body>
 </html>

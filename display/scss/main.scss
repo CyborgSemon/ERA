@@ -4,3 +4,117 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
+//variables
+//for extra-small viewports, use max-width
+$xsml: 576;
+//min-width for the following viewports
+$sml: 540;
+$med: 720;
+$lrg: 960;
+$xlrg: 1140;
+$gridCol: 12;
+$dark: #121212;
+
+// mixins
+@mixin gameArt{
+	background: rgb(168,236,61);
+	background: linear-gradient(225deg, rgba(168,236,61,1) 19%, rgba(255,255,199,1) 57%, rgba(136,245,218,1) 100%);
+}
+
+@mixin webUx{
+	background: rgb(44,45,199);
+	background: linear-gradient(90deg, rgba(44,45,199,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+@mixin graphic{
+	background: rgb(157,226,254);
+	background: linear-gradient(225deg, rgba(157,226,254,1) 0%, rgba(255,195,138,1) 57%, rgba(215,65,119,1) 100%);
+}
+
+@mixin after{
+	content: "";
+	width: 0;
+	height: 3px;
+	left: 0;
+	bottom: 0;
+	transition: width 0.35s ease 0s;
+	position: absolute;
+}
+
+@mixin hoverAfter{
+	width: 100%;
+}
+
+//grids and media-queries
+
+.container {
+	max-width: $xlrg * 1px;
+	margin: 0 auto;
+	&-fluid {
+		margin: 0;
+		max-width: 100%;
+	}
+	&-row {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	@for $i from 1 through $gridCol {
+		&-col-#{$i} {
+			flex-basis: (100 / ($gridCol / $i) ) * 1%;
+		}
+	}
+	@media screen and (min-width: $med * 1px) {
+		@for $i from 1 through $gridCol {
+			&-colmd-#{$i} {
+				flex-basis: (100 / ($gridCol / $i) ) * 1%;
+			}
+		}
+	}
+	@media screen and (min-width: $lrg * 1px) {
+		@for $i from 1 through $gridCol {
+			&-collrg-#{$i} {
+				flex-basis: (100 / ($gridCol / $i) ) * 1%;
+			}
+		}
+	}
+	@media screen and (min-width: $xlrg * 1px) {
+		@for $i from 1 through $gridCol {
+			&-colxlrg-#{$i} {
+				flex-basis: (100 / ($gridCol / $i) ) * 1%;
+			}
+		}
+	}
+}
+
+body{
+	background-color: $dark;
+}
+
+#E::after{
+	@include graphic;
+	@include after;
+}
+
+#E:hover::after{
+	@include hoverAfter;
+}
+
+#R::after{
+	@include webUx;
+	@include after;
+}
+
+#R:hover::after{
+	@include hoverAfter;
+}
+
+#A::after{
+	@include gameArt;
+	@include after;
+}
+
+#A:hover::after{
+	@include hoverAfter;
+}
