@@ -14,12 +14,13 @@ $med: 720;
 $lrg: 960;
 $xlrg: 1140;
 $gridCol: 12;
-$dark: #121212;
+$dark: #242323;
+$card: #363636;
 
 // mixins
 @mixin gameArt{
-	background: rgb(168,236,61);
-	background: linear-gradient(225deg, rgba(168,236,61,1) 19%, rgba(255,255,199,1) 57%, rgba(136,245,218,1) 100%);
+	background: rgb(156,44,199);
+	background: linear-gradient(90deg, rgba(156,44,199,1) 15%, rgba(29,48,253,1) 43%, rgba(252,176,69,1) 81%);
 }
 
 @mixin webUx{
@@ -33,17 +34,34 @@ $dark: #121212;
 }
 
 @mixin after{
-	content: "";
-	width: 0;
-	height: 3px;
-	left: 0;
-	bottom: 0;
-	transition: width 0.35s ease 0s;
-	position: absolute;
+	display:block;
+	content: '';
+	border-bottom: solid 0.4rem;
+	transform: scaleX(0);
+	transition: transform 250ms ease-in-out;
+	border-radius: 10px;
 }
 
+// @mixin webUxAfter{
+// 	display:block;
+// 	content: '';
+// 	border-bottom: solid 0.4rem #019fb6;
+// 	transform: scaleX(0);
+// 	transition: transform 250ms ease-in-out;
+// 	border-radius: 10px;
+// }
+//
+// @mixin graphicAfter{
+// 	display:block;
+// 	content: '';
+// 	border-bottom: solid 0.4rem #019fb6;
+// 	transform: scaleX(0);
+// 	transition: transform 250ms ease-in-out;
+// 	border-radius: 10px;
+// }
+
 @mixin hoverAfter{
-	width: 100%;
+	transform: scaleX(1);
 }
 
 //grids and media-queries
@@ -60,36 +78,71 @@ $dark: #121212;
 		flex-wrap: wrap;
 		width: 100%;
 	}
+}
+
+@for $i from 1 through $gridCol {
+	.col-#{$i} {
+		flex-basis: (100 / ($gridCol / $i) ) * 1%;
+	}
+}
+@media screen and (min-width: $med * 1px) {
 	@for $i from 1 through $gridCol {
-		&-col-#{$i} {
+		.colmd-#{$i} {
 			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
-	@media screen and (min-width: $med * 1px) {
-		@for $i from 1 through $gridCol {
-			&-colmd-#{$i} {
-				flex-basis: (100 / ($gridCol / $i) ) * 1%;
-			}
+}
+@media screen and (min-width: $lrg * 1px) {
+	@for $i from 1 through $gridCol {
+		.collrg-#{$i} {
+			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
-	@media screen and (min-width: $lrg * 1px) {
-		@for $i from 1 through $gridCol {
-			&-collrg-#{$i} {
-				flex-basis: (100 / ($gridCol / $i) ) * 1%;
-			}
-		}
-	}
-	@media screen and (min-width: $xlrg * 1px) {
-		@for $i from 1 through $gridCol {
-			&-colxlrg-#{$i} {
-				flex-basis: (100 / ($gridCol / $i) ) * 1%;
-			}
+}
+@media screen and (min-width: $xlrg * 1px) {
+	@for $i from 1 through $gridCol {
+		.colxlrg-#{$i} {
+			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
 }
 
 body{
 	background-color: $dark;
+}
+
+.landing{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+.era{
+	display: inline-block;
+	margin-top: 10rem;
+	font-size: 15rem;
+	color: #FEFEFE;
+	margin: 1rem;
+}
+
+.card{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	padding: 6px;
+	text-align: center;
+	background-color: $card;
+	color: #FEFEFE;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	border-radius: 5px;
+	display: flex;
+	flex: 1 1 auto;
+	// &-img{
+	// 	width: 250px;
+	// }
+}
+
+img{
+	width: 14rem;
 }
 
 #E::after{

@@ -18,10 +18,45 @@ require 'includes/statement.php';
 	</head>
 	<body>
 
-		<div class="landing container">
-			<h1 id="E" class="era">E</h1>
-			<h1 id="R" class="era">R</h1>
-			<h1 id="A" class="era">A</h1>
+		<div class="container-fluid">
+			<div class="container-row">
+				<div class="colmd-1 collrg-1 colxlrg-2"></div>
+					<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
+							<h1 id="E" class="era">E</h1>
+							<h1 id="R" class="era">R</h1>
+							<h1 id="A" class="era">A</h1>
+					</div>
+				<div class="colmd-1 collrg-1 colxlrg-2"></div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="container-row">
+				<div class="col-12 colmd-4 collrg-4 colxlrg-4">
+					<div class="card">
+						<h2>A student here</h2>
+						<p><i>Web & UX</i></p>
+					</div>
+				</div>
+				<div class="col-12 colmd-4 collrg-4 colxlrg-4">
+					<div class="card">
+						<h2>A student here</h2>
+						<p><i>Web & UX</i></p>
+					</div>
+				</div>
+				<div class="col-12 colmd-4 collrg-4 colxlrg-4">
+					<div class="card">
+								<div class="card-img">
+									<img src="img/vin.jpg"/>
+								</div>
+								<div class="card-content">
+									<h2>A student here</h2>
+									<p><i>Web & UX</i></p>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 
