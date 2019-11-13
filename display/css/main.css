@@ -226,10 +226,20 @@ body {
 
 .era {
   display: inline-block;
-  margin-top: 10rem;
-  font-size: 8rem;
+  margin-top: 1rem;
+  font-size: 3rem;
   color: #FEFEFE;
   margin: 1rem;
+}
+@media screen and (min-width: 720px) {
+  .era {
+    font-size: 9rem;
+  }
+}
+@media screen and (min-width: 960px) {
+  .era {
+    font-size: 15rem;
+  }
 }
 
 .card {

@@ -7,17 +7,23 @@
 
 //variables
 //for extra-small viewports, use max-width
-$xsml: 576;
+$xsml: 576px;
 //min-width for the following viewports
-$sml: 540;
-$med: 720;
-$lrg: 960;
-$xlrg: 1140;
+$sml: 540px;
+$med: 720px;
+$lrg: 960px;
+$xlrg: 1140px;
 $gridCol: 12;
 $dark: #242323;
 $card: #363636;
 
 // mixins
+@mixin mediaQuery($arg){
+	@media screen and (min-width: $arg){
+		@content;
+	}
+}
+
 @mixin gameArt{
 	background: rgb(156,44,199);
 	background: linear-gradient(90deg, rgba(156,44,199,1) 15%, rgba(29,48,253,1) 43%, rgba(252,176,69,1) 81%);
@@ -67,7 +73,7 @@ $card: #363636;
 //grids and media-queries
 
 .container {
-	max-width: $xlrg * 1px;
+	max-width: $xlrg;
 	margin: 0 auto;
 	&-fluid {
 		margin: 0;
@@ -85,21 +91,21 @@ $card: #363636;
 		flex-basis: (100 / ($gridCol / $i) ) * 1%;
 	}
 }
-@media screen and (min-width: $med * 1px) {
+@media screen and (min-width: $med) {
 	@for $i from 1 through $gridCol {
 		.colmd-#{$i} {
 			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
 }
-@media screen and (min-width: $lrg * 1px) {
+@media screen and (min-width: $lrg) {
 	@for $i from 1 through $gridCol {
 		.collrg-#{$i} {
 			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
 }
-@media screen and (min-width: $xlrg * 1px) {
+@media screen and (min-width: $xlrg) {
 	@for $i from 1 through $gridCol {
 		.colxlrg-#{$i} {
 			flex-basis: (100 / ($gridCol / $i) ) * 1%;
@@ -119,10 +125,18 @@ body{
 
 .era{
 	display: inline-block;
-	margin-top: 10rem;
-	font-size: 8rem;
+	margin-top: 1rem;
+	font-size: 3rem;
 	color: #FEFEFE;
 	margin: 1rem;
+
+	@include mediaQuery($med){
+		font-size: 9rem;
+	}
+
+	@include mediaQuery($lrg){
+		font-size: 15rem;
+	}
 }
 
 .card{
