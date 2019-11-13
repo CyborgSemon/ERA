@@ -20,21 +20,6 @@ require 'includes/statement.php';
 
 	<div class="container-fluid">
 
-		<div class="studentHero col-12 colsml-21 colmd-12 collrg-12 colxlrg-12">
-
-		<div class="justify-content">
-			<img class="portrait" src="img/vin.jpg">
-		</div>
-
-		<div class="content">
-			<h3>Vin Diesel</h3>
-			<p><i>You know this ain't no 10-second race</i></p>
-		</div>
-
-
-		</div>
-
-
 		<div class="container-row">
 			<div class="colmd-1 collrg-1 colxlrg-2"></div>
 			<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
@@ -46,9 +31,24 @@ require 'includes/statement.php';
 		</div>
 	</div>
 
+	<div class="studentHero col-12 colsml-21 colmd-12 collrg-12 colxlrg-12">
+
+		<div class="justify-content">
+			<img class="portrait" src="img/vin.jpg">
+		</div>
+
+		<div class="content">
+			<h3>Vin Diesel</h3>
+			<p><i>You know this ain't no 10-second race</i></p>
+		</div>
+
+
+	</div>
+
+
 	<div class="container-fluid">
 		<div class="container-row">
-			<div class="justify-content col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
+			<div class="col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
 				<div class="graphic card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">
@@ -62,7 +62,7 @@ require 'includes/statement.php';
 					</div>
 				</div>
 			</div>
-			<div class="justify-content col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
+			<div class="col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
 				<div class="web card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">
@@ -76,7 +76,7 @@ require 'includes/statement.php';
 					</div>
 				</div>
 			</div>
-			<div class="justify-content col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
+			<div class="col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
 				<div class="gameArt card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">

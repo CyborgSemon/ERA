@@ -189,9 +189,9 @@ body{
 	}
 
 	@include mediaQuery($med){
-		margin: 3.5rem;
+		margin: 4.5rem;
+		max-width: 80%;
 	}
-
 }
 
 .studentHero{
@@ -229,6 +229,8 @@ body{
 
 .web{
 
+	margin: 2.5rem;
+
 
 	&:hover{
 		box-shadow:0px 0px 30px red;
@@ -241,6 +243,7 @@ body{
 
 .gameArt{
 
+	margin: 2.5rem;
 
 	&:hover{
 		box-shadow:0px 0px 30px blue;
@@ -253,6 +256,7 @@ body{
 
 .graphic{
 
+	margin: 2.5rem;
 
 	&:hover{
 		box-shadow:0px 0px 30px green;
