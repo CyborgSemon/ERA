@@ -338,25 +338,33 @@ body {
   }
 }
 
-.mobileNav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-  height: 2rem;
-}
-.mobileNav .hamburger {
-  margin: 0.5rem;
-  height: 1.3rem;
-  width: 1.3rem;
-  color: #FEFEFE;
-}
-.mobileNav #classLinks {
+.studentHero {
   display: none;
+  text-align: center;
+  background-color: purple;
 }
-@media screen and (min-width: 720px) {
-  .mobileNav {
-    display: none;
-  }
+.studentHero .portrait {
+  display: flex;
+  justify-content: center;
+  width: 7.7rem;
+  height: 8rem;
+  padding: 1rem;
+  border-radius: 80%;
+}
+.studentHero .content {
+  padding: 1rem;
+}
+
+.studentPage {
+  display: none;
+  background-color: purple;
+}
+.studentPage .portraitLrg {
+  width: 7rem;
+  height: 100%;
+}
+.studentPage .bioLrg {
+  color: #FEFEFE;
 }
 
 .web:hover {

@@ -194,28 +194,38 @@ body{
 
 }
 
-.mobileNav {
-  overflow: hidden;
-  background-color: #333;
-  position: relative;
-	height: 2rem;
+.studentHero{
+	display: none;
+	text-align: center;
+	background-color: purple;
 
-	.hamburger{
-		margin: .5rem;
-		height: 1.3rem;
-		width: 1.3rem;
-		color: #FEFEFE;
+	.portrait{
+		display: flex;
+		justify-content: center;
+		width: 7.7rem;
+		height: 8rem;
+		padding: 1rem;
+		border-radius: 80%;
 	}
 
-	#classLinks{
-		display: none;
-	}
-
-	@include mediaQuery($med){
-		display: none;
+	.content{
+		padding: 1rem;
 	}
 }
 
+.studentPage{
+	display: none;
+	background-color: purple;
+
+	.portraitLrg{
+		width: 7rem;
+		height: 100%;
+	}
+
+	.bioLrg{
+		color: #FEFEFE;
+	}
+}
 
 .web{
 
