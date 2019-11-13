@@ -91,9 +91,18 @@ $card: #363636;
 		flex-basis: (100 / ($gridCol / $i) ) * 1%;
 	}
 }
+
 @media screen and (min-width: $med) {
 	@for $i from 1 through $gridCol {
 		.colmd-#{$i} {
+			flex-basis: (100 / ($gridCol / $i) ) * 1%;
+		}
+	}
+}
+
+@media screen and (min-width: $sml) {
+	@for $i from 1 through $gridCol {
+		.colsml-#{$i} {
 			flex-basis: (100 / ($gridCol / $i) ) * 1%;
 		}
 	}
@@ -123,30 +132,41 @@ body{
 	justify-content: center;
 }
 
-.era{
-	display: inline-block;
-	margin-top: 1rem;
-	font-size: 3rem;
-	color: #FEFEFE;
-	margin: 1rem;
+.justify-content{
+	display: flex;
+	justify-content: center;
 
 	@include mediaQuery($med){
+		display: block;
+	}
+}
+
+.era{
+	margin-top: 1.3rem;
+	font-size: 3rem;
+	color: #FEFEFE;
+
+	@include mediaQuery($med){
+		display: inline-block;
 		font-size: 9rem;
+		margin: 1rem;
 	}
 
 	@include mediaQuery($lrg){
+		display: inline-block;
 		font-size: 15rem;
+		margin: 1rem;
 	}
 }
 
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	// padding: 6px;
+	padding: 6px;
 	text-align: center;
 	max-width: 80%;
 	background-color: $card;
+	margin: 1rem;
 	color: #FEFEFE;
-	margin: 3.5rem;
 	border-radius: 5px;
 	display: flex;
 	flex: 1 1 auto;
@@ -163,7 +183,39 @@ body{
 		padding-top: 1rem;
 		padding-right: 1rem;
 	}
+
+	@include mediaQuery($sml){
+		max-width: 100%;
+	}
+
+	@include mediaQuery($med){
+		margin: 3.5rem;
+	}
+
 }
+
+.mobileNav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+	height: 2rem;
+
+	.hamburger{
+		margin: .5rem;
+		height: 1.3rem;
+		width: 1.3rem;
+		color: #FEFEFE;
+	}
+
+	#classLinks{
+		display: none;
+	}
+
+	@include mediaQuery($med){
+		display: none;
+	}
+}
+
 
 .web{
 

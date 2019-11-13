@@ -116,6 +116,55 @@
     flex-basis: 100%;
   }
 }
+@media screen and (min-width: 540px) {
+  .colsml-1 {
+    flex-basis: 8.3333333333%;
+  }
+
+  .colsml-2 {
+    flex-basis: 16.6666666667%;
+  }
+
+  .colsml-3 {
+    flex-basis: 25%;
+  }
+
+  .colsml-4 {
+    flex-basis: 33.3333333333%;
+  }
+
+  .colsml-5 {
+    flex-basis: 41.6666666667%;
+  }
+
+  .colsml-6 {
+    flex-basis: 50%;
+  }
+
+  .colsml-7 {
+    flex-basis: 58.3333333333%;
+  }
+
+  .colsml-8 {
+    flex-basis: 66.6666666667%;
+  }
+
+  .colsml-9 {
+    flex-basis: 75%;
+  }
+
+  .colsml-10 {
+    flex-basis: 83.3333333333%;
+  }
+
+  .colsml-11 {
+    flex-basis: 91.6666666667%;
+  }
+
+  .colsml-12 {
+    flex-basis: 100%;
+  }
+}
 @media screen and (min-width: 960px) {
   .collrg-1 {
     flex-basis: 8.3333333333%;
@@ -224,31 +273,44 @@ body {
   justify-content: center;
 }
 
+.justify-content {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 720px) {
+  .justify-content {
+    display: block;
+  }
+}
+
 .era {
-  display: inline-block;
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   font-size: 3rem;
   color: #FEFEFE;
-  margin: 1rem;
 }
 @media screen and (min-width: 720px) {
   .era {
+    display: inline-block;
     font-size: 9rem;
+    margin: 1rem;
   }
 }
 @media screen and (min-width: 960px) {
   .era {
+    display: inline-block;
     font-size: 15rem;
+    margin: 1rem;
   }
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 6px;
   text-align: center;
   max-width: 80%;
   background-color: #363636;
+  margin: 1rem;
   color: #FEFEFE;
-  margin: 3.5rem;
   border-radius: 5px;
   display: flex;
   flex: 1 1 auto;
@@ -264,6 +326,37 @@ body {
 .card-content {
   padding-top: 1rem;
   padding-right: 1rem;
+}
+@media screen and (min-width: 540px) {
+  .card {
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 720px) {
+  .card {
+    margin: 3.5rem;
+  }
+}
+
+.mobileNav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  height: 2rem;
+}
+.mobileNav .hamburger {
+  margin: 0.5rem;
+  height: 1.3rem;
+  width: 1.3rem;
+  color: #FEFEFE;
+}
+.mobileNav #classLinks {
+  display: none;
+}
+@media screen and (min-width: 720px) {
+  .mobileNav {
+    display: none;
+  }
 }
 
 .web:hover {

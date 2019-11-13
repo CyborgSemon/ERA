@@ -30,53 +30,53 @@ require 'includes/statement.php';
 		</div>
 	</div>
 
-	<div class="justify-center container-fluid">
+	<div class="container-fluid">
 		<div class="container-row">
-			<div class="col-12 colmd-4 collrg-4 colxlrg-4">
-					<div class="graphic card container-row">
-							<div class="col-4">
-								<img class="card-img" src="img/vin.jpg">
-							</div>
-							<div class="col-8">
-								<div class="card-content">
-									<h2>Vin Diesel</h2>
-									<p><i>Web & UX</i></p>
-									<p>maybe an extract here from the students bio?</p>
-								</div>
-							</div>
+			<div class="justify-content col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
+				<div class="graphic card container-row">
+					<div class="col-4">
+						<img class="card-img" src="img/vin.jpg">
+					</div>
+					<div class="col-8">
+						<div class="card-content">
+							<h2>Vin Diesel</h2>
+							<p><i>Web & UX</i></p>
+							<p>maybe an extract here from the students bio?</p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-12 colmd-4 collrg-4 colxlrg-4">
+			<div class="justify-content col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
 				<div class="web card container-row">
-						<div class="col-4">
-							<img class="card-img" src="img/vin.jpg">
+					<div class="col-4">
+						<img class="card-img" src="img/vin.jpg">
+					</div>
+					<div class="col-8">
+						<div class="card-content">
+							<h2>Vin Diesel</h2>
+							<p><i>Web & UX</i></p>
+							<p>maybe an extract here from the students bio?</p>
 						</div>
-						<div class="col-8">
-							<div class="card-content">
-								<h2>Vin Diesel</h2>
-								<p><i>Web & UX</i></p>
-								<p>maybe an extract here from the students bio?</p>
-							</div>
-						</div>
+					</div>
+				</div>
 			</div>
-			</div>
-			<div class="col-12 colmd-4 collrg-4 colxlrg-4">
+			<div class="justify-content col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
 				<div class="gameArt card container-row">
-						<div class="col-4">
-							<img class="card-img" src="img/vin.jpg">
+					<div class="col-4">
+						<img class="card-img" src="img/vin.jpg">
+					</div>
+					<div class="col-8">
+						<div class="card-content">
+							<h2>Vin Diesel</h2>
+							<p><i>Web & UX</i></p>
+							<p>maybe an extract here from the students bio?</p>
 						</div>
-						<div class="col-8">
-							<div class="card-content">
-								<h2>Vin Diesel</h2>
-								<p><i>Web & UX</i></p>
-								<p>maybe an extract here from the students bio?</p>
-							</div>
-						</div>
-			</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-<script src="js/main.min.js"></script>
+	<script src="js/main.min.js"></script>
 </body>
 </html>
