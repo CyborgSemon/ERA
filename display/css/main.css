@@ -339,12 +339,21 @@ body {
   }
 }
 
-.studentHero {
+#header {
   display: none;
   text-align: center;
   background-color: purple;
+  top: -30vh;
+  height: 30vh;
+  position: fixed;
+  transition: 1s ease;
+  z-index: 200;
 }
-.studentHero .portrait {
+#header.active {
+  top: 0;
+}
+
+.portrait {
   display: flex;
   justify-content: center;
   width: 7.7rem;
@@ -352,19 +361,31 @@ body {
   padding: 1rem;
   border-radius: 80%;
 }
-.studentHero .content {
+
+.content {
   padding: 1rem;
 }
 
-.studentPage {
+#footer {
   display: none;
-  background-color: purple;
+  background-color: grey;
+  height: 70vh;
+  position: fixed;
+  bottom: -70vh;
+  transition: 1s ease;
+  z-index: 200;
+  background-color: blue;
 }
-.studentPage .portraitLrg {
+#footer.active {
+  bottom: 0;
+}
+
+.portraitLrg {
   width: 7rem;
   height: 100%;
 }
-.studentPage .bioLrg {
+
+.bioLrg {
   color: #FEFEFE;
 }
 

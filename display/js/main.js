@@ -1,19 +1,13 @@
-console.log('JS has loaded');
+let header = document.getElementById('header');
+let footer = document.getElementById('footer');
 
-
-$(document).ready(function(){
-  $('.graphic').click(function(){
-    console.log('click')
-    if ($('.studentHero').is(':hidden')) {
-      $('.studentHero').slideDown('slow');
-    } else {
-      $('.studentHero').slideUp('slow');
-    }
-
-    if ($('.studentPage').is(':hidden')) {
-      $('.studentPage').slideDown('slow');
-    } else {
-      $('.studentPage').slideUp('slow');
-    }
-  });
+document.getElementById('graphic').addEventListener('click', ()=> {
+  console.log('clonk');
+	if (header.classList.contains('active')) {
+		header.classList.remove('active');
+		footer.classList.remove('active');
+	} else {
+		header.classList.add('active');
+		footer.classList.add('active');
+	}
 });

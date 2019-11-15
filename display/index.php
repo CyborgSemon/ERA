@@ -18,20 +18,7 @@ require 'includes/statement.php';
 </head>
 <body>
 
-	<div class="container-fluid">
-
-		<div class="container-row">
-			<div class="colmd-1 collrg-1 colxlrg-2"></div>
-			<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
-				<h1 id="E" class="era">E</h1>
-				<h1 id="R" class="era">R</h1>
-				<h1 id="A" class="era">A</h1>
-			</div>
-			<div class="colmd-1 collrg-1 colxlrg-2"></div>
-		</div>
-	</div>
-
-	<div class="studentHero col-12 colsml-21 colmd-12 collrg-12 colxlrg-12">
+	<div id="header" class="col-12 colsml-21 colmd-12 collrg-12 colxlrg-12">
 
 		<div class="justify-content">
 			<img class="portrait" src="img/vin.jpg">
@@ -45,11 +32,23 @@ require 'includes/statement.php';
 
 	</div>
 
+	<div class="logo container-fluid">
 
-	<div class="container-fluid">
+		<div class="container-row">
+			<div class="colmd-1 collrg-1 colxlrg-2"></div>
+			<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
+				<h1 id="E" class="era">E</h1>
+				<h1 id="R" class="era">R</h1>
+				<h1 id="A" class="era">A</h1>
+			</div>
+			<div class="colmd-1 collrg-1 colxlrg-2"></div>
+		</div>
+	</div>
+
+	<div class="cardHolder container-fluid">
 		<div class="container-row">
 			<div class="col-12 colsml-6 colmd-3 collrg-3 colxlrg-3">
-				<div class="graphic card container-row">
+				<div id="graphic" class="graphic card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">
 					</div>
@@ -93,10 +92,10 @@ require 'includes/statement.php';
 		</div>
 	</div>
 
-	<div class="studentPage">
+	<div id="footer">
 		<div class="container-row">
 			<div class="portraitLrg col-4 colsml-4 colmd-4 collrg-4 colxlrg-4">
-				<img src="img/vin.jpg">
+				<img class="graphic" src="img/vin.jpg">
 			</div>
 			<div class="bioLrg col-8 colsml-8 colmd-8 collrg-8 colxlrg-8">
 				<h2> Big Daddy Diesel </h2>
@@ -105,7 +104,6 @@ require 'includes/statement.php';
 		</div>
 	</div>
 
-	<script src="node_modules/jquery/dist/jquery.js"></script>
-	<script src="js/main.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

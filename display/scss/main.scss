@@ -194,37 +194,56 @@ body{
 	}
 }
 
-.studentHero{
+#header{
 	display: none;
 	text-align: center;
 	background-color: purple;
+	top: -30vh;
+	height: 30vh;
+	position: fixed;
+	transition: 1s ease;
+	z-index: 200;
 
-	.portrait{
-		display: flex;
-		justify-content: center;
-		width: 7.7rem;
-		height: 8rem;
-		padding: 1rem;
-		border-radius: 80%;
-	}
-
-	.content{
-		padding: 1rem;
+	&.active{
+		top: 0;
 	}
 }
 
-.studentPage{
+.portrait{
+	display: flex;
+	justify-content: center;
+	width: 7.7rem;
+	height: 8rem;
+	padding: 1rem;
+	border-radius: 80%;
+}
+
+.content{
+	padding: 1rem;
+}
+
+#footer{
 	display: none;
-	background-color: purple;
+	background-color: grey;
+	height: 70vh;
+	position: fixed;
+	bottom: -70vh;
+	transition: 1s ease;
+	z-index: 200;
+	background-color: blue;
 
-	.portraitLrg{
-		width: 7rem;
-		height: 100%;
+	&.active{
+		bottom: 0;
 	}
+}
 
-	.bioLrg{
-		color: #FEFEFE;
-	}
+.portraitLrg{
+	width: 7rem;
+	height: 100%;
+}
+
+.bioLrg{
+	color: #FEFEFE;
 }
 
 .web{
