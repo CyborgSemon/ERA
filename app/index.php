@@ -1,12 +1,12 @@
 <?php
 
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__DIR__.'../../');
 $dotenv->load();
 
-require 'includes/dbc.php';
-require 'includes/statement.php';
+require_once 'includes/dbc.php';
+require_once 'includes/statement.php';
 
 if (isset($_SESSION['id'])) {
 	header('Location: home.php');

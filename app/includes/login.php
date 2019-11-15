@@ -1,17 +1,16 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__DIR__.'../../../');
 $dotenv->load();
 
-require 'dbc.php';
-require 'statement.php';
+require_once 'dbc.php';
+require_once 'statement.php';
 
 if (!isset($_SESSION['id'])) {
 	if ($_POST['username'] && $_POST['password']) {
-		$_SESSION['temp_username'] = $_POST['username'];
-		$sql = "SELECT * FROM users WHERE username = ?";
+		$sql = "SELECT * FROM users WHERE BINARY username = ?";
 		$result = prep_stmt($conn, $sql, "s", [$_POST['username']]);
 		if ($row = mysqli_fetch_assoc($result)) {
 			$validPassword = password_verify($_POST['password'], $row['password']);
@@ -30,6 +29,7 @@ if (!isset($_SESSION['id'])) {
 				header('Location: ../index.php');
 			}
 		} else {
+			$_SESSION['temp_username'] = $_POST['username'];
 			$_SESSION['message'] = 'Invalid Username or Password';
 			header('Location: ../index.php');
 		}

@@ -1,17 +1,20 @@
 <?php
 
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__DIR__.'../../');
 $dotenv->load();
 
-require 'includes/dbc.php';
-require 'includes/statement.php';
+require_once 'includes/dbc.php';
+require_once 'includes/statement.php';
 
 if (!isset($_SESSION['id'])) header('Location: index.php');
 
 $sql = "SELECT * FROM portfolio WHERE userId = ?";
 $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
+
+// $rows = mysqli_fetch_assoc($result);
+// print_r($rows);
 
 ?>
 <!DOCTYPE html>
