@@ -11,3 +11,9 @@ document.getElementById('graphic').addEventListener('click', ()=> {
 		footer.classList.add('active');
 	}
 });
+
+document.getElementById('exit').addEventListener('click', ()=> {
+  console.log('bonl');
+  header.classList.remove('active');
+  footer.classList.remove('active');
+});
