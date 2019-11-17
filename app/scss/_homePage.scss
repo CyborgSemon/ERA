@@ -1,14 +1,21 @@
+$breakPoint1: 1610px;
+$breakPoint2: 1200px;
+
 .container {
-	width: 1200px;
+	width: 1600px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	position: relative;
-	@media (max-width: 1220px) {
+	@media (max-width: $breakPoint1) {
 		justify-content: center;
 		flex-direction: column;
-		width: 100%;
+		width: 80%;
+		margin: 0 auto;
 		padding: 0 30px 30px;
+	}
+	@media (max-width: $breakPoint2) {
+		width: 100%;
 	}
 }
 
@@ -19,24 +26,32 @@
 }
 
 
-.actions {
+.actions, .instructions {
 	width: 270px;
 	position: sticky;
 	top: 24px;
-	max-height: 300px;
-	@media (max-width: 1220px) {
+	> .card {
+		margin-top: 24px;
+	}
+	@media (max-width: $breakPoint1) {
 		width: 100%;
 		position: static;
 		margin-top: 24px;
 	}
 }
 
+.instructions {
+	p {
+		margin-top: 8px;
+	}
+}
+
 .content {
 	width: 900px;
-	@media (max-width: 1220px) {
+	@media (max-width: $breakPoint1) {
 		width: 100%;
 	}
-	div {
+	> div {
 		margin-top: 24px;
 	}
 }

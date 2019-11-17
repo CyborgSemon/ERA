@@ -26,189 +26,30 @@ $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 	</head>
 	<body>
 		<div class="container">
-			<div class="actions card">
-				<a href="includes/logout.php">Logout</a>
+			<div class="actions">
+				<div class="card">
+					<a href="includes/logout.php">Logout</a>
+					<br>
+					<button id="save" type="button" name="button">Save</button>
+				</div>
 			</div>
 			<div class="content">
 				<div class="accountBox card">
 					Im an account box. This is where all of my header information will be stored. Some of theinformation in here will be used in the preview card on the display site. so stuff like profile image, header image etc
 				</div>
-				<div class="editor card">
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
-					Im the editor
-					<br>
-					Just testing height here. dont mind me ;)
-					<br>
+				<div class="editor card" id="editor">
+				</div>
+			</div>
+			<div class="instructions">
+				<div class="card">
+					<h2>Instructions</h2>
+					<p>Welcome to your profile page!</p>
+					<p>This is where you can customize your portfolio that will be displayed on the exhibition website.</p>
 				</div>
 			</div>
 		</div>
-		<script src="js/main.min.js"></script>
+		<script src="js/editor.js"></script>
+		<script src="js/modules.js"></script>
+		<script src="js/home.min.js"></script>
 	</body>
 </html>
