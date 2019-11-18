@@ -8,6 +8,16 @@ $dotenv->load();
 require 'includes/dbc.php';
 require 'includes/statement.php';
 
+// $dataReq = 'SELECT users.firstName, users.lastName, users.profileImage, portfolio.active, portfolio.dataJSON FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE users.id = 1';
+// $dataReq = "SELECT users.firstName, users.lastName, users.class, users.profileImage, users.type, portfolio.active, FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE portfolio.active = 'pass' AND users.type = 'student'";
+$dataReq = "SELECT users.id, users.firstName, users.lastName, users.class, users.profileImage, users.type, portfolio.active FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE users.type = 'student' AND portfolio.active = 'pass'";
+
+// $result = mysqli_query($conn, $dataReq);
+$result = prep_stmt($conn, $dataReq);
+
+// $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -39,9 +49,9 @@ require 'includes/statement.php';
 		<div class="container-row">
 			<div class="colmd-1 collrg-1 colxlrg-2"></div>
 			<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
-				<h1 id="E" class="era">E</h1>
-				<h1 id="R" class="era">R</h1>
-				<h1 id="A" class="era">A</h1>
+				<img id="E" class="era" src="img/E.png"></h1>
+				<img id="R" class="era" src="img/R.png"></h1>
+				<img id="A" class="era" src="img/A.png"></h1>
 			</div>
 			<div class="colmd-1 collrg-1 colxlrg-2"></div>
 		</div>
@@ -49,15 +59,66 @@ require 'includes/statement.php';
 
 	<div class="cardHolder container-fluid">
 		<div class="container-row">
-			<div class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
-				<div id="graphic" class="graphic card container-row">
+
+			 <?php
+
+			 // way 1
+
+			 // foreach ($result as $row) {
+				 // if ($row = mysqli_fetch_assoc($result)) {
+					//  $card = '<div id="' . $row['id'] .'" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
+					//  $card .= '<div class="' . $row['class'] .' card container-row">';
+					//  $card .= '<div class="col-4">';
+					//  $card .= '<img class="card-img" src="img/vin.jpg">';
+					//  $card .= '</div>';
+					//  $card .= '<div class="col-8">';
+					//  $card .= '<div class="card-content">';
+					//  $card .= '<h2>' . $row['firstName'] . ' ' . $row['lastName'] .'</h2>';
+					//  $card .= '<p><i>' . $row['class'] . '</i></p>';
+					//  $card .= '<p>maybe an extract here from the students bio?</p>';
+					//  $card .= '</div></div></div></div>';
+					//  do {
+					// 	 echo $card;
+					//  } while ($row = mysqli_fetch_assoc($result));
+				 // }
+
+
+				 $card = '';
+
+					//way 2
+				 if ($row = mysqli_fetch_assoc($result)) {
+					 do {
+						 $card .= '<div id="' . $row['id'] .'" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
+						 $card .= '<div class="' . $row['class'] .' card container-row">';
+						 $card .= '<div class="col-4">';
+						 $card .= '<img class="card-img" src="img/vin.jpg">';
+						 $card .= '</div>';
+						 $card .= '<div class="col-8">';
+						 $card .= '<div class="card-content">';
+						 $card .= '<h2>' . $row['firstName'] . ' ' . $row['lastName'] .'</h2>';
+						 $card .= '<p><i>' . $row['class'] . '</i></p>';
+						 $card .= '<p>maybe an extract here from the students bio?</p>';
+						 $card .= '</div></div></div></div>';
+					 } while ($row = mysqli_fetch_assoc($result));
+				 } else {
+					 echo 'No students';
+				 }
+
+
+			echo $card;
+	 ?>
+
+
+<!--
+			<div id ="graphic" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
+				<div class="graphic card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">
 					</div>
 					<div class="col-8">
 						<div class="card-content">
 							<h2>Vin Diesel</h2>
-							<p><i>Web & UX</i></p>
+							<p><i>graphic</i></p>
 							<p>maybe an extract here from the students bio?</p>
 						</div>
 					</div>
@@ -71,7 +132,7 @@ require 'includes/statement.php';
 					<div class="col-8">
 						<div class="card-content">
 							<h2>Vin Diesel</h2>
-							<p><i>Web & UX</i></p>
+							<p><i>web</i></p>
 							<p>maybe an extract here from the students bio?</p>
 						</div>
 					</div>
@@ -85,14 +146,14 @@ require 'includes/statement.php';
 					<div class="col-8">
 						<div class="card-content">
 							<h2>Vin Diesel</h2>
-							<p><i>Web & UX</i></p>
+							<p><i>game art</i></p>
 							<p>maybe an extract here from the students bio?</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div id="footer">
 		<div class="container-row">

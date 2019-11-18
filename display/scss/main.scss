@@ -167,19 +167,16 @@ body{
 	display: flex;
 	flex-direction: row;
 
-	@include mediaQuery($med){
-		display: flex;
-		justify-content: space-around;
-	}
-
 	@include mediaQuery($sml){
 		max-width: 100%;
 	}
 
 	@include mediaQuery($med){
+		display: flex;
+		justify-content: space-around;
 		margin: 4.5rem;
-		max-width: 80%;
 	}
+
 }
 
 
@@ -284,7 +281,7 @@ body{
 	@include mediaQuery($xsml){
 	}
 
-	@include mediaQuery($lrg){		
+	@include mediaQuery($lrg){
 		h2{
 			font-size: 1.5rem;
 		}
@@ -334,6 +331,27 @@ body{
 		-webkit-transition: all 0.2s ease-in;
 		transition: all 0.2s ease-in;
 	}
+}
+
+
+.era{
+	margin-top: 3rem;
+}
+
+
+#E{
+	width: 4rem;
+	height: 4rem;
+}
+
+#R{
+	width: 4rem;
+	height: 4rem;
+}
+
+#A{
+	width: 4rem;
+	height: 4rem;
 }
 
 #E::after{

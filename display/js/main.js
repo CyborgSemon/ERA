@@ -2,7 +2,6 @@ let header = document.getElementById('header');
 let footer = document.getElementById('footer');
 
 document.getElementById('graphic').addEventListener('click', ()=> {
-  console.log('clonk');
 	if (header.classList.contains('active')) {
 		header.classList.remove('active');
 		footer.classList.remove('active');
@@ -13,7 +12,6 @@ document.getElementById('graphic').addEventListener('click', ()=> {
 });
 
 document.getElementById('exit').addEventListener('click', ()=> {
-  console.log('bonl');
   header.classList.remove('active');
   footer.classList.remove('active');
 });
