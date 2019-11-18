@@ -22,8 +22,12 @@ function prep_stmt($conn, $sql, $value_type = null, $values = null){
 			if ($sqlType == "INSERT" || $sqlType == "UPDATE") {
 				for ($i=0; $i < count($values); $i++) {
 					if (is_string($values[$i])) {
-						$str = $values[$i];
-						array_push($safeValues, htmlentities($str));
+						$test = json_decode($values[$i]);
+						if (json_last_error() === 0) {
+							array_push($safeValues, $values[$i]);
+						} else {
+							array_push($safeValues, htmlentities($values[$i]));
+						}
 					} else {
 						array_push($safeValues, $values[$i]);
 					}

@@ -13,8 +13,9 @@ if (!isset($_SESSION['id'])) header('Location: index.php');
 $sql = "SELECT * FROM portfolio WHERE userId = ?";
 $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 
-// $rows = mysqli_fetch_assoc($result);
-// print_r($rows);
+if ($row = mysqli_fetch_assoc($result)) {
+	$data = $row['dataJSON'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -25,6 +26,9 @@ $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
+		<div id="snackbar">
+			<span id="snackbarMsg"></span>
+		</div>
 		<div class="container">
 			<div class="actions">
 				<div class="card">
@@ -48,8 +52,12 @@ $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 				</div>
 			</div>
 		</div>
+		<?php
+		if ($data) echo '<script>let data = '.$data.';</script>';
+		?>
 		<script src="js/editor.js"></script>
 		<script src="js/modules.js"></script>
+		<script src="js/ajax.min.js"></script>
 		<script src="js/home.min.js"></script>
 	</body>
 </html>
