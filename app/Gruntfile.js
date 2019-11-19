@@ -15,7 +15,8 @@ module.exports = function(grunt) {
             my_target: {
                 files: {
                     'js/main.min.js': ['js/main.js'],
-                    'js/home.min.js': ['js/home.js']
+                    'js/home.min.js': ['js/home.js'],
+                    'js/render.min.js': ['js/render.js']
                 }
             }
         },
@@ -32,7 +33,7 @@ module.exports = function(grunt) {
 				tasks: ['sass', 'cssmin']
 			},
 			js: {
-				files: ['js/main.js', 'js/home.js'],
+				files: ['js/main.js', 'js/home.js', 'js/render.js'],
 				tasks: ['uglify']
 			},
 		}

@@ -15,6 +15,7 @@ $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 
 if ($row = mysqli_fetch_assoc($result)) {
 	$data = $row['dataJSON'];
+	$status = $row['active'];
 }
 
 ?>
@@ -32,16 +33,16 @@ if ($row = mysqli_fetch_assoc($result)) {
 		<div class="container">
 			<div class="actions">
 				<div class="card">
-					<a href="includes/logout.php">Logout</a>
-					<br>
-					<button id="save" type="button" name="button">Save</button>
-				</div>
-			</div>
-			<div class="content">
-				<div class="accountBox card">
-					Im an account box. This is where all of my header information will be stored. Some of theinformation in here will be used in the preview card on the display site. so stuff like profile image, header image etc
-				</div>
-				<div class="editor card" id="editor">
+					<img class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
+					<div class="buttons">
+						<span>Portfolio status: <?php echo (isset($status) ? $status : 'empty'); ?></span>
+						<br>
+						<a class="accountButton" href="viewCurrent.php" target="_blank">View Portfolio</a>
+						<br>
+						<button class="accountButton" id="save" type="button" name="button">Save</button>
+						<br>
+						<a class="accountButton" href="includes/logout.php">Logout</a>
+					</div>
 				</div>
 			</div>
 			<div class="instructions">
@@ -49,6 +50,11 @@ if ($row = mysqli_fetch_assoc($result)) {
 					<h2>Instructions</h2>
 					<p>Welcome to your profile page!</p>
 					<p>This is where you can customize your portfolio that will be displayed on the exhibition website.</p>
+					<p></p>
+				</div>
+			</div>
+			<div class="content">
+				<div class="editor card" id="editor">
 				</div>
 			</div>
 		</div>

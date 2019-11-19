@@ -60,7 +60,7 @@
   max-width: 600px;
   height: 48px;
   position: fixed;
-  bottom: -48px;
+  bottom: -54px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -83,8 +83,8 @@
   position: relative; }
   @media (max-width: 1610px) {
     .container {
-      justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       width: 80%;
       margin: 0 auto;
       padding: 0 30px 30px; } }
@@ -99,23 +99,135 @@
 
 .actions, .instructions {
   width: 270px;
-  position: sticky; }
+  position: sticky;
+  align-self: flex-start;
+  top: 24px;
+  order: 1; }
   .actions > .card, .instructions > .card {
-    margin-top: 24px; }
+    position: relative; }
   @media (max-width: 1610px) {
     .actions, .instructions {
-      width: 100%;
-      position: static; } }
+      position: inherit;
+      width: 48%;
+      align-self: auto; }
+      .actions > .card, .instructions > .card {
+        height: calc(100% - 24px); } }
 
-.instructions p {
-  margin-top: 8px; }
+.profileImage {
+  width: 100px;
+  border-radius: 50%; }
+
+.actions .card {
+  text-align: center; }
+  .actions .card .buttons {
+    margin-bottom: 24px; }
+    .actions .card .buttons * {
+      display: inline-block;
+      margin: 4px 0; }
+.actions .accountButton {
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: none;
+  background-color: lightblue;
+  font-size: 1em;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+  outline: none; }
+  .actions .accountButton:hover {
+    background-color: blue; }
+
+.instructions {
+  order: 3; }
+  @media (max-width: 1610px) {
+    .instructions {
+      order: 2; } }
+  .instructions p {
+    margin-top: 8px; }
 
 .content {
-  width: 900px; }
+  width: 900px;
+  order: 2; }
   @media (max-width: 1610px) {
     .content {
+      order: 3;
       width: 100%; } }
   .content > div {
     margin-top: 24px; }
+
+.accountBox {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .accountBox .information {
+    text-align: center; }
+
+body.view {
+  background-color: #222;
+  color: white; }
+
+.header {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+  .header .profile {
+    text-align: center; }
+    .header .profile img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 8px; }
+    .header .profile h2 {
+      margin-bottom: 4px; }
+    .header .profile p {
+      color: rgba(0, 0, 255, 0.5); }
+  .header::after {
+    content: "";
+    background-image: url("../images/lines.png");
+    background-size: 45vh 100%;
+    width: 100%;
+    height: 30vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3; }
+
+.section {
+  height: 70vh; }
+  .section #content {
+    width: 1000px;
+    padding-top: 48px;
+    margin: 0 auto; }
+    @media (max-width: 1200px) {
+      .section #content {
+        width: 800px; } }
+    @media (max-width: 1000px) {
+      .section #content {
+        width: 600px; } }
+    @media (max-width: 800px) {
+      .section #content {
+        width: 80%; } }
+    .section #content .block {
+      line-height: 1.4em;
+      width: 80%;
+      margin: 16px auto; }
+      .section #content .block.full {
+        width: 100% !important; }
+      .section #content .block img {
+        width: 100%;
+        border-radius: 4px; }
+      .section #content .block .caption {
+        color: rgba(255, 255, 255, 0.5);
+        font-style: italic;
+        font-size: 0.9em;
+        margin: 6px auto;
+        padding-left: 8px; }
+      .section #content .block iframe {
+        width: 100%; }
 
 /*# sourceMappingURL=main.css.map */

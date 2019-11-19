@@ -69,8 +69,6 @@ if (typeof data !== 'undefined') {
 	});
 }
 
-
-
 function snackbar (msg) {
 	$('#snackbarMsg').innerText = msg;
 	$('#snackbar').style.bottom = '20px';
@@ -84,7 +82,7 @@ $('#save').addEventListener('click', ()=> {
 		AjaxRequest('includes/save.php', {'data':JSON.stringify(result)}).then((x)=> {
 			if (x == 'done') {
 				snackbar('Portfolio submitted for review');
-			} else if ('updated') {
+			} else if (x == 'updated') {
 				snackbar('Portfolio updated');
 			} else {
 				snackbar('There was an error. Try again');
