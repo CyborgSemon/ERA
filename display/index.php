@@ -50,13 +50,13 @@ $result = prep_stmt($conn, $dataReq);
 
 	<div class="container-row justify-content">
 			<button class="btn web">
-				<span>Web & UX</span>
+				Web & UX
 			</button>
 			<button class="btn">
-				<span>Graphic Design</span>
+				Graphic Design
 			</button>
 			<button class="btn">
-				<span>Game Art</span>
+				Game Art
 			</button>
 	</div>
 

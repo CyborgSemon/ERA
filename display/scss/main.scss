@@ -140,7 +140,7 @@ body{
 }
 
 
-span {
+button {
 	background-color: transparent;
 	border: 2px solid;
 	font: inherit;
@@ -166,6 +166,7 @@ span {
   transform: translateY(-0.25em);
 }
 
+
 .webBtn{
 		background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
 
@@ -178,7 +179,6 @@ span {
 .graphic:hover{
 	transition: .5s ease;
 	border: 2px solid;
-	@include gameArt;
 }
 
 
