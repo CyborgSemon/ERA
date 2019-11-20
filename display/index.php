@@ -8,15 +8,8 @@ $dotenv->load();
 require 'includes/dbc.php';
 require 'includes/statement.php';
 
-// $dataReq = 'SELECT users.firstName, users.lastName, users.profileImage, portfolio.active, portfolio.dataJSON FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE users.id = 1';
-// $dataReq = "SELECT users.firstName, users.lastName, users.class, users.profileImage, users.type, portfolio.active, FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE portfolio.active = 'pass' AND users.type = 'student'";
 $dataReq = "SELECT users.id, users.firstName, users.lastName, users.class, users.profileImage, users.type, portfolio.active FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE users.type = 'student' AND portfolio.active = 'pass'";
-
-// $result = mysqli_query($conn, $dataReq);
 $result = prep_stmt($conn, $dataReq);
-
-// $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 
 ?>
 <!DOCTYPE html>
@@ -27,9 +20,9 @@ $result = prep_stmt($conn, $dataReq);
 	<link href="css/main.min.css" rel="stylesheet">
 </head>
 <body>
+	<script src="js/ajax.min.js"></script>
 
 	<div id="header">
-
 		<div class="container-row justify-content">
 			<img class="portrait col-3 colsml-6 colmd-1 collrg-1 colxlrg-1" src="img/vin.jpg">
 		</div>
@@ -40,8 +33,6 @@ $result = prep_stmt($conn, $dataReq);
 				<p><i>You know this ain't no 10-second race</i></p>
 			</div>
 		</div>
-
-
 	</div>
 
 	<div class="logo container-fluid">
@@ -57,39 +48,28 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div>
 
+	<div class="container-row justify-content">
+			<button class="btn web">
+				<span>Web & UX</span>
+			</button>
+			<button class="btn">
+				<span>Graphic Design</span>
+			</button>
+			<button class="btn">
+				<span>Game Art</span>
+			</button>
+	</div>
+
 	<div class="cardHolder container-fluid">
 		<div class="container-row">
 
 			 <?php
-
-			 // way 1
-
-			 // foreach ($result as $row) {
-				 // if ($row = mysqli_fetch_assoc($result)) {
-					//  $card = '<div id="' . $row['id'] .'" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
-					//  $card .= '<div class="' . $row['class'] .' card container-row">';
-					//  $card .= '<div class="col-4">';
-					//  $card .= '<img class="card-img" src="img/vin.jpg">';
-					//  $card .= '</div>';
-					//  $card .= '<div class="col-8">';
-					//  $card .= '<div class="card-content">';
-					//  $card .= '<h2>' . $row['firstName'] . ' ' . $row['lastName'] .'</h2>';
-					//  $card .= '<p><i>' . $row['class'] . '</i></p>';
-					//  $card .= '<p>maybe an extract here from the students bio?</p>';
-					//  $card .= '</div></div></div></div>';
-					//  do {
-					// 	 echo $card;
-					//  } while ($row = mysqli_fetch_assoc($result));
-				 // }
-
-
 				 $card = '';
 
-					//way 2
 				 if ($row = mysqli_fetch_assoc($result)) {
 					 do {
 						 $card .= '<div id="' . $row['id'] .'" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
-						 $card .= '<div class="' . $row['class'] .' card container-row">';
+						 $card .= '<div class="' . $row['class'] .' card btn container-row">';
 						 $card .= '<div class="col-4">';
 						 $card .= '<img class="card-img" src="img/vin.jpg">';
 						 $card .= '</div>';
@@ -103,8 +83,6 @@ $result = prep_stmt($conn, $dataReq);
 				 } else {
 					 echo 'No students';
 				 }
-
-
 			echo $card;
 	 ?>
 
@@ -172,6 +150,6 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div>
 
-	<script src="js/main.js"></script>
+	<script src="js/main.min.js"></script>
 </body>
 </html>
