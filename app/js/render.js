@@ -1,3 +1,5 @@
+console.log(data);
+
 let content = '';
 
 let templateStart = '<div class="block">';

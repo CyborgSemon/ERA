@@ -163,6 +163,9 @@
   .accountBox .information {
     text-align: center; }
 
+div[data-tune="withBorder"], div[data-tune="withBackground"] {
+  display: none; }
+
 body.view {
   background-color: #222;
   color: white; }
@@ -176,9 +179,15 @@ body.view {
   .header .profile {
     text-align: center; }
     .header .profile img {
-      width: 150px;
+      width: 130px;
       border-radius: 50%;
       margin-bottom: 8px; }
+      @media (max-width: 1200px) {
+        .header .profile img {
+          width: 110px; } }
+      @media (max-width: 800px) {
+        .header .profile img {
+          width: 90px; } }
     .header .profile h2 {
       margin-bottom: 4px; }
     .header .profile p {

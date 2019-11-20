@@ -134,3 +134,7 @@ $breakPoint3: 880px;
 		text-align: center;
 	}
 }
+
+div[data-tune="withBorder"], div[data-tune="withBackground"] {
+	display: none;
+}

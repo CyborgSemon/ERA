@@ -9,18 +9,22 @@ body.view {
 
 .header {
 	height: 30vh;
-	// background-color: #332;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-
 	.profile {
 		text-align: center;
 		img {
-			width: 150px;
+			width: 130px;
 			border-radius: 50%;
 			margin-bottom: 8px;
+			@media (max-width: $viewBreakPoint1) {
+				width: 110px;
+			}
+			@media (max-width: $viewBreakPoint3) {
+				width: 90px;
+			}
 		}
 		h2 {
 			margin-bottom: 4px;

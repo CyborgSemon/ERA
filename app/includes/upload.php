@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$maxId = $row['id']+1;
 	$newFileName = $maxId;
 
-	$uploadedFileNameArr = explode('.', $_FILES['image']['name']);
-	$uploadedFileName = $uploadedFileNameArr[0];
-	$uploadedFileExt = '.'.$uploadedFileNameArr[1];
+	$filePath = pathinfo($_FILES['image']['name']);
+	$uploadedFileName = $filePath['filename'];
+	$uploadedFileExt = $filePath['extension'];
 
-	$newFileName .= $uploadedFileExt;
+	$newFileName .= '.' . $uploadedFileExt;
 
 	$fileUrl = 'http://'.$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['REQUEST_URI'])).'/uploadsLink/'.$newFileName;;
 
