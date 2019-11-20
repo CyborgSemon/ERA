@@ -25,34 +25,23 @@ $card: #363636;
 }
 
 @mixin gameArt{
-	background: #3A1C71;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: rgb(186,220,88);
+background: linear-gradient(90deg, rgba(186,220,88,1) 25%, rgba(106,176,76,1) 75%);
 	transition: 1s ease;
 }
 
 @mixin webUx{
-	background: rgb(44,45,199);
-	background: linear-gradient(90deg, rgba(44,45,199,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+	background: rgb(48,51,107);
+	background: linear-gradient(90deg, rgba(48,51,107,1) 25%, rgba(104,109,224,1) 75%);
+	transition: 1s ease;
 }
 
 @mixin graphic{
-	background: rgb(157,226,254);
-	background: linear-gradient(225deg, rgba(157,226,254,1) 0%, rgba(255,195,138,1) 57%, rgba(215,65,119,1) 100%);
+	background: rgb(240,147,43);
+	background: linear-gradient(90deg, rgba(240,147,43,1) 25%, rgba(255,190,118,1) 75%);
+	transition: 1s ease;
 }
 
-// @mixin after{
-// 	display:block;
-// 	content: '';
-// 	border-bottom: solid 0.4rem;
-// 	transform: scaleX(0);
-// 	transition: transform 250ms ease-in-out;
-// 	border-radius: 10px;
-// }
-//
-// @mixin hoverAfter{
-// 	transform: scaleX(1);
-// }
 
 //grids and media-queries
 
@@ -154,8 +143,7 @@ button {
 
 	&:hover,
 	&:focus {
-		box-shadow: inset 0 0 0 2em var(--hover);
-		@include gameArt;
+		box-shadow: inset 0 0 0 2em;
 	}
 }
 
@@ -166,32 +154,38 @@ button {
   transform: translateY(-0.25em);
 }
 
-
-.webBtn{
-		background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
-
+.webBtn:hover{
+		@include webUx;
 }
 
-// .webBtn:hover{
-// 	color: white;
+.graphicBtn:hover{
+		@include graphic;
+}
+
+.gameBtn:hover{
+	@include gameArt;
+}
+
+
+// .graphic:hover{
+// 	transition: 0.8s ease;
+// 	border: 2px solid #f0932b;
 // }
-
-.graphic:hover{
-	transition: .5s ease;
-	border: 2px solid;
-}
-
-
-.web:hover{
-	transition: 0.8s;
-	border: 2px solid;
-}
-
-
-
+//
+//
+// .web:hover{
+// 	transition: 0.8s;
+// 	border: 2px solid #4834d4;
+// }
+//
+// .gameArt:hover{
+// 	transition: 0.8s;
+// 	border: 2px solid #6ab04c;
+// }
 
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
 	padding: 6px;
 	text-align: center;
 	max-width: 80%;
@@ -203,6 +197,26 @@ button {
 	display: flex;
 	flex: 1 1 auto;
 	max-height: 100%;
+	.border {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border: 1px solid transparent;
+		pointer-events: none;
+}
+
+	&:hover .border .web{
+		border: 3px solid #4834d4;
+	}
+
+	&:hover .border .graphic{
+		border: 3px solid #f0932b;
+	}
+
+	&:hover .border .gameArt{
+		border: 3px solid #6ab04c;
+	}
+
 	&-img{
 		height: 7.7rem;
 		width: 100%;
@@ -351,47 +365,6 @@ button {
 
 .era{
 	margin-top: 3rem;
-}
-
-
-#E{
 	width: 4rem;
 	height: 4rem;
 }
-
-#R{
-	width: 4rem;
-	height: 4rem;
-}
-
-#A{
-	width: 4rem;
-	height: 4rem;
-}
-
-// #E::after{
-// 	@include graphic;
-// 	@include after;
-// }
-//
-// #E:hover::after{
-// 	@include hoverAfter;
-// }
-//
-// #R::after{
-// 	@include webUx;
-// 	@include after;
-// }
-//
-// #R:hover::after{
-// 	@include hoverAfter;
-// }
-//
-// #A::after{
-// 	@include gameArt;
-// 	@include after;
-// }
-//
-// #A:hover::after{
-// 	@include hoverAfter;
-// }

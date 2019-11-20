@@ -49,13 +49,13 @@ $result = prep_stmt($conn, $dataReq);
 	</div>
 
 	<div class="container-row justify-content">
-			<button class="btn web">
+			<button class="btn webBtn">
 				Web & UX
 			</button>
-			<button class="btn">
+			<button class="btn graphicBtn">
 				Graphic Design
 			</button>
-			<button class="btn">
+			<button class="btn gameBtn">
 				Game Art
 			</button>
 	</div>
@@ -78,6 +78,7 @@ $result = prep_stmt($conn, $dataReq);
 						 $card .= '<h2>' . $row['firstName'] . ' ' . $row['lastName'] .'</h2>';
 						 $card .= '<p><i>' . $row['class'] . '</i></p>';
 						 $card .= '<p>maybe an extract here from the students bio?</p>';
+						 $card .= '<div class="border ' . $row['class'] .'"></div>';
 						 $card .= '</div></div></div></div>';
 					 } while ($row = mysqli_fetch_assoc($result));
 				 } else {
@@ -87,9 +88,9 @@ $result = prep_stmt($conn, $dataReq);
 	 ?>
 
 
-<!--
+
 			<div id ="graphic" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
-				<div class="graphic card container-row">
+				<div class="gameArt card container-row">
 					<div class="col-4">
 						<img class="card-img" src="img/vin.jpg">
 					</div>
@@ -102,6 +103,7 @@ $result = prep_stmt($conn, $dataReq);
 					</div>
 				</div>
 			</div>
+			<!--
 			<div class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
 				<div class="web card container-row">
 					<div class="col-4">

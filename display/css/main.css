@@ -311,14 +311,7 @@ button {
   transition: 1s ease;
 }
 button:hover, button:focus {
-  box-shadow: inset 0 0 0 2em var(--hover);
-  background: #3A1C71;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FFAF7B, #D76D77, #3A1C71);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  transition: 1s ease;
+  box-shadow: inset 0 0 0 2em;
 }
 
 .btn:hover,
@@ -328,22 +321,42 @@ button:hover, button:focus {
   transform: translateY(-0.25em);
 }
 
-.webBtn {
-  background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
+.webBtn:hover {
+  background: #30336b;
+  background: linear-gradient(90deg, #30336b 25%, #686de0 75%);
+  transition: 1s ease;
+}
+
+.graphicBtn:hover {
+  background: #f0932b;
+  background: linear-gradient(90deg, #f0932b 25%, #ffbe76 75%);
+  transition: 1s ease;
+}
+
+.gameBtn:hover {
+  background: #badc58;
+  background: linear-gradient(90deg, #badc58 25%, #6ab04c 75%);
+  transition: 1s ease;
 }
 
 .graphic:hover {
-  transition: 0.5s ease;
-  border: 2px solid;
+  transition: 0.8s ease;
+  border: 2px solid #f0932b;
 }
 
 .web:hover {
   transition: 0.8s;
-  border: 2px solid;
+  border: 2px solid #4834d4;
+}
+
+.gameArt:hover {
+  transition: 0.8s;
+  border: 2px solid #6ab04c;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
   padding: 6px;
   text-align: center;
   max-width: 80%;
@@ -355,6 +368,22 @@ button:hover, button:focus {
   display: flex;
   flex: 1 1 auto;
   max-height: 100%;
+}
+.card .border {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid transparent;
+  pointer-events: none;
+}
+.card:hover .border .web {
+  border: 3px solid #4834d4;
+}
+.card:hover .border .graphic {
+  border: 3px solid #f0932b;
+}
+.card:hover .border .gameArt {
+  border: 3px solid #6ab04c;
 }
 .card-img {
   height: 7.7rem;
@@ -501,19 +530,6 @@ button:hover, button:focus {
 
 .era {
   margin-top: 3rem;
-}
-
-#E {
-  width: 4rem;
-  height: 4rem;
-}
-
-#R {
-  width: 4rem;
-  height: 4rem;
-}
-
-#A {
   width: 4rem;
   height: 4rem;
 }
