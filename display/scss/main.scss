@@ -193,28 +193,36 @@ button {
 	margin: 1rem;
 	color: #FEFEFE;
 	border-radius: 5px;
-	transition: 1s;
 	display: flex;
 	flex: 1 1 auto;
 	max-height: 100%;
+	cursor: pointer;
+	transition: 0.5s ease;
 	.border {
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		transition: 0.5s;
+		border-radius: 5px;
+		top: 0;
+		left: 0;
 		border: 1px solid transparent;
 		pointer-events: none;
 }
 
-	&:hover .border .web{
-		border: 3px solid #4834d4;
-	}
-
-	&:hover .border .graphic{
-		border: 3px solid #f0932b;
-	}
-
-	&:hover .border .gameArt{
-		border: 3px solid #6ab04c;
+	&:hover{
+		transform: translateY(-0.25em);
+		.border {
+			&.web {
+				border: 3px solid #4834d4;
+			}
+			&.graphic{
+					border: 3px solid #f0932b;
+				}
+			&.gameArt{
+				border: 3px solid #6ab04c;
+			}
+		}
 	}
 
 	&-img{
@@ -267,36 +275,65 @@ button {
 		height: 20vh;
 		top: -20vh;
 	}
-}
 
-.portrait{
-	display: flex;
-	justify-content: center;
-	margin-top: 2rem;
-	width: 5rem;
-	height: 5.5rem;
-	padding: 0.1rem;
-	border-radius: 80%;
+	.portrait{
+		display: flex;
+		justify-content: center;
+		margin-top: 3rem;
+		width: 5rem;
+		height: 5.5rem;
+		padding: 0.1rem;
+		border-radius: 80%;
 
-	@media(orientation: landscape){
-		margin-top: 0.1rem;
-		width: 3rem;
-		height: 3.5rem;
+		$xsml: 576px;
+		//min-width for the following viewports
+		$sml: 540px;
+		$med: 720px;
+		$lrg: 960px;
+		$xlrg: 1140px;
+
+		@include mediaQuery ($sml){
+			width: 3rem;
+			height: 3.5rem;
+		}
+
+		@include mediaQuery ($med){
+			width: 4.5rem;
+			height: 5rem;
+		}
+
+		@include mediaQuery ($lrg){
+			width: 4rem;
+			height: 4.5rem;
+		}
+
+		@include mediaQuery ($xlrg){
+			width: 3.5rem;
+			height: 4rem;
+		}
+
+		@media(orientation: landscape){
+			margin-top: 0.5rem;
+			width: 3rem;
+			height: 3.5rem;
+		}
+	}
+
+	.content{
+		padding: 0.4rem;
+
+		@include mediaQuery($med){
+			padding: 0.5rem;
+		}
+
+		@media (orientation: landscape){
+			top: -4rem;
+			padding: 0rem;
+		}
 	}
 }
 
-.content{
-	padding: 0.4rem;
 
-	@include mediaQuery($med){
-		padding: 0.5rem;
-	}
-
-	@media (orientation: landscape){
-		top: -4rem;
-		padding: 0rem;
-	}
-}
 
 #exit{
 	float: left;
@@ -316,6 +353,10 @@ button {
 
 	&.active{
 		bottom: 0;
+	}
+
+	@include mediaQuery($med){
+		overflow-y: auto;
 	}
 
 	@include mediaQuery($xlrg){

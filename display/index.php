@@ -68,8 +68,8 @@ $result = prep_stmt($conn, $dataReq);
 
 				 if ($row = mysqli_fetch_assoc($result)) {
 					 do {
-						 $card .= '<div id="' . $row['id'] .'" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
-						 $card .= '<div class="' . $row['class'] .' card btn container-row">';
+						 $card .= '<div id="'. $row['class'] .'" class="' . $row['class'] .' col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
+						 $card .= '<div class="card btn container-row">';
 						 $card .= '<div class="col-4">';
 						 $card .= '<img class="card-img" src="img/vin.jpg">';
 						 $card .= '</div>';
@@ -99,10 +99,12 @@ $result = prep_stmt($conn, $dataReq);
 							<h2>Vin Diesel</h2>
 							<p><i>graphic</i></p>
 							<p>maybe an extract here from the students bio?</p>
+							<div class="border gameArt"></div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 			<!--
 			<div class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
 				<div class="web card container-row">
@@ -135,6 +137,9 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div> -->
 
+	</div>
+</div>
+
 	<div id="footer">
 		<div class="container-row">
 			<div class="col-12 colsml-12 colmd-12 collrg-12 colxlrg-12">
@@ -152,6 +157,6 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div>
 
-	<script src="js/main.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

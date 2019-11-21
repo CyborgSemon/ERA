@@ -339,21 +339,6 @@ button:hover, button:focus {
   transition: 1s ease;
 }
 
-.graphic:hover {
-  transition: 0.8s ease;
-  border: 2px solid #f0932b;
-}
-
-.web:hover {
-  transition: 0.8s;
-  border: 2px solid #4834d4;
-}
-
-.gameArt:hover {
-  transition: 0.8s;
-  border: 2px solid #6ab04c;
-}
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   position: relative;
@@ -364,25 +349,33 @@ button:hover, button:focus {
   margin: 1rem;
   color: #FEFEFE;
   border-radius: 5px;
-  transition: 1s;
   display: flex;
   flex: 1 1 auto;
   max-height: 100%;
+  cursor: pointer;
+  transition: 0.5s ease;
 }
 .card .border {
   position: absolute;
   width: 100%;
   height: 100%;
+  transition: 0.5s;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
   border: 1px solid transparent;
   pointer-events: none;
 }
-.card:hover .border .web {
+.card:hover {
+  transform: translateY(-0.25em);
+}
+.card:hover .border.web {
   border: 3px solid #4834d4;
 }
-.card:hover .border .graphic {
+.card:hover .border.graphic {
   border: 3px solid #f0932b;
 }
-.card:hover .border .gameArt {
+.card:hover .border.gameArt {
   border: 3px solid #6ab04c;
 }
 .card-img {
@@ -433,34 +426,56 @@ button:hover, button:focus {
     top: -20vh;
   }
 }
-
-.portrait {
+#header .portrait {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   width: 5rem;
   height: 5.5rem;
   padding: 0.1rem;
   border-radius: 80%;
 }
-@media (orientation: landscape) {
-  .portrait {
-    margin-top: 0.1rem;
+@media screen and (min-width: 540px) {
+  #header .portrait {
     width: 3rem;
     height: 3.5rem;
   }
 }
-
-.content {
+@media screen and (min-width: 720px) {
+  #header .portrait {
+    width: 4.5rem;
+    height: 5rem;
+  }
+}
+@media screen and (min-width: 960px) {
+  #header .portrait {
+    width: 4rem;
+    height: 4.5rem;
+  }
+}
+@media screen and (min-width: 1140px) {
+  #header .portrait {
+    width: 3.5rem;
+    height: 4rem;
+  }
+}
+@media (orientation: landscape) {
+  #header .portrait {
+    margin-top: 0.5rem;
+    width: 3rem;
+    height: 3.5rem;
+  }
+}
+#header .content {
   padding: 0.4rem;
 }
 @media screen and (min-width: 720px) {
-  .content {
+  #header .content {
     padding: 0.5rem;
   }
 }
 @media (orientation: landscape) {
-  .content {
+  #header .content {
     top: -4rem;
     padding: 0rem;
   }
@@ -484,6 +499,11 @@ button:hover, button:focus {
 }
 #footer.active {
   bottom: 0;
+}
+@media screen and (min-width: 720px) {
+  #footer {
+    overflow-y: auto;
+  }
 }
 @media screen and (min-width: 1140px) {
   #footer {
