@@ -26,7 +26,7 @@ $card: #363636;
 
 @mixin gameArt{
 	background: rgb(186,220,88);
-background: linear-gradient(90deg, rgba(186,220,88,1) 25%, rgba(106,176,76,1) 75%);
+	background: linear-gradient(90deg, rgba(186,220,88,1) 25%, rgba(106,176,76,1) 75%);
 	transition: 1s ease;
 }
 
@@ -110,10 +110,21 @@ body{
 	justify-content: center;
 }
 
+#main{
+	transition: margin-left .5s;
+  padding: 0.5rem;
+}
+
 .era{
 	margin-top: 1.3rem;
 	font-size: 3rem;
 	color: #FEFEFE;
+	margin-top: 3rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	z-index: 1;
+	width: 4rem;
+	height: 4rem;
 
 	@include mediaQuery($med){
 		display: inline-block;
@@ -128,6 +139,195 @@ body{
 	}
 }
 
+
+#header{
+	text-align: center;
+	background-color: purple;
+	top: -30vh;
+	height: 30vh;
+	width: 100%;
+	position: fixed;
+	transition: 1s ease;
+	z-index: 2;
+
+	&.active{
+		top: 0;
+	}
+
+	@include mediaQuery($xlrg){
+		height: 30vh;
+		top: -30vh;
+	}
+
+	.portrait{
+		display: flex;
+		justify-content: center;
+		margin-top: 3rem;
+		width: 5rem;
+		height: 5.5rem;
+		padding: 0.1rem;
+		border-radius: 80%;
+
+		@include mediaQuery ($sml){
+			max-width: 150px;
+			max-height: 150px;
+		}
+
+		@include mediaQuery ($med){
+			max-width: 200px;
+			max-height: 200px;
+		}
+
+		@include mediaQuery ($lrg){
+			max-width: 250px;
+			max-height: 250px;
+		}
+
+		@include mediaQuery ($xlrg){
+			max-width: 300px;
+			max-height: 300px;
+		}
+
+		@media(orientation: landscape){
+			max-width: 200px;
+			max-height: 200px;
+		}
+	}
+}
+.content{
+	padding: 0.4rem;
+
+	@include mediaQuery($med){
+		padding: 0.5rem;
+	}
+
+	@media (orientation: landscape){
+		top: -4rem;
+		padding: 0rem;
+	}
+}
+
+.sideNav{
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	background-color: $card;
+	overflow-x: hidden;
+	padding-top: 2rem;
+	transition: 0.5s;
+
+	.sideNavClose{
+		position: absolute;
+		top: 0;
+		right: 2rem;
+		font-size: 2.5rem;
+		margin-left: 3rem;
+	}
+
+	&.active{
+		width: 42vw;
+
+		@include mediaQuery($med){
+			width: 35vw;
+		}
+	}
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+
+	& input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+	}
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #777;
+  -webkit-transition: .4s;
+  transition: .4s;
+
+	&:before {
+	  position: absolute;
+	  content: "";
+	  height: 1rem;
+	  width: 1rem;
+	  left: 4px;
+	  bottom: 4px;
+	  background-color: white;
+	  -webkit-transition: .4s;
+	  transition: .4s;
+	}
+
+	&.round {
+	  border-radius: 34px;
+	}
+
+	&.round:before {
+	  border-radius: 50%;
+	}
+
+	&-row{
+		margin-left: 1rem;
+		margin-top: 1rem;
+	}
+
+}
+
+input:checked + .slider + .graphic{
+	@include graphic;
+}
+
+input:checked + .slider + .web{
+	@include webUx;
+}
+
+input:checked + .slider + .game{
+	@include gameArt;
+}
+
+input:focus + .slider + .graphic{
+  box-shadow: 0 0 1px #f0932b;
+}
+
+input:focus + .slider + .web{
+  box-shadow: 0 0 1px #30336b;
+}
+
+input:focus + .slider + .game{
+  box-shadow: 0 0 1px #badc58;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+.mobile{
+	margin: 1rem;
+	font-size: 2rem;
+	color: #FFF;
+
+	@include mediaQuery($lrg){
+		display: none;
+	}
+}
 
 button {
 	background-color: transparent;
@@ -150,38 +350,31 @@ button {
 .btn:hover,
 .btn:focus {
 	color: white;
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
+}
+
+.btnCon{
+	display: none;
+
+	@include mediaQuery($lrg){
+		display: flex;
+		justify-content: center;
+		margin-top: 1rem;
+	}
 }
 
 .webBtn:hover{
-		@include webUx;
+	@include webUx;
 }
 
 .graphicBtn:hover{
-		@include graphic;
+	@include graphic;
 }
 
 .gameBtn:hover{
 	@include gameArt;
 }
-
-
-// .graphic:hover{
-// 	transition: 0.8s ease;
-// 	border: 2px solid #f0932b;
-// }
-//
-//
-// .web:hover{
-// 	transition: 0.8s;
-// 	border: 2px solid #4834d4;
-// }
-//
-// .gameArt:hover{
-// 	transition: 0.8s;
-// 	border: 2px solid #6ab04c;
-// }
 
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -208,7 +401,7 @@ button {
 		left: 0;
 		border: 1px solid transparent;
 		pointer-events: none;
-}
+	}
 
 	&:hover{
 		transform: translateY(-0.25em);
@@ -217,8 +410,8 @@ button {
 				border: 3px solid #4834d4;
 			}
 			&.graphic{
-					border: 3px solid #f0932b;
-				}
+				border: 3px solid #f0932b;
+			}
 			&.gameArt{
 				border: 3px solid #6ab04c;
 			}
@@ -255,86 +448,6 @@ button {
 
 }
 
-
-
-#header{
-	text-align: center;
-	background-color: purple;
-	top: -30vh;
-	height: 30vh;
-	width: 100%;
-	position: fixed;
-	transition: 1s ease;
-	z-index: 2;
-
-	&.active{
-		top: 0;
-	}
-
-	@include mediaQuery($xlrg){
-		height: 20vh;
-		top: -20vh;
-	}
-
-	.portrait{
-		display: flex;
-		justify-content: center;
-		margin-top: 3rem;
-		width: 5rem;
-		height: 5.5rem;
-		padding: 0.1rem;
-		border-radius: 80%;
-
-		$xsml: 576px;
-		//min-width for the following viewports
-		$sml: 540px;
-		$med: 720px;
-		$lrg: 960px;
-		$xlrg: 1140px;
-
-		@include mediaQuery ($sml){
-			width: 3rem;
-			height: 3.5rem;
-		}
-
-		@include mediaQuery ($med){
-			width: 4.5rem;
-			height: 5rem;
-		}
-
-		@include mediaQuery ($lrg){
-			width: 4rem;
-			height: 4.5rem;
-		}
-
-		@include mediaQuery ($xlrg){
-			width: 3.5rem;
-			height: 4rem;
-		}
-
-		@media(orientation: landscape){
-			margin-top: 0.5rem;
-			width: 3rem;
-			height: 3.5rem;
-		}
-	}
-
-	.content{
-		padding: 0.4rem;
-
-		@include mediaQuery($med){
-			padding: 0.5rem;
-		}
-
-		@media (orientation: landscape){
-			top: -4rem;
-			padding: 0rem;
-		}
-	}
-}
-
-
-
 #exit{
 	float: left;
 	font-size: 2rem;
@@ -357,11 +470,6 @@ button {
 
 	@include mediaQuery($med){
 		overflow-y: auto;
-	}
-
-	@include mediaQuery($xlrg){
-		height: 80vh;
-		bottom: -80vh;
 	}
 }
 
@@ -400,12 +508,4 @@ button {
 		}
 		height: 100%;
 	}
-}
-
-
-
-.era{
-	margin-top: 3rem;
-	width: 4rem;
-	height: 4rem;
 }

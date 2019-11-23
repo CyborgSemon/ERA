@@ -35,8 +35,34 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div>
 
-	<div class="logo container-fluid">
+	<div id="sideNav" class="sideNav">
+		<div id="sideClose" class="sideNavClose">&times;</div>
+		<div class="container-row slider-row">
+			<label class="switch web">
+			  <input type="checkbox">
+			  <span class="slider round"></span>
+			</label>
+			Web & UX
+		</div>
+		<div class="container-row slider-row">
+			<label class="switch">
+			  <input type="checkbox">
+			  <span class="slider round graphic"></span>
+			</label>
+		</div>
+		<div class="container-row slider-row">
+			<label class="switch">
+			  <input type="checkbox">
+			  <span class="slider round game"></span>
+			</label>
+		</div>
+	</div>
 
+	<div id="mobile" class="mobile">&#9776;</div>
+
+	<div id="main">
+
+	<div class="logo container-fluid">
 		<div class="container-row">
 			<div class="colmd-1 collrg-1 colxlrg-2"></div>
 			<div class="landing col-12 colmd-10 collrg-10 colxlrg-8">
@@ -48,7 +74,7 @@ $result = prep_stmt($conn, $dataReq);
 		</div>
 	</div>
 
-	<div class="container-row justify-content">
+	<div class="btnCon container-row">
 			<button class="btn webBtn">
 				Web & UX
 			</button>
@@ -60,7 +86,7 @@ $result = prep_stmt($conn, $dataReq);
 			</button>
 	</div>
 
-	<div class="cardHolder container-fluid">
+	<div class="cardHolder container-fluid justify-content">
 		<div class="container-row">
 
 			 <?php
@@ -104,46 +130,16 @@ $result = prep_stmt($conn, $dataReq);
 					</div>
 				</div>
 			</div>
-
-			<!--
-			<div class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
-				<div class="web card container-row">
-					<div class="col-4">
-						<img class="card-img" src="img/vin.jpg">
-					</div>
-					<div class="col-8">
-						<div class="card-content">
-							<h2>Vin Diesel</h2>
-							<p><i>web</i></p>
-							<p>maybe an extract here from the students bio?</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
-				<div class="gameArt card container-row">
-					<div class="col-4">
-						<img class="card-img" src="img/vin.jpg">
-					</div>
-					<div class="col-8">
-						<div class="card-content">
-							<h2>Vin Diesel</h2>
-							<p><i>game art</i></p>
-							<p>maybe an extract here from the students bio?</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 	</div>
+</div>
+
+
 </div>
 
 	<div id="footer">
 		<div class="container-row">
 			<div class="col-12 colsml-12 colmd-12 collrg-12 colxlrg-12">
-				<h4 id="exit">X</h4>
+				<h4 id="exit">&times;</h4>
 			</div>
 		</div>
 		<div class="container-row">
