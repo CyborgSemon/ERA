@@ -23,7 +23,16 @@ if (!isset($_SESSION['id'])) {
 				$_SESSION['class'] = $row['class'];
 				$_SESSION['profileImage'] = $row['profileImage'];
 				$_SESSION['type'] = $row['type'];
-				header('Location: ../home.php');
+
+				if ($row['type'] == 'student') {
+					header('Location: ../home.php');
+				} else if ($row['type'] == 'member') {
+					header('Location: ../dash.php');
+				} else {
+					header('Location: logout.php');
+				}
+
+
 			} else {
 				$_SESSION['message'] = 'Invalid Username or Password';
 				header('Location: ../index.php');

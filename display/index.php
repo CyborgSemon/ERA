@@ -16,7 +16,7 @@ $result = prep_stmt($conn, $dataReq);
 <html lang="en" dir="ltr">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<link href="css/main.min.css" rel="stylesheet">
 </head>
 <body>

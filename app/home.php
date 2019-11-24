@@ -14,8 +14,25 @@ $sql = "SELECT * FROM portfolio WHERE userId = ?";
 $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);
 
 if ($row = mysqli_fetch_assoc($result)) {
-	$data = $row['dataJSON'];
+	$data = $row['dataJSONdraft'];
 	$status = $row['active'];
+	$feedback = $row['feedback'];
+}
+
+if ($status) {
+	if ($status == 'pending' || $status == 'pass' || $status == 'failed') {
+		$mainSpan = $status;
+		if ($status == 'pass') {
+			$mainSpan = 'passed';
+			$subSpan = 'passed';
+		}
+	} else if ($status == 'passedDraftPending') {
+		$mainSpan = 'pending';
+		$subSpan = 'passed';
+	} else if ($status == 'passedDraftFailed') {
+		$mainSpan = 'failed';
+		$subSpan = 'passed';
+	}
 }
 
 ?>
@@ -23,7 +40,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 <html lang="en" dir="ltr">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -35,10 +52,12 @@ if ($row = mysqli_fetch_assoc($result)) {
 				<div class="card">
 					<img class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
 					<div class="buttons">
-						<span>Portfolio status: <?php echo (isset($status) ? $status : 'empty'); ?></span>
+						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
+						<span>Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
 						<br>
-						<a class="accountButton" href="viewCurrent.php" target="_blank">View Portfolio</a>
+						<a class="accountButton" href="viewCurrent.php?type=draft" target="_blank">View Draft</a>
 						<br>
+						<?php if (isset($subSpan)) echo '<a class="accountButton" href="viewCurrent.php?type=live" target="_blank">View Live</a><br>'; ?>
 						<button class="accountButton" id="save" type="button" name="button">Save</button>
 						<br>
 						<a class="accountButton" href="includes/logout.php">Logout</a>
@@ -54,8 +73,8 @@ if ($row = mysqli_fetch_assoc($result)) {
 				</div>
 			</div>
 			<div class="content">
-				<div class="editor card" id="editor">
-				</div>
+				<?php if ($feedback) echo '<div class="feedback card">'.$feedback.'</div>'; ?>
+				<div class="editor card" id="editor"></div>
 			</div>
 		</div>
 		<?php

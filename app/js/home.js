@@ -34,7 +34,12 @@ if (typeof data !== 'undefined') {
 				inlineToolbar: true,
 			}
 		},
-		data: data
+		data: data,
+		onReady: ()=> {
+			[].forEach.call(document.querySelectorAll('[contenteditable=true]'), (e)=> {
+				e.dataset.gramm_editor = 'false';
+			});
+		}
 	});
 } else {
 	editor = new EditorJS({
@@ -85,7 +90,7 @@ $('#save').addEventListener('click', ()=> {
 			} else if (x == 'updated') {
 				snackbar('Portfolio updated');
 			} else {
-				snackbar('There was an error. Try again');
+				snackbar(x);
 			}
 		});
 	}).catch((err) =>{
