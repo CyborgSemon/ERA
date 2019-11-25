@@ -20,11 +20,8 @@ if ($row = mysqli_fetch_assoc($result)) {
 		array_push($data, $row);
 	} while ($row = mysqli_fetch_assoc($result));
 } else {
-	echo 'Nothing to review';
-	exit();
+	$msg = 'Nothing to review';
 }
-
-// print_r($data);
 
 ?>
 <!DOCTYPE html>
@@ -35,16 +32,62 @@ if ($row = mysqli_fetch_assoc($result)) {
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<?php
+		<div id="snackbar">
+			<span id="snackbarMsg"></span>
+		</div>
+		<div id="dialog" data-student="">
+			<div class="dialogContainer">
+				<div id="txt">ayy</div>
+				<div class="dialogButtons">
+					<button id="cancel" type="button" name="button">Cancel</button>
+					<button id="accept" type="button" name="button">Yes</button>
+				</div>
+			</div>
+			<div class="dialogBackground"></div>
+		</div>
+		<div class="admin">
+			Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName'].'!'; ?>
+			<a class="view" href="includes/logout.php">Logout</a>
+		</div>
+		<div class="admin">
+			<h2>Pending Portfolios</h2>
+		</div>
+		<div class="memberContainer">
+			<?php
+			if ($msg) {
+				echo "<h3>$msg</h3>";
+			} else {
+				for ($i=0; $i < count($data); $i++) {
 
-		for ($i=0; $i < count($data); $i++) {
-			echo $data[$i]['firstName'].'\'s portfolio needs to be reviewed. View it <a href="viewCurrent.php?type=draft&student='.$data[$i]['userId'].'" target="_blank">here</a><br><br>';
-		}
+					echo '<div class="memberCard" data-id="'.$data[$i]['userId'].'" data-name="'.$data[$i]['firstName'].' '.$data[$i]['lastName'].'">
+						<div class="top">
+							<div class="profile">
+								<img src="'.$data[$i]['profileImage'].'">
+							</div>
+							<div class="text">
+								<div class="name">
+									'.$data[$i]['firstName'].' '.$data[$i]['lastName'].'
+								</div>
+								<div class="class">
+									'.$data[$i]['class'].'
+								</div>
+							</div>
+							<div class="buttons">
+								<a class="view" href="viewCurrent.php?type=draft&student='.$data[$i]['userId'].'" target="_blank">View</a>
+								<div class="accept" id="accept'.$data[$i]['userId'].'">Approve</div>
+								<div class="decline" id="fail'.$data[$i]['userId'].'">Decline</div>
+							</div>
+						</div>
+						<div class="feedback">
+							<textarea id="feedback'.$data[$i]['userId'].'" placeholder="Give some feedback"></textarea>
+						</div>
+					</div>';
+				}
+			}
 
-		?>
-
-		<br>
-		<br>
-		<a href="includes/logout.php">Logout</a>
+			?>
+		</div>
+		<script src="js/ajax.min.js"></script>
+		<script src="js/member.min.js"></script>
 	</body>
 </html>

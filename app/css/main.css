@@ -171,7 +171,7 @@ body.view {
   color: white; }
 
 .header {
-  height: 30vh;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -197,7 +197,7 @@ body.view {
     background-image: url("../images/lines.png");
     background-size: 45vh 100%;
     width: 100%;
-    height: 30vh;
+    height: 300px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -207,7 +207,7 @@ body.view {
     opacity: 0.3; }
 
 .section {
-  height: 70vh; }
+  height: calc(100vh - $headerHeight); }
   .section #content {
     width: 1000px;
     padding-top: 48px;
@@ -238,5 +238,150 @@ body.view {
         padding-left: 8px; }
       .section #content .block iframe {
         width: 100%; }
+
+body.inactive {
+  overflow: hidden; }
+  body.inactive #dialog {
+    display: block !important; }
+
+.admin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0; }
+  .admin a {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: box-shadow 0.3s, background-color 0.3s;
+    border: none;
+    color: white;
+    background-color: #6BC781; }
+    .admin a:hover {
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      background-color: #46b962; }
+
+#dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none; }
+  #dialog .dialogContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 24px;
+    border-radius: 24px; }
+    #dialog .dialogContainer .dialogButtons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 12px; }
+      #dialog .dialogContainer .dialogButtons button {
+        padding: 8px 24px;
+        border-radius: 8px;
+        font-size: 0.8em;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: box-shadow 0.3s, background-color 0.3s;
+        border: none;
+        color: white; }
+        #dialog .dialogContainer .dialogButtons button:hover {
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+        #dialog .dialogContainer .dialogButtons button#accept {
+          background-color: #6BC781; }
+          #dialog .dialogContainer .dialogButtons button#accept:hover {
+            background-color: #46b962; }
+        #dialog .dialogContainer .dialogButtons button#cancel {
+          background-color: #EA7B7B; }
+          #dialog .dialogContainer .dialogButtons button#cancel:hover {
+            background-color: #e34f4f; }
+  #dialog .dialogBackground {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4); }
+
+.memberContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; }
+  .memberContainer .memberCard {
+    width: calc((100% / 3) - 24px);
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    padding: 12px;
+    margin: 12px 11px; }
+    @media (max-width: 1200px) {
+      .memberContainer .memberCard {
+        width: calc((100% / 2) - 24px); } }
+    @media (max-width: 700px) {
+      .memberContainer .memberCard {
+        width: calc(100% - 24px); } }
+    .memberContainer .memberCard .top {
+      display: flex; }
+      .memberContainer .memberCard .top .profile {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .memberContainer .memberCard .top .profile img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%; }
+      .memberContainer .memberCard .top .text {
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+      .memberContainer .memberCard .top .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-grow: 1; }
+        .memberContainer .memberCard .top .buttons div, .memberContainer .memberCard .top .buttons a {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          margin: 4px 0;
+          padding: 2px 0;
+          border-radius: 8px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: box-shadow 0.3s, background-color 0.3s; }
+          .memberContainer .memberCard .top .buttons div:hover, .memberContainer .memberCard .top .buttons a:hover {
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+        .memberContainer .memberCard .top .buttons .view {
+          background-color: #75C8D1; }
+          .memberContainer .memberCard .top .buttons .view:hover {
+            background-color: #4fb9c4; }
+        .memberContainer .memberCard .top .buttons .accept {
+          background-color: #6BC781; }
+          .memberContainer .memberCard .top .buttons .accept:hover {
+            background-color: #46b962; }
+        .memberContainer .memberCard .top .buttons .decline {
+          background-color: #EA7B7B; }
+          .memberContainer .memberCard .top .buttons .decline:hover {
+            background-color: #e34f4f; }
+    .memberContainer .memberCard .feedback {
+      margin-top: 12px; }
+      .memberContainer .memberCard .feedback textarea {
+        width: 100%;
+        height: 100px;
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        resize: none;
+        font-size: 0.9em; }
 
 /*# sourceMappingURL=main.css.map */

@@ -31,14 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$valueString = "ssi";
 					$values = ['passedDraftFailed', $_POST['feedback'], $_POST['userId']];
 				}
+				$msg = 'Review sent';
 			} else if ($_POST['active'] == 'pass') {
 				// Passed from any stage
 				$sql = "UPDATE portfolio SET active = ?, feedback = ?, dataJSON = dataJSONdraft WHERE userId = ?";
 				$valueString = "ssi";
 				$values = ['pass', $_POST['feedback'], $_POST['userId']];
+				$msg = 'Portfolio passed';
 			}
 			prep_stmt($conn, $sql, $valueString, $values);
-			echo 'Review sent';
+			echo $msg;
 		} else {
 			echo 'That student does not exist';
 		}
