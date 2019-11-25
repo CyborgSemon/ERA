@@ -119,7 +119,8 @@ body{
 	margin-top: 1.3rem;
 	font-size: 3rem;
 	color: #FEFEFE;
-	margin-top: 3rem;
+	margin-top: 0.5rem;
+	margin-bottom: 3rem;
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 	z-index: 1;
@@ -162,6 +163,7 @@ body{
 	.portrait{
 		display: flex;
 		justify-content: center;
+		position: absolute;
 		margin-top: 3rem;
 		width: 5rem;
 		height: 5.5rem;
@@ -210,7 +212,7 @@ body{
 .sideNav{
 	height: 100%;
 	width: 0;
-	position: fixed;
+	position: absolute;
 	z-index: 5;
 	top: 0;
 	left: 0;
@@ -222,18 +224,32 @@ body{
 	.sideNavClose{
 		position: absolute;
 		top: 0;
-		right: 2rem;
+		right: 2.5rem;
+		color: #FFF;
 		font-size: 2.5rem;
 		margin-left: 3rem;
 	}
 
-	&.active{
-		width: 42vw;
+	.navSwitch{
+		display: inline-block;
+		color: #FFF;
+		font-size: 1rem;
+		margin-left: 1rem;
 
 		@include mediaQuery($med){
-			width: 35vw;
+			font-size: 2rem;
 		}
 	}
+
+	&.active{
+		width: 100vw;
+
+		@include mediaQuery($med){
+			width: 50vw;
+		}
+	}
+
+
 }
 
 .switch {
@@ -262,24 +278,84 @@ body{
   transition: .4s;
 
 	&:before {
-	  position: absolute;
-	  content: "";
-	  height: 1rem;
-	  width: 1rem;
-	  left: 4px;
-	  bottom: 4px;
-	  background-color: white;
-	  -webkit-transition: .4s;
-	  transition: .4s;
+		position: absolute;
+		content: "";
+		height: 1rem;
+		width: 1rem;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
 	}
-
 	&.round {
-	  border-radius: 34px;
+		border-radius: 34px;
 	}
 
 	&.round:before {
-	  border-radius: 50%;
+		border-radius: 50%;
 	}
+
+	&2{
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #777;
+		-webkit-transition: .4s;
+		transition: .4s;
+		&:before {
+			position: absolute;
+			content: "";
+			height: 1rem;
+			width: 1rem;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		&.round {
+			border-radius: 34px;
+		}
+
+		&.round:before {
+			border-radius: 50%;
+		}
+	}
+
+	&3{
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #777;
+		-webkit-transition: .4s;
+		transition: .4s;
+		&:before {
+			position: absolute;
+			content: "";
+			height: 1rem;
+			width: 1rem;
+			left: 4px;
+			bottom: 4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+		}
+		&.round {
+			border-radius: 34px;
+		}
+
+		&.round:before {
+			border-radius: 50%;
+		}
+	}
+
 
 	&-row{
 		margin-left: 1rem;
@@ -288,31 +364,43 @@ body{
 
 }
 
-input:checked + .slider + .graphic{
+input:checked + .slider{
 	@include graphic;
 }
 
-input:checked + .slider + .web{
+input:checked + .slider2{
 	@include webUx;
 }
 
-input:checked + .slider + .game{
+input:checked + .slider3{
 	@include gameArt;
 }
 
-input:focus + .slider + .graphic{
+input:focus + .slider{
   box-shadow: 0 0 1px #f0932b;
 }
 
-input:focus + .slider + .web{
+input:focus + .slider{
   box-shadow: 0 0 1px #30336b;
 }
 
-input:focus + .slider + .game{
+input:focus + .slider{
   box-shadow: 0 0 1px #badc58;
 }
 
 input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+input:checked + .slider2:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+input:checked + .slider3:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -388,9 +476,10 @@ button {
 	border-radius: 5px;
 	display: flex;
 	flex: 1 1 auto;
-	max-height: 100%;
+	max-height: 200px;
 	cursor: pointer;
 	transition: 0.5s ease;
+	overflow: auto;
 	.border {
 		position: absolute;
 		width: 100%;

@@ -23,13 +23,13 @@ $result = prep_stmt($conn, $dataReq);
 	<script src="js/ajax.min.js"></script>
 
 	<div id="header">
-		<div class="container-row justify-content">
+		<div id="<?php ?>" class="container-row justify-content">
 			<img class="portrait col-3 colsml-6 colmd-1 collrg-1 colxlrg-1" src="img/vin.jpg">
 		</div>
 
 		<div class="container-row">
 			<div class="content col-12 colsml-12 colmd-12 collrg-12 colxlrg-12">
-				<h3>Vin Diesel</h3>
+				<h3>fdsd</h3>
 				<p><i>You know this ain't no 10-second race</i></p>
 			</div>
 		</div>
@@ -42,19 +42,21 @@ $result = prep_stmt($conn, $dataReq);
 			  <input type="checkbox">
 			  <span class="slider round"></span>
 			</label>
-			Web & UX
+			<p class="navSwitch">Graphic Design</p>
 		</div>
 		<div class="container-row slider-row">
 			<label class="switch">
 			  <input type="checkbox">
-			  <span class="slider round graphic"></span>
+			  <span class="slider2 round"></span>
 			</label>
+			<p class="navSwitch">Web & UX</p>
 		</div>
 		<div class="container-row slider-row">
 			<label class="switch">
 			  <input type="checkbox">
-			  <span class="slider round game"></span>
+			  <span class="slider3 round"></span>
 			</label>
+			<p class="navSwitch">Game Art</p>
 		</div>
 	</div>
 
@@ -86,15 +88,15 @@ $result = prep_stmt($conn, $dataReq);
 			</button>
 	</div>
 
-	<div class="cardHolder container-fluid justify-content">
-		<div class="container-row">
+	<div class="cardHolder container-fluid">
+		<div class="container-row justify-content">
 
 			 <?php
 				 $card = '';
 
 				 if ($row = mysqli_fetch_assoc($result)) {
 					 do {
-						 $card .= '<div id="'. $row['class'] .'" class="' . $row['class'] .' col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
+						 $card .= '<div id="'. $row['class'] .'" class="' . $row['class'] .' justify-content col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">';
 						 $card .= '<div class="card btn container-row">';
 						 $card .= '<div class="col-4">';
 						 $card .= '<img class="card-img" src="img/vin.jpg">';
@@ -103,7 +105,6 @@ $result = prep_stmt($conn, $dataReq);
 						 $card .= '<div class="card-content">';
 						 $card .= '<h2>' . $row['firstName'] . ' ' . $row['lastName'] .'</h2>';
 						 $card .= '<p><i>' . $row['class'] . '</i></p>';
-						 $card .= '<p>maybe an extract here from the students bio?</p>';
 						 $card .= '<div class="border ' . $row['class'] .'"></div>';
 						 $card .= '</div></div></div></div>';
 					 } while ($row = mysqli_fetch_assoc($result));
@@ -115,29 +116,10 @@ $result = prep_stmt($conn, $dataReq);
 
 
 
-			<div id ="graphic" class="col-12 colsml-6 colmd-4 collrg-4 colxlrg-4">
-				<div class="gameArt card container-row">
-					<div class="col-4">
-						<img class="card-img" src="img/vin.jpg">
-					</div>
-					<div class="col-8">
-						<div class="card-content">
-							<h2>Vin Diesel</h2>
-							<p><i>graphic</i></p>
-							<p>maybe an extract here from the students bio?</p>
-							<div class="border gameArt"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>
-</div>
-
-
 </div>
 
 	<div id="footer">
-		<div class="container-row">
+		<div id="<?php ?>" class="container-row">
 			<div class="col-12 colsml-12 colmd-12 collrg-12 colxlrg-12">
 				<h4 id="exit">&times;</h4>
 			</div>

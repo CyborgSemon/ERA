@@ -21,11 +21,9 @@ document.getElementById('exit').addEventListener('click', ()=> {
 });
 
 document.getElementById('mobile').addEventListener('click', ()=> {
-		main.style.marginLeft = "25vw";
 		sideNav.classList.add('active');
 });
 
 document.getElementById('sideClose').addEventListener('click', ()=>{
-	 main.style.marginLeft = "0";
 	 sideNav.classList.remove('active');
 });
