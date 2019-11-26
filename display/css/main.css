@@ -685,7 +685,10 @@ button:hover, button:focus {
   overflow-x: none;
 }
 .card-content {
+  text-align: left;
+  align-content: center;
   padding-top: 1rem;
+  padding-bottom: 0.5rem;
   padding-right: 1rem;
 }
 
