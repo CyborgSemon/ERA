@@ -2,281 +2,210 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
+  font-family: 'Roboto', sans-serif; }
 
 .container {
   max-width: 1140px;
-  margin: 0 auto;
-}
-.container-fluid {
-  margin: 0;
-  max-width: 100%;
-}
-.container-row {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
+  margin: 0 auto; }
+  .container-fluid {
+    margin: 0;
+    max-width: 100%; }
+  .container-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; }
 
 .col-1 {
-  flex-basis: 8.3333333333%;
-}
+  flex-basis: 8.3333333333%; }
 
 .col-2 {
-  flex-basis: 16.6666666667%;
-}
+  flex-basis: 16.6666666667%; }
 
 .col-3 {
-  flex-basis: 25%;
-}
+  flex-basis: 25%; }
 
 .col-4 {
-  flex-basis: 33.3333333333%;
-}
+  flex-basis: 33.3333333333%; }
 
 .col-5 {
-  flex-basis: 41.6666666667%;
-}
+  flex-basis: 41.6666666667%; }
 
 .col-6 {
-  flex-basis: 50%;
-}
+  flex-basis: 50%; }
 
 .col-7 {
-  flex-basis: 58.3333333333%;
-}
+  flex-basis: 58.3333333333%; }
 
 .col-8 {
-  flex-basis: 66.6666666667%;
-}
+  flex-basis: 66.6666666667%; }
 
 .col-9 {
-  flex-basis: 75%;
-}
+  flex-basis: 75%; }
 
 .col-10 {
-  flex-basis: 83.3333333333%;
-}
+  flex-basis: 83.3333333333%; }
 
 .col-11 {
-  flex-basis: 91.6666666667%;
-}
+  flex-basis: 91.6666666667%; }
 
 .col-12 {
-  flex-basis: 100%;
-}
+  flex-basis: 100%; }
 
 @media screen and (min-width: 720px) {
   .colmd-1 {
-    flex-basis: 8.3333333333%;
-  }
+    flex-basis: 8.3333333333%; }
 
   .colmd-2 {
-    flex-basis: 16.6666666667%;
-  }
+    flex-basis: 16.6666666667%; }
 
   .colmd-3 {
-    flex-basis: 25%;
-  }
+    flex-basis: 25%; }
 
   .colmd-4 {
-    flex-basis: 33.3333333333%;
-  }
+    flex-basis: 33.3333333333%; }
 
   .colmd-5 {
-    flex-basis: 41.6666666667%;
-  }
+    flex-basis: 41.6666666667%; }
 
   .colmd-6 {
-    flex-basis: 50%;
-  }
+    flex-basis: 50%; }
 
   .colmd-7 {
-    flex-basis: 58.3333333333%;
-  }
+    flex-basis: 58.3333333333%; }
 
   .colmd-8 {
-    flex-basis: 66.6666666667%;
-  }
+    flex-basis: 66.6666666667%; }
 
   .colmd-9 {
-    flex-basis: 75%;
-  }
+    flex-basis: 75%; }
 
   .colmd-10 {
-    flex-basis: 83.3333333333%;
-  }
+    flex-basis: 83.3333333333%; }
 
   .colmd-11 {
-    flex-basis: 91.6666666667%;
-  }
+    flex-basis: 91.6666666667%; }
 
   .colmd-12 {
-    flex-basis: 100%;
-  }
-}
+    flex-basis: 100%; } }
 @media screen and (min-width: 540px) {
   .colsml-1 {
-    flex-basis: 8.3333333333%;
-  }
+    flex-basis: 8.3333333333%; }
 
   .colsml-2 {
-    flex-basis: 16.6666666667%;
-  }
+    flex-basis: 16.6666666667%; }
 
   .colsml-3 {
-    flex-basis: 25%;
-  }
+    flex-basis: 25%; }
 
   .colsml-4 {
-    flex-basis: 33.3333333333%;
-  }
+    flex-basis: 33.3333333333%; }
 
   .colsml-5 {
-    flex-basis: 41.6666666667%;
-  }
+    flex-basis: 41.6666666667%; }
 
   .colsml-6 {
-    flex-basis: 50%;
-  }
+    flex-basis: 50%; }
 
   .colsml-7 {
-    flex-basis: 58.3333333333%;
-  }
+    flex-basis: 58.3333333333%; }
 
   .colsml-8 {
-    flex-basis: 66.6666666667%;
-  }
+    flex-basis: 66.6666666667%; }
 
   .colsml-9 {
-    flex-basis: 75%;
-  }
+    flex-basis: 75%; }
 
   .colsml-10 {
-    flex-basis: 83.3333333333%;
-  }
+    flex-basis: 83.3333333333%; }
 
   .colsml-11 {
-    flex-basis: 91.6666666667%;
-  }
+    flex-basis: 91.6666666667%; }
 
   .colsml-12 {
-    flex-basis: 100%;
-  }
-}
+    flex-basis: 100%; } }
 @media screen and (min-width: 960px) {
   .collrg-1 {
-    flex-basis: 8.3333333333%;
-  }
+    flex-basis: 8.3333333333%; }
 
   .collrg-2 {
-    flex-basis: 16.6666666667%;
-  }
+    flex-basis: 16.6666666667%; }
 
   .collrg-3 {
-    flex-basis: 25%;
-  }
+    flex-basis: 25%; }
 
   .collrg-4 {
-    flex-basis: 33.3333333333%;
-  }
+    flex-basis: 33.3333333333%; }
 
   .collrg-5 {
-    flex-basis: 41.6666666667%;
-  }
+    flex-basis: 41.6666666667%; }
 
   .collrg-6 {
-    flex-basis: 50%;
-  }
+    flex-basis: 50%; }
 
   .collrg-7 {
-    flex-basis: 58.3333333333%;
-  }
+    flex-basis: 58.3333333333%; }
 
   .collrg-8 {
-    flex-basis: 66.6666666667%;
-  }
+    flex-basis: 66.6666666667%; }
 
   .collrg-9 {
-    flex-basis: 75%;
-  }
+    flex-basis: 75%; }
 
   .collrg-10 {
-    flex-basis: 83.3333333333%;
-  }
+    flex-basis: 83.3333333333%; }
 
   .collrg-11 {
-    flex-basis: 91.6666666667%;
-  }
+    flex-basis: 91.6666666667%; }
 
   .collrg-12 {
-    flex-basis: 100%;
-  }
-}
+    flex-basis: 100%; } }
 @media screen and (min-width: 1140px) {
   .colxlrg-1 {
-    flex-basis: 8.3333333333%;
-  }
+    flex-basis: 8.3333333333%; }
 
   .colxlrg-2 {
-    flex-basis: 16.6666666667%;
-  }
+    flex-basis: 16.6666666667%; }
 
   .colxlrg-3 {
-    flex-basis: 25%;
-  }
+    flex-basis: 25%; }
 
   .colxlrg-4 {
-    flex-basis: 33.3333333333%;
-  }
+    flex-basis: 33.3333333333%; }
 
   .colxlrg-5 {
-    flex-basis: 41.6666666667%;
-  }
+    flex-basis: 41.6666666667%; }
 
   .colxlrg-6 {
-    flex-basis: 50%;
-  }
+    flex-basis: 50%; }
 
   .colxlrg-7 {
-    flex-basis: 58.3333333333%;
-  }
+    flex-basis: 58.3333333333%; }
 
   .colxlrg-8 {
-    flex-basis: 66.6666666667%;
-  }
+    flex-basis: 66.6666666667%; }
 
   .colxlrg-9 {
-    flex-basis: 75%;
-  }
+    flex-basis: 75%; }
 
   .colxlrg-10 {
-    flex-basis: 83.3333333333%;
-  }
+    flex-basis: 83.3333333333%; }
 
   .colxlrg-11 {
-    flex-basis: 91.6666666667%;
-  }
+    flex-basis: 91.6666666667%; }
 
   .colxlrg-12 {
-    flex-basis: 100%;
-  }
-}
+    flex-basis: 100%; } }
 body {
-  background-color: #242323;
-}
+  background-color: #242323; }
 
 .landing {
   display: flex;
   align-content: center;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .justify-content {
   display: flex;
-  justify-content: center;
-}
+  justify-content: center; }
 
 #main {
   transition: margin-left 0.5s;
@@ -605,9 +534,7 @@ button:hover, button:focus {
 .btn:focus {
   color: white;
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-}
-
+  transform: translateY(-0.25em); }
 .btnCon {
   display: none;
 }
@@ -694,26 +621,19 @@ button:hover, button:focus {
 
 .cardHolder {
   display: flex;
-  flex-direction: row;
-}
-@media screen and (min-width: 540px) {
-  .cardHolder {
-    max-width: 100%;
-  }
-}
-@media screen and (min-width: 720px) {
-  .cardHolder {
-    display: flex;
-    justify-content: space-around;
-    margin: 4.5rem;
-  }
-}
-
+  flex-direction: row; }
+  @media screen and (min-width: 540px) {
+    .cardHolder {
+      max-width: 100%; } }
+  @media screen and (min-width: 720px) {
+    .cardHolder {
+      display: flex;
+      justify-content: space-around;
+      margin: 4.5rem; } }
 #exit {
   float: left;
   font-size: 2rem;
-  padding: 0.5rem;
-}
+  padding: 0.5rem; }
 
 #footer {
   width: 100%;
@@ -737,37 +657,26 @@ button:hover, button:focus {
 .portraitLrg {
   display: flex;
   align-content: center;
-  justify-content: center;
-}
-@media screen and (min-width: 720px) {
-  .portraitLrg {
-    width: 7rem;
-    height: 100%;
-  }
-}
-@media screen and (min-width: 960px) {
-  .portraitLrg {
-    width: 100%;
-    height: 100%;
-  }
-}
+  justify-content: center; }
+  @media screen and (min-width: 720px) {
+    .portraitLrg {
+      width: 7rem;
+      height: 100%; } }
+  @media screen and (min-width: 960px) {
+    .portraitLrg {
+      width: 100%;
+      height: 100%; } }
 
 .bioLrg {
   color: #FEFEFE;
   text-align: center;
   padding-left: 1rem;
-  padding-right: 1rem;
-}
-@media screen and (min-width: 960px) {
-  .bioLrg {
-    height: 100%;
-  }
-  .bioLrg h2 {
-    font-size: 1.5rem;
-  }
-  .bioLrg p {
-    font-size: 1rem;
-  }
-}
-
+  padding-right: 1rem; }
+  @media screen and (min-width: 960px) {
+    .bioLrg {
+      height: 100%; }
+      .bioLrg h2 {
+        font-size: 1.5rem; }
+      .bioLrg p {
+        font-size: 1rem; } }
 /*# sourceMappingURL=main.css.map */

@@ -1,6 +1,13 @@
+@import 'variables';
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
+@import 'loginPage';
+@import 'homePage';
+@import 'viewPage';
+@import 'memberPage';
