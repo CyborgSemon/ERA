@@ -2,7 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::create(__DIR__.'../../../');
+$dotenv = Dotenv\Dotenv::create(__DIR__.'../../../../');
 $dotenv->load();
 
 require_once 'dbc.php';
@@ -30,7 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$newFileName .= '.' . $uploadedFileExt;
 
-	$fileUrl = 'http://'.$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['REQUEST_URI'])).'/uploadsLink/'.$newFileName;;
+	if (isset($_SERVER['HTTPS'])) {
+		$type = 'https://';
+	} else  {
+		$type = 'http://';
+	}
+
+	$fileUrl = $type.$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['REQUEST_URI'])).'/uploadsLink/'.$newFileName;;
 
 	if (move_uploaded_file($_FILES['image']['tmp_name'], '../../uploads/'.$newFileName)) {
 		$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';

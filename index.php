@@ -1,12 +1,12 @@
 <?php
-
 require 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::create(__DIR__.'../../');
+$dotenv = Dotenv\Dotenv::create(__DIR__.'/../');
 $dotenv->load();
 
 require 'includes/dbc.php';
 require 'includes/statement.php';
+
 
 $dataReq = "SELECT users.id, users.firstName, users.lastName, users.class, users.profileImage, users.type, portfolio.active, portfolio.dataJSON FROM (users INNER JOIN portfolio ON users.id = portfolio.userId) WHERE users.type = 'student' AND portfolio.active = 'pass' ORDER BY users.firstName";
 $result = prep_stmt($conn, $dataReq);

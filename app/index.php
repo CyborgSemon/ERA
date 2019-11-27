@@ -2,7 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::create(__DIR__.'../../');
+$dotenv = Dotenv\Dotenv::create(__DIR__.'../../../');
 $dotenv->load();
 
 require_once 'includes/dbc.php';
