@@ -79,7 +79,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 			<div class="profile">
 				<img src="<?php echo $profile; ?>" alt="Image of <?php echo $firstName . ' ' . $lastName; ?>">
 				<h2><?php echo $firstName . ' ' . $lastName; ?></h2>
-				<p class="<?php echo $class; ?>"><?php echo $class; ?></p>
+				<p class="<?php echo $class; ?>"><?php echo ucfirst($class); ?></p>
 			</div>
 		</div>
 		<div class="section">

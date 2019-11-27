@@ -1,3 +1,21 @@
+$viewBreakPoint1: 1600px;
+$viewBreakPoint2: 1100px;
+$viewBreakPoint3: 700px;
+$viewBreakPoint4: 500px;
+
+$cardMargin: 24px;
+
+$webColor: rgb(219, 139, 45);
+$graphicColor: rgb(223, 29, 36);
+$gameColor: rgb(227, 166, 194);
+
+$background: #222;
+$backgroundCard: lighten($background, 5%);
+$textColor: white;
+
+$headerAmount: 200px;
+
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,599 +23,253 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-//variables
-//for extra-small viewports, use max-width
-$xsml: 576px;
-//min-width for the following viewports
-$sml: 540px;
-$med: 720px;
-$lrg: 960px;
-$xlrg: 1140px;
-$gridCol: 12;
-$dark: #242323;
-$card: #363636;
-
-// mixins
-@mixin mediaQuery($arg){
-	@media screen and (min-width: $arg){
-		@content;
+body {
+	background-color: $background;
+	color: $textColor;
+	&.active {
+		overflow-y: hidden;
 	}
 }
 
-@mixin gameArt{
-	background: rgb(186,220,88);
-	background: linear-gradient(90deg, rgba(186,220,88,1) 25%, rgba(106,176,76,1) 75%);
-	transition: 1s ease;
+#header {
+	position: fixed;
+	height: $headerAmount;
+	top: -$headerAmount;
+	width: 100%;
+	background-color: inherit;
+	transition: top 1s ease;
+	z-index: 2;
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		opacity: 0.05;
+		background-image: url('../images/lines.gif');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	&.active {
+		top: 0;
+	}
+	#exit {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		font-size: 2rem;
+		cursor: pointer;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	#profile {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		img {
+			width: 130px;
+			border-radius: 50%;
+			margin-bottom: 8px;
+			@media (max-width: $viewBreakPoint1) {
+				width: 110px;
+			}
+			@media (max-width: $viewBreakPoint3) {
+				width: 90px;
+			}
+		}
+		h2 {
+			margin-bottom: 4px;
+		}
+		p {
+			opacity: 0.5;
+		}
+	}
 }
 
-@mixin webUx{
-	background: rgb(48,51,107);
-	background: linear-gradient(90deg, rgba(48,51,107,1) 25%, rgba(104,109,224,1) 75%);
-	transition: 1s ease;
+#footer {
+	position: fixed;
+	height: calc(100vh - #{$headerAmount});
+	bottom: calc(-100vh + #{$headerAmount});
+	width: 100%;
+	background-color: inherit;
+	transition: bottom 1s ease;
+	z-index: 2;
+	overflow-y: scroll;
+	&.active {
+		bottom: 0;
+	}
+	#content {
+		width: 1000px;
+		@media (max-width: $viewBreakPoint1) {
+			width: 800px;
+		}
+		@media (max-width: $viewBreakPoint2) {
+			width: 600px;
+		}
+		@media (max-width: $viewBreakPoint3) {
+			width: 80%;
+		}
+		padding-top: 48px;
+		margin: 0 auto;
+		.block {
+			line-height: 1.7em;
+			width: 80%;
+			margin: 16px auto;
+			&.full {
+				width: 100% !important;
+			}
+			img {
+				width: 100%;
+				border-radius: 4px;
+			}
+			.caption {
+				color: rgba(white, 0.50);
+				font-style: italic;
+				font-size: 0.9em;
+				margin: 6px auto;
+				padding-left: 8px;
+			}
+			iframe {
+				width: 100%;
+			}
+		}
+	}
 }
-
-@mixin graphic{
-	background: rgb(240,147,43);
-	background: linear-gradient(90deg, rgba(240,147,43,1) 25%, rgba(255,190,118,1) 75%);
-	transition: 1s ease;
-}
-
-
-//grids and media-queries
 
 .container {
-	max-width: $xlrg;
-	margin: 0 auto;
-	&-fluid {
-		margin: 0;
-		max-width: 100%;
+	margin: 24px auto;
+	width: 1600px;
+	height: 100%;
+	@media (max-width: $viewBreakPoint1) {
+		width: $viewBreakPoint2;
 	}
-	&-row {
+	@media (max-width: $viewBreakPoint2) {
+		width: $viewBreakPoint3;
+	}
+	@media (max-width: $viewBreakPoint3) {
+		width: $viewBreakPoint4;
+	}
+	@media (max-width: $viewBreakPoint4) {
+		width: 96%;
+	}
+	.topArea {
+		.filter {
+			margin-bottom: 24px;
+			text-align: center;
+			button {
+				padding: 12px 24px;
+				background-color: $background;
+				border-radius: 25px;
+				color: white;
+				margin: 0 24px;
+				cursor: pointer;
+				font-size: 1em;
+				outline: none;
+				position: relative;
+				border: none;
+				transition: 0.5s;
+				.buttonBorder {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border: 1px solid white;
+					border-radius: 50px;
+					transition: 0.5s;
+					pointer-events: none;
+				}
+				&:hover .buttonBorder {
+					border: 4px solid white;
+				}
+				&#graphicBtn.active {
+					background-color: rgba($graphicColor, 95%);
+				}
+				&#gameBtn.active {
+					background-color: rgba($gameColor, 95%);
+				}
+				&#webBtn.active {
+					background-color: rgba($webColor, 95%);
+				}
+			}
+		}
+	}
+	#students {
 		display: flex;
 		flex-wrap: wrap;
-		width: 100%;
-	}
-}
-
-@for $i from 1 through $gridCol {
-	.col-#{$i} {
-		flex-basis: (100 / ($gridCol / $i) ) * 1%;
-	}
-}
-
-@media screen and (min-width: $med) {
-	@for $i from 1 through $gridCol {
-		.colmd-#{$i} {
-			flex-basis: (100 / ($gridCol / $i) ) * 1%;
+		&.active {
+			overflow: hidden;
 		}
-	}
-}
-
-@media screen and (min-width: $sml) {
-	@for $i from 1 through $gridCol {
-		.colsml-#{$i} {
-			flex-basis: (100 / ($gridCol / $i) ) * 1%;
-		}
-	}
-}
-@media screen and (min-width: $lrg) {
-	@for $i from 1 through $gridCol {
-		.collrg-#{$i} {
-			flex-basis: (100 / ($gridCol / $i) ) * 1%;
-		}
-	}
-}
-@media screen and (min-width: $xlrg) {
-	@for $i from 1 through $gridCol {
-		.colxlrg-#{$i} {
-			flex-basis: (100 / ($gridCol / $i) ) * 1%;
-		}
-	}
-}
-
-body{
-	background-color: $dark;
-}
-
-.landing{
-	display: flex;
-	align-content: center;
-	justify-content: center;
-}
-
-.justify-content{
-	display: flex;
-	justify-content: center;
-}
-
-#main{
-	transition: margin-left .5s;
-  padding: 0.5rem;
-}
-
-.era{
-	margin-top: 1.3rem;
-	font-size: 3rem;
-	color: #FEFEFE;
-	margin-top: 0.5rem;
-	margin-bottom: 3rem;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-	z-index: 1;
-	width: 4rem;
-	height: 4rem;
-
-	@include mediaQuery($med){
-		display: inline-block;
-		font-size: 9rem;
-		margin: 1rem;
-	}
-
-	@include mediaQuery($lrg){
-		display: inline-block;
-		font-size: 15rem;
-		margin: 1rem;
-	}
-}
-
-
-#header{
-	text-align: center;
-	background-color: purple;
-	top: -30vh;
-	height: 30vh;
-	width: 100%;
-	position: fixed;
-	transition: 1s ease;
-	z-index: 2;
-
-	&.active{
-		top: 0;
-	}
-
-	@include mediaQuery($xlrg){
-		height: 30vh;
-		top: -30vh;
-	}
-
-	.portrait{
-		display: flex;
-		justify-content: center;
-		position: absolute;
-		margin-top: 3rem;
-		width: 5rem;
-		height: 5.5rem;
-		padding: 0.1rem;
-		border-radius: 80%;
-
-		@include mediaQuery ($sml){
-			max-width: 150px;
-			max-height: 150px;
-		}
-
-		@include mediaQuery ($med){
-			max-width: 200px;
-			max-height: 200px;
-		}
-
-		@include mediaQuery ($lrg){
-			max-width: 250px;
-			max-height: 250px;
-		}
-
-		@include mediaQuery ($xlrg){
-			max-width: 300px;
-			max-height: 300px;
-		}
-
-		@media(orientation: landscape){
-			max-width: 200px;
-			max-height: 200px;
-		}
-	}
-}
-.content{
-	padding: 0.4rem;
-
-	@include mediaQuery($med){
-		padding: 0.5rem;
-	}
-
-	@media (orientation: landscape){
-		top: -4rem;
-		padding: 0rem;
-	}
-}
-
-.sideNav{
-	height: 100%;
-	width: 0;
-	position: absolute;
-	z-index: 5;
-	top: 0;
-	left: 0;
-	background-color: $card;
-	overflow-x: hidden;
-	padding-top: 2rem;
-	transition: 0.5s;
-
-	.sideNavClose{
-		position: absolute;
-		top: 0;
-		right: 2.5rem;
-		color: #FFF;
-		font-size: 2.5rem;
-		margin-left: 3rem;
-	}
-
-	.navSwitch{
-		display: inline-block;
-		color: #FFF;
-		font-size: 1rem;
-		margin-left: 1rem;
-
-		@include mediaQuery($med){
-			font-size: 2rem;
-		}
-	}
-
-	&.active{
-		width: 100vw;
-
-		@include mediaQuery($med){
-			width: 50vw;
-		}
-	}
-
-
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 3rem;
-  height: 1.5rem;
-
-	& input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-	}
-}
-
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #777;
-  -webkit-transition: .4s;
-  transition: .4s;
-
-	&:before {
-		position: absolute;
-		content: "";
-		height: 1rem;
-		width: 1rem;
-		left: 4px;
-		bottom: 4px;
-		background-color: white;
-		-webkit-transition: .4s;
-		transition: .4s;
-	}
-	&.round {
-		border-radius: 34px;
-	}
-
-	&.round:before {
-		border-radius: 50%;
-	}
-
-	&2{
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #777;
-		-webkit-transition: .4s;
-		transition: .4s;
-		&:before {
-			position: absolute;
-			content: "";
-			height: 1rem;
-			width: 1rem;
-			left: 4px;
-			bottom: 4px;
-			background-color: white;
-			-webkit-transition: .4s;
-			transition: .4s;
-		}
-		&.round {
-			border-radius: 34px;
-		}
-
-		&.round:before {
-			border-radius: 50%;
-		}
-	}
-
-	&3{
-		position: absolute;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: #777;
-		-webkit-transition: .4s;
-		transition: .4s;
-		&:before {
-			position: absolute;
-			content: "";
-			height: 1rem;
-			width: 1rem;
-			left: 4px;
-			bottom: 4px;
-			background-color: white;
-			-webkit-transition: .4s;
-			transition: .4s;
-		}
-		&.round {
-			border-radius: 34px;
-		}
-
-		&.round:before {
-			border-radius: 50%;
-		}
-	}
-
-
-	&-row{
-		margin-left: 1rem;
-		margin-top: 1rem;
-	}
-
-}
-
-input:checked + .slider{
-	@include graphic;
-}
-
-input:checked + .slider2{
-	@include webUx;
-}
-
-input:checked + .slider3{
-	@include gameArt;
-}
-
-input:focus + .slider{
-  box-shadow: 0 0 1px #f0932b;
-}
-
-input:focus + .slider{
-  box-shadow: 0 0 1px #30336b;
-}
-
-input:focus + .slider{
-  box-shadow: 0 0 1px #badc58;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-input:checked + .slider2:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-input:checked + .slider3:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-
-.mobile{
-	margin: 1rem;
-	font-size: 2rem;
-	color: #FFF;
-
-	@include mediaQuery($lrg){
-		display: none;
-	}
-}
-
-button {
-	background-color: transparent;
-	border: 2px solid;
-	font: inherit;
-	line-height: 1;
-	margin: 0.5em;
-	padding: 1em 2em;
-	border-radius: 2.5rem;
-	text-transform: uppercase;
-	font-weight: bold;
-	transition: 1s ease;
-	cursor: pointer;
-	&:hover,
-	&:focus {
-		box-shadow: inset 0 0 0 2em;
-	}
-}
-
-.btn:hover,
-.btn:focus {
-	color: white;
-	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-	transform: translateY(-0.25em);
-}
-
-.btnCon{
-	display: none;
-
-	@include mediaQuery($lrg){
-		display: flex;
-		justify-content: center;
-		margin-top: 1rem;
-	}
-}
-
-.webBtn:hover{
-	@include webUx;
-}
-
-.graphicBtn:hover{
-	@include graphic;
-}
-
-.gameBtn:hover{
-	@include gameArt;
-}
-
-.card{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	position: relative;
-	padding: 6px;
-	text-align: center;
-	max-width: 80%;
-	background-color: $card;
-	margin: 1rem;
-	color: #FEFEFE;
-	border-radius: 5px;
-	display: flex;
-	flex: 1 1 auto;
-	max-height: 200px;
-	cursor: pointer;
-	transition: 0.5s ease;
-	overflow: auto;
-	.border {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		transition: 0.5s;
-		border-radius: 5px;
-		top: 0;
-		left: 0;
-		border: 1px solid transparent;
-		pointer-events: none;
-	}
-
-	&:hover{
-		transform: translateY(-0.25em);
-		.border {
-			&.web {
-				border: 3px solid #4834d4;
+		.card {
+			position: relative;
+			width: calc((100% / 4) - #{$cardMargin});
+			margin: ($cardMargin / 2);
+			cursor: pointer;
+			padding: 16px;
+			border-radius: 8px;
+			background-color: $backgroundCard;
+			@media (max-width: $viewBreakPoint1) {
+				width: calc((100% / 3) - #{$cardMargin});
 			}
-			&.graphic{
-				border: 3px solid #f0932b;
+			@media (max-width: $viewBreakPoint2) {
+				width: calc((100% / 2) - #{$cardMargin});
 			}
-			&.gameArt{
-				border: 3px solid #6ab04c;
+			@media (max-width: $viewBreakPoint3) {
+				width: calc(100% - #{$cardMargin});
+			}
+			.cardContent {
+				display: flex;
+				align-items: center;
+				img {
+					width: 120px;
+					@media (max-width: $viewBreakPoint1) {
+						width: 100px;
+					}
+					@media (max-width: $viewBreakPoint2) {
+						width: 70px;
+					}
+					border-radius: 50%;
+				}
+				.cardText {
+					margin-left: 24px;
+				}
+			}
+			.cardBorder {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				pointer-events: none;
+				border: 0 solid transparent;
+				transition: border 0.5s ease;
+				border-radius: 8px;
+			}
+			&.web:hover .cardBorder{
+				border: 3px solid $webColor;
+			}
+			&.graphic:hover .cardBorder{
+				border: 3px solid $graphicColor;
+			}
+			&.game:hover .cardBorder{
+				border: 3px solid $gameColor;
 			}
 		}
-	}
-
-	&-img{
-		height: 7.7rem;
-		width: 100%;
-		padding: 0.4rem;
-		border-radius: 100%;
-		overflow-x: none;
-	}
-
-	&-content{
-		text-align: left;
-		align-content: center;
-		padding-top: 1rem;
-		padding-bottom: 0.5rem;
-		padding-right: 1rem;
-	}
-}
-
-.cardHolder{
-	display: flex;
-	flex-direction: row;
-
-	@include mediaQuery($sml){
-		max-width: 100%;
-	}
-
-	@include mediaQuery($med){
-		display: flex;
-		justify-content: space-around;
-		margin: 4.5rem;
-	}
-
-}
-
-#exit{
-	float: left;
-	font-size: 2rem;
-	padding: 0.5rem;
-}
-
-#footer{
-	width: 100%;
-	height: 70vh;
-	position: fixed;
-	overflow-y: scroll;
-	bottom: -70vh;
-	transition: 1s ease;
-	z-index: 2;
-	background-color: blue;
-
-	&.active{
-		bottom: 0;
-	}
-
-	@include mediaQuery($med){
-		overflow-y: auto;
-	}
-}
-
-.portraitLrg{
-	display: flex;
-	align-content: center;
-	justify-content: center;
-
-	@include mediaQuery($med){
-		width: 7rem;
-		height: 100%;
-	}
-
-	@include mediaQuery($lrg){
-		width: 100%;
-		height: 100%;
-	}
-}
-
-.bioLrg{
-	color: #FEFEFE;
-	text-align: center;
-	padding-left: 1rem;
-	padding-right: 1rem;
-
-	@include mediaQuery($xsml){
-	}
-
-	@include mediaQuery($lrg){
-		h2{
-			font-size: 1.5rem;
+		#studentError {
+			width: 100%;
+			text-align: center;
 		}
-
-		p{
-			font-size: 1rem;
-		}
-		height: 100%;
 	}
 }
