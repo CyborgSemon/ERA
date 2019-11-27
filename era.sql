@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 09, 2019 at 10:18 AM
+-- Generation Time: Nov 27, 2019 at 08:27 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.8
 
@@ -30,7 +30,8 @@ CREATE TABLE `portfolio` (
   `id` int(10) UNSIGNED NOT NULL,
   `userId` int(10) UNSIGNED NOT NULL,
   `dataJSON` text NOT NULL,
-  `active` enum('pending','failed','pass') NOT NULL,
+  `dataJSONdraft` text NOT NULL,
+  `active` enum('pending','failed','pass','passedDraftPending','passedDraftFailed') NOT NULL,
   `feedback` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

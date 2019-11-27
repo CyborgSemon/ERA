@@ -15,24 +15,32 @@ if (!isset($_SESSION['id'])) {
 		if ($row = mysqli_fetch_assoc($result)) {
 			$validPassword = password_verify($_POST['password'], $row['password']);
 			if ($validPassword) {
-				$_SESSION['id'] = $row['id'];
-				$_SESSION['username'] = $row['username'];
-				$_SESSION['firstName'] = $row['firstName'];
-				$_SESSION['lastName'] = $row['lastName'];
-				$_SESSION['email'] = $row['email'];
-				$_SESSION['class'] = $row['class'];
-				$_SESSION['profileImage'] = $row['profileImage'];
-				$_SESSION['type'] = $row['type'];
-
-				if ($row['type'] == 'student') {
-					header('Location: ../home.php');
-				} else if ($row['type'] == 'member') {
-					header('Location: ../dash.php');
+				$firstLogin = password_verify($row['username'], $row['password']);
+				if ($firstLogin) {
+					$_SESSION['id'] = $row['id'];
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['firstName'] = $row['firstName'];
+					$_SESSION['lastName'] = $row['lastName'];
+					header('Location: ../newLogin.php');
+					exit();
 				} else {
-					header('Location: logout.php');
+					$_SESSION['id'] = $row['id'];
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['firstName'] = $row['firstName'];
+					$_SESSION['lastName'] = $row['lastName'];
+					$_SESSION['email'] = $row['email'];
+					$_SESSION['class'] = $row['class'];
+					$_SESSION['profileImage'] = $row['profileImage'];
+					$_SESSION['type'] = $row['type'];
+
+					if ($row['type'] == 'student') {
+						header('Location: ../home.php');
+					} else if ($row['type'] == 'member') {
+						header('Location: ../dash.php');
+					} else {
+						header('Location: logout.php');
+					}
 				}
-
-
 			} else {
 				$_SESSION['message'] = 'Invalid Username or Password';
 				header('Location: ../index.php');
