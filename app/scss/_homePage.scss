@@ -80,7 +80,9 @@ $breakPoint3: 880px;
 	.card {
 		text-align: center;
 		.buttons {
-			margin-bottom: 24px;
+			@media (max-width: $breakPoint1) {
+				margin-bottom: 24px;
+			}
 			* {
 				display: inline-block;
 				margin: 4px 0;
@@ -124,14 +126,8 @@ $breakPoint3: 880px;
 	> div {
 		margin-top: 24px;
 	}
-}
-
-.accountBox {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	.information {
-		text-align: center;
+	.feedback h2 {
+		margin-bottom: 12px;
 	}
 }
 

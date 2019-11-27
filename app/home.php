@@ -53,11 +53,11 @@ if ($status) {
 					<img class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
 					<div class="buttons">
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
-						<span>Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
-						<br>
-						<a class="accountButton" href="viewCurrent.php?type=draft" target="_blank">View Draft</a>
+						<span id="draftStatus">Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
 						<br>
 						<?php if (isset($subSpan)) echo '<a class="accountButton" href="viewCurrent.php?type=live" target="_blank">View Live</a><br>'; ?>
+						<a class="accountButton" href="viewCurrent.php?type=draft" target="_blank">View Draft</a>
+						<br>
 						<button class="accountButton" id="save" type="button" name="button">Save</button>
 						<br>
 						<a class="accountButton" href="includes/logout.php">Logout</a>
@@ -73,7 +73,7 @@ if ($status) {
 				</div>
 			</div>
 			<div class="content">
-				<?php if ($feedback) echo '<div class="feedback card">'.$feedback.'</div>'; ?>
+				<?php if ($feedback) echo '<div class="feedback card"><h2>Feedback:</h2>'.$feedback.'</div>'; ?>
 				<div class="editor card" id="editor"></div>
 			</div>
 		</div>
@@ -81,7 +81,6 @@ if ($status) {
 		if ($data) echo '<script>let data = '.$data.';</script>';
 		?>
 		<script src="js/editor.js"></script>
-		<script src="js/modules.js"></script>
 		<script src="js/ajax.min.js"></script>
 		<script src="js/home.min.js"></script>
 	</body>

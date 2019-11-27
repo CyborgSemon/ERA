@@ -15,7 +15,7 @@ if (typeof data !== 'undefined') {
 				inlineToolbar: true,
 				config: {
 					endpoints: {
-						byFile: 'http://localhost/projects/ERA/app/includes/upload.php'
+						byFile: 'includes/upload.php'
 					}
 				}
 			},
@@ -28,10 +28,6 @@ if (typeof data !== 'undefined') {
 						vimeo: true
 					}
 				}
-			},
-			list: {
-				class: List,
-				inlineToolbar: true,
 			}
 		},
 		data: data,
@@ -52,7 +48,7 @@ if (typeof data !== 'undefined') {
 				inlineToolbar: true,
 				config: {
 					endpoints: {
-						byFile: 'http://localhost/projects/ERA/app/includes/upload.php'
+						byFile: 'includes/upload.php'
 					}
 				}
 			},
@@ -65,10 +61,6 @@ if (typeof data !== 'undefined') {
 						vimeo: true
 					}
 				}
-			},
-			list: {
-				class: List,
-				inlineToolbar: true,
 			}
 		}
 	});
@@ -91,7 +83,9 @@ $('#save').addEventListener('click', ()=> {
 				snackbar('Portfolio updated');
 			} else {
 				snackbar(x);
+				return;
 			}
+			$('#draftStatus').innerText = 'Draft portfolio status: pending';
 		});
 	}).catch((err) =>{
 		console.log('Something went wrong', err);

@@ -12,8 +12,8 @@ body {
 
 #header {
   position: fixed;
-  height: 200px;
-  top: -200px;
+  height: 230px;
+  top: -230px;
   width: 100%;
   background-color: inherit;
   transition: top 1s ease;
@@ -70,13 +70,14 @@ body {
 
 #footer {
   position: fixed;
-  height: calc(100vh - 200px);
-  bottom: calc(-100vh + 200px);
+  height: calc(100vh - 230px);
+  bottom: calc(-100vh + 230px);
   width: 100%;
   background-color: inherit;
   transition: bottom 1s ease;
   z-index: 2;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  padding-bottom: 48px; }
   #footer.active {
     bottom: 0; }
   #footer #content {

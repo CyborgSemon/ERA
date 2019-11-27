@@ -2,7 +2,7 @@ $viewBreakPoint1: 1200px;
 $viewBreakPoint2: 1000px;
 $viewBreakPoint3: 800px;
 
-$headerHeight: 300px;
+$headerHeight: 230px;
 
 body.view {
 	background-color: #222;
@@ -14,7 +14,8 @@ body.view {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
+	position: fixed;
+	width: 100%;
 	&:after {
 		content: "";
 		position: absolute;
@@ -52,7 +53,12 @@ body.view {
 }
 
 .section {
+	position: fixed;
+	top: $headerHeight;
 	height: calc(100vh - #{$headerHeight});
+	overflow-y: scroll;
+	width: 100%;
+	padding-bottom: 48px;
 	#content {
 		width: 1000px;
 		@media (max-width: $viewBreakPoint1) {

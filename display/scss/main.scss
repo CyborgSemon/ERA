@@ -13,7 +13,7 @@ $background: #222;
 $backgroundCard: lighten($background, 5%);
 $textColor: white;
 
-$headerAmount: 200px;
+$headerAmount: 230px;
 
 
 * {
@@ -107,6 +107,7 @@ body {
 	transition: bottom 1s ease;
 	z-index: 2;
 	overflow-y: scroll;
+	padding-bottom: 48px;
 	&.active {
 		bottom: 0;
 	}

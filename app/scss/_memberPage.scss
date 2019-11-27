@@ -1,16 +1,30 @@
-body.inactive {
+body {
 	overflow: hidden;
-	#dialog {
-		display: block !important;
+	&.inactive {
+		#dialog {
+			display: block !important;
+		}
+	}
+	&.addStudent {
+		#dialogNew {
+			display: block !important;
+		}
 	}
 }
 
 .admin {
+	z-index: 10;
+	width: 60%;
+	@media (max-width: 700px) {
+		width: 90%;
+	}
+	margin: 0 auto;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	padding: 20px 0;
-	a {
+	position: relative;
+	a, button {
 		padding: 4px 12px;
 		border-radius: 4px;
 		font-size: 1em;
@@ -26,15 +40,20 @@ body.inactive {
 			background-color: darken(#6BC781, 10%);
 		}
 	}
+	h2 {
+		width: 100%;
+		text-align: center;
+	}
 }
 
-#dialog {
+.dialog {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100vh;
 	display: none;
+	z-index: 50;
 	.dialogContainer {
 		position: absolute;
 		top: 50%;
@@ -43,6 +62,9 @@ body.inactive {
 		background-color: white;
 		padding: 24px;
 		border-radius: 24px;
+		> h3 {
+			margin-bottom: 8px;
+		}
 		.dialogButtons {
 			display: flex;
 			justify-content: space-around;
@@ -60,18 +82,36 @@ body.inactive {
 				&:hover {
 					box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 				}
-				&#accept {
+				&.accept {
 					background-color: #6BC781;
 					&:hover {
 						background-color: darken(#6BC781, 10%);
 					}
 				}
-				&#cancel {
+				&.cancel {
 					background-color: #EA7B7B;
 					&:hover {
 						background-color: darken(#EA7B7B, 10%);
 					}
 				}
+			}
+		}
+	}
+	.caption {
+		color: rgba(0,0,0,0.5);
+		font-size: 0.8em;
+		margin: -8px 0 12px 0;
+	}
+	#radioField {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		.radioButton {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			input {
+				margin-bottom: 4px;
 			}
 		}
 	}
@@ -118,6 +158,9 @@ body.inactive {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+				.name {
+					font-size: 1.3em;
+				}
 			}
 			.buttons {
 				display: flex;

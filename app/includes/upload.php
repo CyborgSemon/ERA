@@ -13,6 +13,9 @@ if (!$_SESSION['id']) {
 	exit();
 }
 
+ini_set('upload_max_filesize', '50M');
+ini_set('post_max_size', '52M');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$sql = 'SELECT MAX(id) AS id FROM uploads';
 
@@ -33,12 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';
 		prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $uploadedFileName, $uploadedFileExt, $fileUrl]);
 
-		$result->success = 1;
-		$result->file->url = $fileUrl;
-		echo json_encode($result);
+		if (isset($_POST['urlOnly'])) {
+			echo $fileUrl;
+		} else {
+			$result->success = 1;
+			$result->file->url = $fileUrl;
+			echo json_encode($result);
+		}
 	} else {
-		$result->success = 0;
-		echo json_encode($result);
+		if (isset($_POST['urlOnly'])) {
+			echo 'failed';
+		} else {
+			$result->success = 0;
+			echo json_encode($result);
+		}
 	}
 } else {
 	echo 'You dont have permission to access this page';

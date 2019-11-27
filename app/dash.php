@@ -35,22 +35,75 @@ if ($row = mysqli_fetch_assoc($result)) {
 		<div id="snackbar">
 			<span id="snackbarMsg"></span>
 		</div>
-		<div id="dialog" data-student="">
+		<div id="dialogNew" class="dialog" id="newStudentDialog">
+			<div class="dialogContainer">
+				<h3>Add a new student:</h3>
+				<div class="inputs">
+					<div class="inputField">
+						<input type="text" id="usernameNew" name="username" autocomplete="off" placeholder="Student Login Number">
+						<label for="usernameNew">Student Login Number</label>
+						<div class="inputBorder"></div>
+					</div>
+					<div class="inputField">
+						<input type="text" id="firstNameNew" name="firstName" autocomplete="off" placeholder="Student First Name">
+						<label for="firstNameNew">Student First Name</label>
+						<div class="inputBorder"></div>
+					</div>
+					<div class="inputField">
+						<input type="text" id="lastNameNew" name="lastName" autocomplete="off" placeholder="Student Last Name">
+						<label for="lastNameNew">Student Last Name</label>
+						<div class="inputBorder"></div>
+					</div>
+					<div class="inputField">
+						<input type="email" id="emailNew" name="email" autocomplete="off" placeholder="Student Email">
+						<label for="emailNew">Student Email</label>
+						<div class="inputBorder"></div>
+					</div>
+					<div class="inputField">
+						<input type="file" accept="image/*" id="profileNew" name="profileName" autocomplete="off">
+						<div class="inputBorder"></div>
+					</div>
+					<div class="caption">Max image size: 50 MB</div>
+					<div id="radioField">
+						<p>Student Class</p>
+						<div class="radioButton">
+							<input type="radio" id="r1" name="class" value="web">
+							Web
+						</div>
+						<div class="radioButton">
+							<input type="radio" id="r2" name="class" value="graphic">
+							Graphic
+						</div>
+						<div class="radioButton">
+							<input type="radio" id="r3" name="class" value="game">
+							Game
+						</div>
+					</div>
+				</div>
+				<div class="dialogButtons">
+					<button class="cancel" id="cancelNew" type="button" name="button">Cancel</button>
+					<button class="accept" id="acceptNew" type="button" name="button">Add</button>
+				</div>
+			</div>
+			<div class="dialogBackground"></div>
+		</div>
+		<div id="dialog" class="dialog" data-student="">
 			<div class="dialogContainer">
 				<div id="txt">ayy</div>
 				<div class="dialogButtons">
-					<button id="cancel" type="button" name="button">Cancel</button>
-					<button id="accept" type="button" name="button">Yes</button>
+					<button class="cancel" id="cancel" type="button" name="button">Cancel</button>
+					<button class="accept" id="accept" type="button" name="button">Yes</button>
 				</div>
 			</div>
 			<div class="dialogBackground"></div>
 		</div>
 		<div class="admin">
-			Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName'].'!'; ?>
-			<a class="view" href="includes/logout.php">Logout</a>
+			<button id="newUser">Add new student</button>
+			<span>Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName'].'!'; ?></span>
+			<a href="includes/logout.php">Logout</a>
 		</div>
 		<div class="admin">
-			<h2>Pending Portfolios</h2>
+			<h2>Pending Portfolios:</h2>
 		</div>
 		<div class="memberContainer">
 			<?php
@@ -69,7 +122,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 									'.$data[$i]['firstName'].' '.$data[$i]['lastName'].'
 								</div>
 								<div class="class">
-									'.$data[$i]['class'].'
+									'.ucfirst($data[$i]['class']).'
 								</div>
 							</div>
 							<div class="buttons">
