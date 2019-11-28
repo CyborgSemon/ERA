@@ -10,6 +10,11 @@ body {
 			display: block !important;
 		}
 	}
+	&.addProfileImage {
+		#uplaodImageDialog {
+			display: block !important;
+		}
+	}
 }
 
 .admin {

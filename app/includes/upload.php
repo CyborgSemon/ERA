@@ -39,15 +39,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$fileUrl = $type.$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['REQUEST_URI'])).'/uploadsLink/'.$newFileName;;
 
 	if (move_uploaded_file($_FILES['image']['tmp_name'], '../../uploads/'.$newFileName)) {
-		$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';
-		prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $uploadedFileName, $uploadedFileExt, $fileUrl]);
-
-		if (isset($_POST['urlOnly'])) {
+		if (isset($_POST['profileImageSet']) && isset($_POST['urlOnly'])) {
+			$sql = "UPDATE users SET profileImage = ? WHERE id = ?";
+			prep_stmt($conn, $sql, "si", [$fileUrl, $_SESSION['id']]);
+			$_SESSION['profileImage'] = $fileUrl;
 			echo $fileUrl;
 		} else {
-			$result->success = 1;
-			$result->file->url = $fileUrl;
-			echo json_encode($result);
+			$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';
+			prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $uploadedFileName, $uploadedFileExt, $fileUrl]);
+
+			if (isset($_POST['urlOnly'])) {
+				echo $fileUrl;
+			} else {
+				$result->success = 1;
+				$result->file->url = $fileUrl;
+				echo json_encode($result);
+			}
 		}
 	} else {
 		if (isset($_POST['urlOnly'])) {

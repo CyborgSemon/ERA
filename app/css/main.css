@@ -249,6 +249,8 @@ body {
     display: block !important; }
   body.addStudent #dialogNew {
     display: block !important; }
+  body.addProfileImage #uplaodImageDialog {
+    display: block !important; }
 
 .admin {
   z-index: 10;
