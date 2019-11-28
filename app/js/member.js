@@ -50,6 +50,10 @@ $('#newUser').addEventListener('click', ()=> {
 	$('body').classList.add('addStudent');
 });
 
+$('#addMultiple').addEventListener('click', ()=> {
+	$('body').classList.add('addMultiple');
+});
+
 $('#accept').addEventListener('click', ()=> {
 	let studentId = $('#dialog').dataset.student;
 	console.log(studentId);
@@ -120,6 +124,19 @@ $('#acceptNew').addEventListener('click', ()=> {
 	}
 });
 
+$('#acceptMultiple').addEventListener('click', ()=> {
+	let csv = $('#multipleUpload');
+	AjaxRequest('includes/addMultipleUsers.php', {file: csv.files[0]}).then((xx)=> {
+		if (xx == 'done') {
+			snackbar('Added multiple users');
+			$('body').classList.remove('addMultiple');
+			csv.value = '';
+		} else {
+			snackbar(xx);
+		}
+	});
+});
+
 $('#cancel').addEventListener('click', ()=> {
 	type = '';
 	$('body').classList.remove('inactive');
@@ -128,4 +145,8 @@ $('#cancel').addEventListener('click', ()=> {
 
 $('#cancelNew').addEventListener('click', ()=> {
 	$('body').classList.remove('addStudent');
+});
+
+$('#cancelMultiple').addEventListener('click', ()=> {
+	$('body').classList.remove('addMultiple');
 });
