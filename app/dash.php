@@ -75,10 +75,6 @@ if ($row = mysqli_fetch_assoc($result)) {
 						<label for="emailNew">Student Email</label>
 						<div class="inputBorder"></div>
 					</div>
-					<div class="inputField">
-						<input type="file" accept="image/*" id="profileNew" name="profileName" autocomplete="off">
-						<div class="inputBorder"></div>
-					</div>
 					<div class="caption">Max image size: 50 MB</div>
 					<div id="radioField">
 						<p>Student Class</p>

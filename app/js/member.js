@@ -78,13 +78,12 @@ $('#acceptNew').addEventListener('click', ()=> {
 	let firstName = $('#firstNameNew').value;
 	let lastName = $('#lastNameNew').value;
 	let email = $('#emailNew').value;
-	let profile = $('#profileNew');
 
 	let r1 = $('#r1');
 	let r2 = $('#r2');
 	let r3 = $('#r3');
 
-	if (username == null || username == '',	firstName == null || firstName == '', lastName == null || lastName == '', email == null || email == '', profile.value == '') {
+	if (username == null || username == '',	firstName == null || firstName == '', lastName == null || lastName == '', email == null || email == '') {
 		snackbar('Please fill in all the fields');
 	} else if (!r1.checked && !r2.checked && !r3.checked) {
 		snackbar('Please add a class');
@@ -99,26 +98,20 @@ $('#acceptNew').addEventListener('click', ()=> {
 		if (r3.checked) {
 			className = r3.value;
 		}
-		AjaxRequest('includes/upload.php', {image: profile.files[0], urlOnly: 'yes'}).then((x)=> {
-			if (x == 'failed') {
-				snackbar('Image failed to upload.');
+		AjaxRequest('includes/addUser.php', {username: username, firstName: firstName, lastName: lastName, email: email, class: className}).then((x)=> {
+			if (x == 'done') {
+				snackbar('Student added');
+				$('body').classList.remove('addStudent');
+				$('#usernameNew').value = '';
+				$('#firstNameNew').value = '';
+				$('#lastNameNew').value = '';
+				$('#emailNew').value = '';
+				profile.value = '';
+				r1.checked = false;
+				r2.checked = false;
+				r3.checked = false;
 			} else {
-				AjaxRequest('includes/addUser.php', {username: username, firstName: firstName, lastName: lastName, email: email, class: className, profile: x}).then((xx)=> {
-					if (xx == 'done') {
-						snackbar('Student added');
-						$('body').classList.remove('addStudent');
-						$('#usernameNew').value = '';
-						$('#firstNameNew').value = '';
-						$('#lastNameNew').value = '';
-						$('#emailNew').value = '';
-						profile.value = '';
-						r1.checked = false;
-						r2.checked = false;
-						r3.checked = false;
-					} else {
-						snackbar(xx);
-					}
-				});
+				snackbar(x);
 			}
 		});
 	}
@@ -126,13 +119,13 @@ $('#acceptNew').addEventListener('click', ()=> {
 
 $('#acceptMultiple').addEventListener('click', ()=> {
 	let csv = $('#multipleUpload');
-	AjaxRequest('includes/addMultipleUsers.php', {file: csv.files[0]}).then((xx)=> {
-		if (xx == 'done') {
+	AjaxRequest('includes/addMultipleUsers.php', {file: csv.files[0]}).then((x)=> {
+		if (x == 'done') {
 			snackbar('Added multiple users');
 			$('body').classList.remove('addMultiple');
 			csv.value = '';
 		} else {
-			snackbar(xx);
+			snackbar(x);
 		}
 	});
 });

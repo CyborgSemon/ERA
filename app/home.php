@@ -98,7 +98,7 @@ if ($status) {
 					<p>This editor is just like any word document. Press Enter to make a new line and you can type away.</p>
 					<p>This editor also has a few extra features. You also have simple text editor tool by highlighting some text. These include, Bold text, Italic text and making a link</p>
 					<p>You can also add a heading or an image by using the + button whenever you make a new line.</p>
-					<p>It also supports youtube videos! Just past in the URL of the youtube video you want to use and it will appear.</p>
+					<p>It also supports youtube videos! Just paste in the URL of the youtube video you want to use and it will appear.</p>
 					<p>You then have more options on line positioning, image width and heading type by clicking the 3 dots to the right of a selected line. This is also where you can delete a line if you dont want it anymore.</p>
 					<p><b>Remember to save your portfolio using the save button!</b></p>
 				</div>

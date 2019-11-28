@@ -27,6 +27,9 @@ if (isset($_SESSION['id'])) {
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body class="theme">
+		<div id="snackbar">
+			<span id="snackbarMsg"></span>
+		</div>
 		<div class="logo">
 
 		</div>

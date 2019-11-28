@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($row = mysqli_fetch_assoc($result)) {
 		echo 'There is already a student with that number';
 	} else {
-		$sql = "INSERT INTO users (id, username, password, email, firstName, lastName, class, profileImage, type) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, 'student')";
-		$result = prep_stmt($conn, $sql, "sssssss", [$_POST['username'], password_hash($_POST['username'], PASSWORD_DEFAULT), $_POST['email'], $_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['profile']]);
+		$sql = "INSERT INTO users (id, username, password, email, firstName, lastName, class, profileImage, type) VALUES (NULL, ?, ?, ?, ?, ?, ?, NULL, 'student')";
+		$result = prep_stmt($conn, $sql, "sssssss", [$_POST['username'], password_hash($_POST['username'], PASSWORD_DEFAULT), $_POST['email'], $_POST['firstName'], $_POST['lastName'], $_POST['class']]);
 		if ($result) {
 			echo 'done';
 		} else {

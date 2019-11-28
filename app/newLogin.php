@@ -44,5 +44,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 			</form>
 		</div>
 		<script src="js/main.min.js"></script>
+		<?php
+
+		if (isset($_SESSION['message'])) {
+			echo "<script>snackbar('".$_SESSION['message']."');</script>";
+			unset($_SESSION['message']);
+		}
+
+		?>
 	</body>
 </html>
