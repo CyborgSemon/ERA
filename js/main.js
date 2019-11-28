@@ -82,13 +82,16 @@ let graphicToggle = true;
 let gameToggle = true;
 
 $('#webBtn').addEventListener('click', ()=> {
+	if (webToggle) {
+		$('#webBtn').classList.remove('active');
+	} else {
+		$('#webBtn').classList.add('active');
+	}
 	[].forEach.call($('.web'), (e)=> {
 		if (webToggle) {
 			e.style.display = 'none';
-			$('#webBtn').classList.remove('active');
 		} else {
 			e.style.display = 'flex';
-			$('#webBtn').classList.add('active');
 		}
 	});
 	webToggle = !webToggle;
@@ -96,12 +99,15 @@ $('#webBtn').addEventListener('click', ()=> {
 });
 
 $('#graphicBtn').addEventListener('click', ()=> {
+	if (graphicToggle) {
+		$('#graphicBtn').classList.remove('active');
+	} else {
+		$('#graphicBtn').classList.add('active');
+	}
 	[].forEach.call($('.graphic'), (e)=> {
 		if (graphicToggle) {
-			$('#graphicBtn').classList.remove('active');
 			e.style.display = 'none';
 		} else {
-			$('#graphicBtn').classList.add('active');
 			e.style.display = 'flex';
 		}
 	});
@@ -110,13 +116,16 @@ $('#graphicBtn').addEventListener('click', ()=> {
 });
 
 $('#gameBtn').addEventListener('click', ()=> {
+	if (gameToggle) {
+		$('#gameBtn').classList.remove('active');
+	} else {
+		$('#gameBtn').classList.add('active');
+	}
 	[].forEach.call($('.game'), (e)=> {
 		if (gameToggle) {
 			e.style.display = 'none';
-			$('#gameBtn').classList.remove('active');
 		} else {
 			e.style.display = 'flex';
-			$('#gameBtn').classList.add('active');
 		}
 	});
 	gameToggle = !gameToggle;
