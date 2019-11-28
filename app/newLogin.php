@@ -21,7 +21,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
-	<body>
+	<body class="theme">
 		<div class="logo">
 
 		</div>
@@ -38,7 +38,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 					<label for="username">Repeat Password</label>
 					<div class="inputBorder"></div>
 				</div>
-				<button type="submit" name="button">Change Password</button>
+				<div class="loginButtonBox">
+					<button class="submitButton" type="submit" name="button">Change Password</button>
+				</div>
 			</form>
 		</div>
 		<script src="js/main.min.js"></script>

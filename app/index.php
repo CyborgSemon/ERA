@@ -26,7 +26,7 @@ if (isset($_SESSION['id'])) {
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
-	<body>
+	<body class="theme">
 		<div class="logo">
 
 		</div>
@@ -43,7 +43,9 @@ if (isset($_SESSION['id'])) {
 					<label for="username">Password</label>
 					<div class="inputBorder"></div>
 				</div>
-				<button type="submit" name="button">Login</button>
+				<div class="loginButtonBox">
+					<button class="submitButton" type="submit" name="button">Login</button>
+				</div>
 			</form>
 		</div>
 		<script src="js/main.min.js"></script>

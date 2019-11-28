@@ -35,6 +35,11 @@ if (typeof data !== 'undefined') {
 			[].forEach.call(document.querySelectorAll('[contenteditable=true]'), (e)=> {
 				e.dataset.gramm_editor = 'false';
 			});
+		},
+		onChange: () => {
+			[].forEach.call(document.querySelectorAll('[contenteditable=true]'), (e)=> {
+				e.dataset.gramm_editor = 'false';
+			});
 		}
 	});
 } else {
@@ -62,6 +67,11 @@ if (typeof data !== 'undefined') {
 					}
 				}
 			}
+		},
+		onChange: () => {
+			[].forEach.call(document.querySelectorAll('[contenteditable=true]'), (e)=> {
+				e.dataset.gramm_editor = 'false';
+			});
 		}
 	});
 }
@@ -99,21 +109,23 @@ $('#uplaodImage').addEventListener('click', ()=> {
 });
 
 $('#newProfile').addEventListener('change', ()=> {
-	$('#loading').style.display = 'block';
-	$('#cropper').src = '';
-	try {
-		cropper.destroy();
-	} catch(err) {}
-	let currentImage = new FileReader();
-	currentImage.onload = ()=> {
-		$('#loading').style.display = 'none';
-		$('#cropper').src = currentImage.result;
-		$('#imageCropContainer').style.display = 'block';
-		cropper = new Cropper($('#cropper'), {
-			aspectRatio: 1 / 1,
-		});
+	if ($('#newProfile').value) {
+		$('#loading').style.display = 'block';
+		$('#cropper').src = '';
+		try {
+			cropper.destroy();
+		} catch(err) {}
+		let currentImage = new FileReader();
+		currentImage.onload = ()=> {
+			$('#loading').style.display = 'none';
+			$('#cropper').src = currentImage.result;
+			$('#imageCropContainer').style.display = 'block';
+			cropper = new Cropper($('#cropper'), {
+				aspectRatio: 1 / 1,
+			});
+		}
+		currentImage.readAsDataURL($('#newProfile').files[0]);
 	}
-	currentImage.readAsDataURL($('#newProfile').files[0]);
 });
 
 $('#cancelImage').addEventListener('click', ()=> {

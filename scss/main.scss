@@ -204,6 +204,11 @@ body {
 				&#webBtn.active {
 					background-color: rgba($webColor, 95%);
 				}
+				&.active {
+					.buttonBorder {
+						border: none;
+					}
+				}
 			}
 		}
 	}

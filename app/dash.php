@@ -114,13 +114,12 @@ if ($row = mysqli_fetch_assoc($result)) {
 			<div class="dialogBackground"></div>
 		</div>
 		<div class="admin">
-			<div class="">
-				<button id="newUser">Add new student</button>
-				<button id="addMultiple">Add Multiple</button>
+			<h2>Hey there <?php echo $_SESSION['firstName']; ?>!</h2>
+			<div class="adminButtons">
+				<button id="newUser">Add New Student</button>
+				<button id="addMultiple">Add Multiple Students</button>
+				<a href="includes/logout.php">Logout</a>
 			</div>
-
-			<span>Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName']; ?>!</span>
-			<a href="includes/logout.php">Logout</a>
 		</div>
 		<div class="admin">
 			<h2>Pending Portfolios:</h2>

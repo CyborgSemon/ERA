@@ -60,7 +60,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 		exit();
 	}
 } else {
-	echo 'There was an issue getting your account. Try again in a few minutes';
+	echo $errorString;
 	exit();
 }
 

@@ -45,7 +45,7 @@ if ($status) {
 		<link href="css/imageCrop.min.css" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
-	<body>
+	<body class="homeDash">
 		<div id="snackbar">
 			<span id="snackbarMsg"></span>
 		</div>
@@ -73,6 +73,7 @@ if ($status) {
 		<div class="container">
 			<div class="actions">
 				<div class="card">
+					<h2>Hey there <?php echo $_SESSION['firstName'] ?>!</h2>
 					<img id="profileImage" class="profileImage" src="<?php echo ($_SESSION['profileImage'] == NULL) ? '' : $_SESSION['profileImage']; ?>">
 					<div class="buttons">
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
@@ -91,10 +92,15 @@ if ($status) {
 			</div>
 			<div class="instructions">
 				<div class="card">
-					<h2>Instructions</h2>
+					<h2>Instructions:</h2>
 					<p>Welcome to your profile page!</p>
 					<p>This is where you can customize your portfolio that will be displayed on the exhibition website.</p>
-					<p></p>
+					<p>This editor is just like any word document. Press Enter to make a new line and you can type away.</p>
+					<p>This editor also has a few extra features. You also have simple text editor tool by highlighting some text. These include, Bold text, Italic text and making a link</p>
+					<p>You can also add a heading or an image by using the + button whenever you make a new line.</p>
+					<p>It also supports youtube videos! Just past in the URL of the youtube video you want to use and it will appear.</p>
+					<p>You then have more options on line positioning, image width and heading type by clicking the 3 dots to the right of a selected line. This is also where you can delete a line if you dont want it anymore.</p>
+					<p><b>Remember to save your portfolio using the save button!</b></p>
 				</div>
 			</div>
 			<div class="content">

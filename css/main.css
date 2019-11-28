@@ -160,6 +160,8 @@ body {
         background-color: rgba(227, 166, 194, 0.95); }
       .container .topArea .filter button#webBtn.active {
         background-color: rgba(219, 139, 45, 0.95); }
+      .container .topArea .filter button.active .buttonBorder {
+        border: none; }
   .container #students {
     display: flex;
     flex-wrap: wrap; }

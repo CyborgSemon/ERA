@@ -4,15 +4,48 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif; }
 
+body.theme {
+  background-color: #222;
+  color: white; }
+  body.theme .loginBox {
+    background-color: #2f2f2f; }
+  body.theme .inputField input, body.theme .inputField label {
+    background-color: #2f2f2f; }
+  body.theme .inputField input {
+    color: white; }
+  body.theme .inputField input:focus ~ .inputBorder {
+    border: 2px solid white; }
+  body.theme .inputField .inputBorder {
+    border: 1px solid rgba(255, 255, 255, 0.2); }
+  body.theme .inputField:hover .inputBorder {
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+
 .loginBox {
   padding: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12); }
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 8px; }
   .loginBox h2 {
     margin-bottom: 8px; }
+  .loginBox .loginButtonBox {
+    display: flex;
+    justify-content: flex-end; }
+    .loginBox .loginButtonBox .submitButton {
+      text-decoration: none;
+      padding: 8px 24px;
+      border-radius: 4px;
+      border: none;
+      background-color: #366371;
+      font-size: 1em;
+      color: white;
+      transition: 0.2s;
+      cursor: pointer;
+      outline: none; }
+      .loginBox .loginButtonBox .submitButton:hover {
+        background-color: #468194; }
 
 .inputField {
   min-width: 250px;
@@ -57,6 +90,20 @@
   .inputField:hover .inputBorder {
     border: 1px solid rgba(0, 0, 0, 0.5); }
 
+.homeDash {
+  background-color: #222;
+  color: white; }
+  .homeDash .card {
+    border: none;
+    background-color: #2f2f2f; }
+  .homeDash .cdx-button {
+    background-color: #222;
+    color: rgba(255, 255, 255, 0.7); }
+    .homeDash .cdx-button:hover {
+      background-color: #2f2f2f; }
+  .homeDash .ce-toolbar__settings-btn:not(.ce-toolbox__button--active), .homeDash .ce-toolbar__plus:not(.ce-toolbox__button--active), .homeDash .ce-toolbox__button:not(.ce-toolbox__button--active) {
+    color: white; }
+
 #snackbar {
   min-width: 300px;
   max-width: 600px;
@@ -81,7 +128,8 @@
   display: none; }
 
 #imageCropContainer {
-  display: none; }
+  display: none;
+  max-height: 50vh; }
   #imageCropContainer img {
     display: block;
     max-width: 100%; }
@@ -116,6 +164,8 @@
   order: 1; }
   .actions > .card, .instructions > .card {
     position: relative; }
+    .actions > .card p:last-of-type, .instructions > .card p:last-of-type {
+      margin-bottom: 24px; }
   @media (max-width: 1610px) {
     .actions, .instructions {
       position: inherit;
@@ -123,38 +173,51 @@
       align-self: auto; }
       .actions > .card, .instructions > .card {
         height: calc(100% - 24px); } }
+  @media (max-width: 700px) {
+    .actions, .instructions {
+      width: 100%; } }
 
 .profileImage {
   width: 100px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  margin: 0 auto 12px auto; }
 
 .actions .card {
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .actions .card h2 {
+    margin: 8px 0 16px 0; }
   @media (max-width: 1610px) {
     .actions .card .buttons {
       margin-bottom: 24px; } }
   .actions .card .buttons * {
     display: inline-block;
     margin: 4px 0; }
+  .actions .card .buttons span:last-of-type {
+    margin-bottom: 12px; }
 .actions .accountButton {
   text-decoration: none;
   padding: 8px 24px;
   border-radius: 4px;
   border: none;
-  background-color: lightblue;
+  background-color: #366371;
   font-size: 1em;
   color: white;
   transition: 0.2s;
   cursor: pointer;
   outline: none; }
   .actions .accountButton:hover {
-    background-color: blue; }
+    background-color: #468194; }
 
 .instructions {
-  order: 3; }
+  order: 3;
+  margin-top: 24px; }
   @media (max-width: 1610px) {
     .instructions {
-      order: 2; } }
+      order: 2;
+      margin-top: 0; } }
   .instructions p {
     margin-top: 8px; }
 
@@ -268,33 +331,44 @@ body.addProfileImage {
   overflow: hidden; }
   body.addProfileImage #uplaodImageDialog {
     display: block !important; }
+body.homeDash .dialogContainer {
+  background-color: #3c3c3c; }
+  body.homeDash .dialogContainer .inputField .inputBorder {
+    border: 1px solid rgba(255, 255, 255, 0.2); }
+  body.homeDash .dialogContainer .inputField:hover .inputBorder {
+    border: 1px solid rgba(255, 255, 255, 0.5); }
+  body.homeDash .dialogContainer .caption {
+    color: rgba(255, 255, 255, 0.5); }
 
 .admin {
   z-index: 10;
   width: 60%;
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  margin: 24px auto;
   position: relative; }
   @media (max-width: 700px) {
     .admin {
       width: 90%; } }
-  .admin a, .admin button {
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 1em;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: box-shadow 0.3s, background-color 0.3s;
-    border: none;
-    color: white;
-    background-color: #6BC781; }
-    .admin a:hover, .admin button:hover {
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-      background-color: #46b962; }
+  .admin .adminButtons {
+    margin-top: 16px; }
+    .admin .adminButtons a, .admin .adminButtons button {
+      margin: 0 4px;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: box-shadow 0.3s, background-color 0.3s;
+      border: none;
+      color: white;
+      background-color: #6BC781; }
+      .admin .adminButtons a:hover, .admin .adminButtons button:hover {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        background-color: #46b962; }
   .admin h2 {
     width: 100%;
     text-align: center; }
@@ -314,7 +388,7 @@ body.addProfileImage {
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 24px;
-    border-radius: 24px; }
+    border-radius: 8px; }
     .dialog .dialogContainer > h3 {
       margin-bottom: 8px; }
     .dialog .dialogContainer .dialogButtons {
@@ -330,17 +404,18 @@ body.addProfileImage {
         text-align: center;
         transition: box-shadow 0.3s, background-color 0.3s;
         border: none;
-        color: white; }
+        color: white;
+        outline: none; }
         .dialog .dialogContainer .dialogButtons button:hover {
           box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
         .dialog .dialogContainer .dialogButtons button.accept {
-          background-color: #6BC781; }
+          background-color: #46b962; }
           .dialog .dialogContainer .dialogButtons button.accept:hover {
-            background-color: #46b962; }
+            background-color: #6BC781; }
         .dialog .dialogContainer .dialogButtons button.cancel {
-          background-color: #EA7B7B; }
+          background-color: #e34f4f; }
           .dialog .dialogContainer .dialogButtons button.cancel:hover {
-            background-color: #e34f4f; }
+            background-color: #EA7B7B; }
   .dialog .caption {
     color: rgba(0, 0, 0, 0.5);
     font-size: 0.8em;
@@ -367,7 +442,7 @@ body.addProfileImage {
   flex-wrap: wrap; }
   .memberContainer .memberCard {
     width: calc((100% / 3) - 24px);
-    border-radius: 18px;
+    border-radius: 8px;
     background-color: white;
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
     padding: 12px;
