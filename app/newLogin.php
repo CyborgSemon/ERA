@@ -22,6 +22,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body class="theme">
+		<div id="snackbar">
+			<span id="snackbarMsg"></span>
+		</div>
 		<div class="logo">
 
 		</div>
@@ -47,7 +50,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 		<?php
 
 		if (isset($_SESSION['message'])) {
-			echo "<script>snackbar('".$_SESSION['message']."');</script>";
+			echo "<script>window.onload = ()=> {snackbar('".$_SESSION['message']."');}</script>";
 			unset($_SESSION['message']);
 		}
 

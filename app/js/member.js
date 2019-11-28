@@ -106,7 +106,6 @@ $('#acceptNew').addEventListener('click', ()=> {
 				$('#firstNameNew').value = '';
 				$('#lastNameNew').value = '';
 				$('#emailNew').value = '';
-				profile.value = '';
 				r1.checked = false;
 				r2.checked = false;
 				r3.checked = false;
@@ -124,6 +123,9 @@ $('#acceptMultiple').addEventListener('click', ()=> {
 			snackbar('Added multiple users');
 			$('body').classList.remove('addMultiple');
 			csv.value = '';
+		} else if (x.substring(0,5) == 'done-') {
+			let result = x.substring(5);
+			snackbar('These students failed to add: ' + result.substring(0, (result.length - 1)) + '. Check the CSV file');
 		} else {
 			snackbar(x);
 		}
@@ -138,6 +140,13 @@ $('#cancel').addEventListener('click', ()=> {
 
 $('#cancelNew').addEventListener('click', ()=> {
 	$('body').classList.remove('addStudent');
+	$('#usernameNew').value = '';
+	$('#firstNameNew').value = '';
+	$('#lastNameNew').value = '';
+	$('#emailNew').value = '';
+	r1.checked = false;
+	r2.checked = false;
+	r3.checked = false;
 });
 
 $('#cancelMultiple').addEventListener('click', ()=> {

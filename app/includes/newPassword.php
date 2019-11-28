@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			exit();
 		}
 	} else {
-		$_SESSION['msg'] = 'Your passwords do not match';
+		$_SESSION['message'] = 'Your passwords do not match';
 		header('Location: ../newLogin.php');
 		exit();
 	}

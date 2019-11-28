@@ -13,6 +13,7 @@ if (isset($_SESSION['id'])) {
 	exit();
 } else {
 	$name = $_SESSION['temp_username'];
+	$error = $_SESSION['message'];
 	session_unset();
 	session_destroy();
 	session_start();
@@ -52,5 +53,13 @@ if (isset($_SESSION['id'])) {
 			</form>
 		</div>
 		<script src="js/main.min.js"></script>
+		<?php
+
+		if (isset($error)) {
+			echo "<script>window.onload = ()=> {snackbar('".$error."');}</script>";
+			unset($error);
+		}
+
+		?>
 	</body>
 </html>

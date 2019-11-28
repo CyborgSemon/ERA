@@ -106,8 +106,8 @@ body.theme {
 
 #snackbar {
   min-width: 300px;
-  max-width: 600px;
-  height: 48px;
+  max-width: 80%;
+  min-height: 48px;
   position: fixed;
   bottom: -54px;
   left: 50%;
