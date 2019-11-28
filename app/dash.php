@@ -35,12 +35,10 @@ if ($row = mysqli_fetch_assoc($result)) {
 		<div id="snackbar">
 			<span id="snackbarMsg"></span>
 		</div>
-
 		<div id="dialogMultiple" class="dialog">
 			<div class="dialogContainer">
 				<h3>Add a Multiple students via CSV:</h3>
 				<div class="inputs">
-
 					<div class="inputField">
 						<input type="file" accept=".csv" id="multipleUpload" name="multipleCsvUpload" autocomplete="off">
 						<div class="inputBorder"></div>
@@ -53,7 +51,6 @@ if ($row = mysqli_fetch_assoc($result)) {
 			</div>
 			<div class="dialogBackground"></div>
 		</div>
-
 		<div id="dialogNew" class="dialog">
 			<div class="dialogContainer">
 				<h3>Add a new student:</h3>
@@ -108,7 +105,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 		</div>
 		<div id="dialog" class="dialog" data-student="">
 			<div class="dialogContainer">
-				<div id="txt">ayy</div>
+				<div id="txt"></div>
 				<div class="dialogButtons">
 					<button class="cancel" id="cancel" type="button" name="button">Cancel</button>
 					<button class="accept" id="accept" type="button" name="button">Yes</button>
@@ -122,7 +119,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 				<button id="addMultiple">Add Multiple</button>
 			</div>
 
-			<span>Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName'].'!'; ?></span>
+			<span>Hey there <?php echo $_SESSION['firstName'].' '.$_SESSION['lastName']; ?>!</span>
 			<a href="includes/logout.php">Logout</a>
 		</div>
 		<div class="admin">

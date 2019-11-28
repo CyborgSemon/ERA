@@ -1,23 +1,27 @@
 body {
-	overflow: hidden;
 	&.inactive {
 		#dialog {
 			display: block !important;
 		}
+		overflow: hidden;
 	}
 	&.addStudent {
 		#dialogNew {
 			display: block !important;
 		}
+		overflow: hidden;
 	}
 	&.addMultiple {
 		#dialogMultiple {
-     display: block !important;
+			display: block !important;
+		}
+		overflow: hidden;
 	}
 	&.addProfileImage {
 		#uplaodImageDialog {
 			display: block !important;
 		}
+		overflow: hidden;
 	}
 }
 

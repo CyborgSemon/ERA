@@ -42,6 +42,7 @@ if ($status) {
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+		<link href="css/imageCrop.min.css" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
@@ -51,12 +52,16 @@ if ($status) {
 		<div id="uplaodImageDialog" class="dialog">
 			<div class="dialogContainer">
 				<h3>Add a profile picture:</h3>
-				<div class="inputs">
+				<div class="inputs" id="inputImage">
 					<div class="inputField">
 						<input type="file" accept="image/*" id="newProfile" name="profileName" autocomplete="off">
 						<div class="inputBorder"></div>
 					</div>
 					<div class="caption">Max image size: 50 MB</div>
+					<span id="loading">Loading</span>
+					<div id="imageCropContainer">
+						<img id="cropper">
+					</div>
 				</div>
 				<div class="dialogButtons">
 					<button class="cancel" id="cancelImage" type="button" name="button">Cancel</button>
@@ -68,7 +73,7 @@ if ($status) {
 		<div class="container">
 			<div class="actions">
 				<div class="card">
-					<img id="profileImage" class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
+					<img id="profileImage" class="profileImage" src="<?php echo ($_SESSION['profileImage'] == NULL) ? '' : $_SESSION['profileImage']; ?>">
 					<div class="buttons">
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
 						<span id="draftStatus">Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
@@ -102,6 +107,7 @@ if ($status) {
 		?>
 		<script src="js/editor.js"></script>
 		<script src="js/ajax.min.js"></script>
+		<script src="js/imageCrop.min.js"></script>
 		<script src="js/home.min.js"></script>
 	</body>
 </html>

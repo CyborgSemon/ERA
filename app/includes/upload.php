@@ -24,11 +24,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$maxId = $row['id']+1;
 	$newFileName = $maxId;
 
-	$filePath = pathinfo($_FILES['image']['name']);
-	$uploadedFileName = $filePath['filename'];
-	$uploadedFileExt = $filePath['extension'];
+	if (isset($_POST['imageBlob'])) {
+		$imageData = $_POST['imageBlob'];
+		$pos = strpos($imageData, ';');
+		$imageType = explode(':', substr($imageData, 0, $pos))[1];
 
-	$newFileName .= '.' . $uploadedFileExt;
+		$extentions = ['image/jpeg' => 'jpg', 'image/png' => 'png'];
+		if ($extentions[$imageType]) {
+			$newFileName .= '.' . $extentions[$imageType];
+		} else {
+			echo 'That is not a supported file type';
+			exit();
+		}
+	} else {
+		$filePath = pathinfo($_FILES['image']['name']);
+		$uploadedFileName = $filePath['filename'];
+		$uploadedFileExt = $filePath['extension'];
+
+		$newFileName .= '.' . $uploadedFileExt;
+	}
 
 	if (isset($_SERVER['HTTPS'])) {
 		$type = 'https://';
@@ -38,7 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$fileUrl = $type.$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['REQUEST_URI'])).'/uploadsLink/'.$newFileName;;
 
-	if (move_uploaded_file($_FILES['image']['tmp_name'], '../../uploads/'.$newFileName)) {
+	if (isset($_POST['imageBlob'])) {
+		if (file_put_contents('../../uploads/'.$newFileName, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData)))) {
+			$sql = "UPDATE users SET profileImage = ? WHERE id = ?";
+			prep_stmt($conn, $sql, "si", [$fileUrl, $_SESSION['id']]);
+			$_SESSION['profileImage'] = $fileUrl;
+			echo $fileUrl;
+		} else {
+			echo 'failed';
+		}
+	} else if (move_uploaded_file($_FILES['image']['tmp_name'], '../../uploads/'.$newFileName)) {
 		if (isset($_POST['profileImageSet']) && isset($_POST['urlOnly'])) {
 			$sql = "UPDATE users SET profileImage = ? WHERE id = ?";
 			prep_stmt($conn, $sql, "si", [$fileUrl, $_SESSION['id']]);

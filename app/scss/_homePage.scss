@@ -24,8 +24,20 @@ $breakPoint3: 880px;
 	}
 }
 
-// #editor {
-// 	text-align: center !important;
+#loading {
+	display: none;
+}
+
+#imageCropContainer {
+	display: none;
+	img {
+		display: block;
+		max-width: 100%;
+	}
+}
+
+// #cropper {
+// 	width: 400px;
 // }
 
 .container {

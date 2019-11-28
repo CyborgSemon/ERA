@@ -92,36 +92,56 @@ $('#save').addEventListener('click', ()=> {
 	})
 });
 
+let cropper;
+
 $('#uplaodImage').addEventListener('click', ()=> {
 	$('body').classList.add('addProfileImage');
+});
+
+$('#newProfile').addEventListener('change', ()=> {
+	$('#loading').style.display = 'block';
+	$('#cropper').src = '';
+	try {
+		cropper.destroy();
+	} catch(err) {}
+	let currentImage = new FileReader();
+	currentImage.onload = ()=> {
+		$('#loading').style.display = 'none';
+		$('#cropper').src = currentImage.result;
+		$('#imageCropContainer').style.display = 'block';
+		cropper = new Cropper($('#cropper'), {
+			aspectRatio: 1 / 1,
+		});
+	}
+	currentImage.readAsDataURL($('#newProfile').files[0]);
 });
 
 $('#cancelImage').addEventListener('click', ()=> {
 	$('body').classList.remove('addProfileImage');
 	$('#newProfile').value = '';
+	try {
+		cropper.destroy();
+	} catch(err){}
+	$('#cropper').src = '';
+	$('#imageCropContainer').style.display = 'none';
 });
 
 $('#acceptImage').addEventListener('click', ()=> {
 	if ($('#newProfile').value != '') {
-		let _URL = window.URL || window.webkitURL;
-		let img = new Image();
-		img.onload = function () {
-			if (this.width == this.height) {
-				AjaxRequest('includes/upload.php', {image: $('#newProfile').files[0], urlOnly: 'yes', profileImageSet: 'yes'}).then((x)=> {
-					if (x == 'failed') {
-						snackbar('There was an issue with uploading');
-					} else {
-						$('#profileImage').src = x;
-						$('body').classList.remove('addProfileImage');
-						$('#newProfile').value = '';
-					}
-				});
+		AjaxRequest('includes/upload.php', {imageBlob: cropper.getCroppedCanvas().toDataURL(), urlOnly: 'yes', profileImageSet: 'yes'}).then((x)=> {
+			if (x == 'failed') {
+				snackbar('There was an issue with uploading');
 			} else {
-				snackbar('The image must be exactly square');
+				cropper.destroy();
+				$('#cropper').src = '';
+				$('#imageCropContainer').style.display = 'none';
+				$('#profileImage').src = x;
+				$('body').classList.remove('addProfileImage');
+				$('#newProfile').value = '';
+				snackbar('Profile picture updated')
 			}
-        };
-        img.src = _URL.createObjectURL($('#newProfile').files[0]);
+		});
 	} else {
-		snackbar('You must upload an image');
+		snackbar('You must have an image uploaded');
 	}
 });

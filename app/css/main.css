@@ -44,7 +44,7 @@
       font-size: 0.7em;
       padding: 0 4px; }
     .inputField input::placeholder {
-      color: transparent; }
+      color: rgba(0, 0, 0, 0); }
   .inputField .inputBorder {
     position: absolute;
     top: 0;
@@ -76,6 +76,15 @@
   #snackbar #snackbarMsg {
     margin-left: 16px;
     font-size: 1.1em; }
+
+#loading {
+  display: none; }
+
+#imageCropContainer {
+  display: none; }
+  #imageCropContainer img {
+    display: block;
+    max-width: 100%; }
 
 .container {
   width: 1600px;
@@ -243,14 +252,20 @@ body.view {
       .section #content .block iframe {
         width: 100%; }
 
-body {
+body.inactive {
   overflow: hidden; }
   body.inactive #dialog {
     display: block !important; }
+body.addStudent {
+  overflow: hidden; }
   body.addStudent #dialogNew {
     display: block !important; }
+body.addMultiple {
+  overflow: hidden; }
   body.addMultiple #dialogMultiple {
     display: block !important; }
+body.addProfileImage {
+  overflow: hidden; }
   body.addProfileImage #uplaodImageDialog {
     display: block !important; }
 
