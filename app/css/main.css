@@ -251,6 +251,8 @@ body {
     display: block !important; }
   body.addMultiple #dialogMultiple {
     display: block !important; }
+  body.addProfileImage #uplaodImageDialog {
+    display: block !important; }
 
 .admin {
   z-index: 10;

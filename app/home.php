@@ -48,13 +48,32 @@ if ($status) {
 		<div id="snackbar">
 			<span id="snackbarMsg"></span>
 		</div>
+		<div id="uplaodImageDialog" class="dialog">
+			<div class="dialogContainer">
+				<h3>Add a profile picture:</h3>
+				<div class="inputs">
+					<div class="inputField">
+						<input type="file" accept="image/*" id="newProfile" name="profileName" autocomplete="off">
+						<div class="inputBorder"></div>
+					</div>
+					<div class="caption">Max image size: 50 MB</div>
+				</div>
+				<div class="dialogButtons">
+					<button class="cancel" id="cancelImage" type="button" name="button">Cancel</button>
+					<button class="accept" id="acceptImage" type="button" name="button">Add</button>
+				</div>
+			</div>
+			<div class="dialogBackground"></div>
+		</div>
 		<div class="container">
 			<div class="actions">
 				<div class="card">
-					<img class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
+					<img id="profileImage" class="profileImage" src="<?php echo $_SESSION['profileImage']; ?>">
 					<div class="buttons">
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
 						<span id="draftStatus">Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
+						<br>
+						<button class="accountButton" id="uplaodImage">Uplaod Profile Picture</button>
 						<br>
 						<?php if (isset($subSpan)) echo '<a class="accountButton" href="viewCurrent.php?type=live" target="_blank">View Live</a><br>'; ?>
 						<a class="accountButton" href="viewCurrent.php?type=draft" target="_blank">View Draft</a>
