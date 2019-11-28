@@ -10,6 +10,11 @@ body {
 			display: block !important;
 		}
 	}
+	&.addMultiple {
+		#dialogMultiple {
+			display: block !important;
+		}
+	}
 }
 
 .admin {
