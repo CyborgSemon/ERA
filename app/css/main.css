@@ -103,6 +103,16 @@ body.theme {
       background-color: #2f2f2f; }
   .homeDash .ce-toolbar__settings-btn:not(.ce-toolbox__button--active), .homeDash .ce-toolbar__plus:not(.ce-toolbox__button--active), .homeDash .ce-toolbox__button:not(.ce-toolbox__button--active) {
     color: white; }
+  .homeDash .ce-paragraph[data-placeholder]:empty::before {
+    color: rgba(255, 255, 255, 0.7); }
+  .homeDash .cdx-notify {
+    background-color: #343434 !important; }
+    .homeDash .cdx-notify .cdx-notify__cross {
+      margin-right: 8px; }
+      .homeDash .cdx-notify .cdx-notify__cross:before {
+        background-color: white; }
+      .homeDash .cdx-notify .cdx-notify__cross:after {
+        background-color: white; }
 
 #snackbar {
   min-width: 300px;

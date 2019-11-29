@@ -21,6 +21,21 @@ $breakPoint3: 880px;
 			color: white;
 		}
 	}
+	.ce-paragraph[data-placeholder]:empty::before {
+		color: rgba(white, 0.7);
+	}
+	.cdx-notify {
+		background-color: lighten(#222, 7%) !important;
+		.cdx-notify__cross {
+			margin-right: 8px;
+			&:before {
+				background-color: white;
+			}
+			&:after {
+				background-color: white;
+			}
+		}
+	}
 }
 
 #snackbar {

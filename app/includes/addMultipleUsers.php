@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!$row = mysqli_fetch_assoc($result)) {
             $sql = "INSERT INTO users (id, username, password, email, firstName, lastName, class, profileImage, type) VALUES (NULL, ?, ?, ?, ?, ?, ?, NULL, 'student')";
 			if ($user[0] != '' && $user[1] != '' && $user[2] != '' && $user[3] != '' && $user[4]) {
-				$result = prep_stmt($conn, $sql, "ssssss", [$user[0], password_hash($user[0], PASSWORD_DEFAULT), $user[1], $user[2], $user[3], $user[4]]);
+				prep_stmt($conn, $sql, "ssssss", [$user[0], password_hash($user[0], PASSWORD_DEFAULT), $user[1], $user[2], $user[3], $user[4]]);
 			} else {
 				array_push($failedStudents, $user[2]);
 			}

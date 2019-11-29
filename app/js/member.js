@@ -151,4 +151,5 @@ $('#cancelNew').addEventListener('click', ()=> {
 
 $('#cancelMultiple').addEventListener('click', ()=> {
 	$('body').classList.remove('addMultiple');
+	$('#multipleUpload').value = '';
 });
