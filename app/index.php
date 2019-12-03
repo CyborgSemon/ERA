@@ -12,8 +12,12 @@ if (isset($_SESSION['id'])) {
 	header('Location: home.php');
 	exit();
 } else {
-	$name = $_SESSION['temp_username'];
-	$error = $_SESSION['message'];
+	if (isset($_SESSION['temp_username'])) {
+		$name = $_SESSION['temp_username'];
+	} else {
+		$name = '';
+	}
+	if (isset($_SESSION['message'])) $error = $_SESSION['message'];
 	session_unset();
 	session_destroy();
 	session_start();

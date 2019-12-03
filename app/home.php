@@ -20,7 +20,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 	$feedback = $row['feedback'];
 }
 
-if ($status) {
+if (isset($status)) {
 	if ($status == 'pending' || $status == 'pass' || $status == 'failed') {
 		$mainSpan = $status;
 		if ($status == 'pass') {
@@ -104,12 +104,12 @@ if ($status) {
 				</div>
 			</div>
 			<div class="content">
-				<?php if ($feedback) echo '<div class="feedback card"><h2>Feedback:</h2>'.$feedback.'</div>'; ?>
+				<?php if (isset($feedback)) echo '<div class="feedback card"><h2>Feedback:</h2>'.$feedback.'</div>'; ?>
 				<div class="editor card" id="editor"></div>
 			</div>
 		</div>
 		<?php
-		if ($data) echo '<script>let data = '.$data.';</script>';
+		if (isset($data)) echo '<script>let data = '.$data.';</script>';
 		?>
 		<script src="js/editor.js"></script>
 		<script src="js/ajax.min.js"></script>

@@ -29,6 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$pos = strpos($imageData, ';');
 		$imageType = explode(':', substr($imageData, 0, $pos))[1];
 
+		$tempFileName = $newFileName;
+
 		$extentions = ['image/jpeg' => 'jpg', 'image/png' => 'png'];
 		if ($extentions[$imageType]) {
 			$newFileName .= '.' . $extentions[$imageType];
@@ -54,30 +56,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	if (isset($_POST['imageBlob'])) {
 		if (file_put_contents('../../uploads/'.$newFileName, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imageData)))) {
+
+			$sql = "INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)";
+			prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $tempFileName, $extentions[$imageType], $fileUrl]);
+
 			$sql = "UPDATE users SET profileImage = ? WHERE id = ?";
 			prep_stmt($conn, $sql, "si", [$fileUrl, $_SESSION['id']]);
+
 			$_SESSION['profileImage'] = $fileUrl;
 			echo $fileUrl;
 		} else {
 			echo 'failed';
 		}
 	} else if (move_uploaded_file($_FILES['image']['tmp_name'], '../../uploads/'.$newFileName)) {
-		if (isset($_POST['profileImageSet']) && isset($_POST['urlOnly'])) {
+		$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';
+		prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $uploadedFileName, $uploadedFileExt, $fileUrl]);
+
+		if (isset($_POST['profileImageSet'])) {
 			$sql = "UPDATE users SET profileImage = ? WHERE id = ?";
 			prep_stmt($conn, $sql, "si", [$fileUrl, $_SESSION['id']]);
 			$_SESSION['profileImage'] = $fileUrl;
+		}
+
+		if (isset($_POST['urlOnly'])) {
 			echo $fileUrl;
 		} else {
-			$sql = 'INSERT INTO uploads(id, userId, fileName, fileExt, url) VALUES (?, ?, ?, ?, ?)';
-			prep_stmt($conn, $sql, 'iisss', [$maxId, $_SESSION['id'], $uploadedFileName, $uploadedFileExt, $fileUrl]);
-
-			if (isset($_POST['urlOnly'])) {
-				echo $fileUrl;
-			} else {
-				$result->success = 1;
-				$result->file->url = $fileUrl;
-				echo json_encode($result);
-			}
+			$result->success = 1;
+			$result->file = array('url' => $fileUrl);
+			echo json_encode($result);
 		}
 	} else {
 		if (isset($_POST['urlOnly'])) {

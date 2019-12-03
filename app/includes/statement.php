@@ -45,7 +45,9 @@ function prep_stmt($conn, $sql, $value_type = null, $values = null){
 				$return = $result;
 			}
 			mysqli_stmt_close($stmt);
-			return $return;
+			if (isset($return)) {
+				return $return;
+			}
 		}
 	}
 }
