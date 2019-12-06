@@ -41,7 +41,7 @@ if (isset($status)) {
 <html lang="en" dir="ltr">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 		<link href="css/imageCrop.min.css" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
@@ -104,7 +104,7 @@ if (isset($status)) {
 				</div>
 			</div>
 			<div class="content">
-				<?php if (isset($feedback)) echo '<div class="feedback card"><h2>Feedback:</h2>'.$feedback.'</div>'; ?>
+				<?php if (isset($feedback) && $feedback != '') echo '<div class="feedback card"><h2>Feedback:</h2>'.$feedback.'</div>'; ?>
 				<div class="editor card" id="editor"></div>
 			</div>
 		</div>
