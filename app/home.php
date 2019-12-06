@@ -8,8 +8,14 @@ $dotenv->load();
 require_once 'includes/dbc.php';
 require_once 'includes/statement.php';
 
-if (!isset($_SESSION['id'])) header('Location: index.php');
-if (!isset($_SESSION['type'])) header('Location: newLogin.php');
+if (!isset($_SESSION['id'])) {
+	header('Location: index.php');
+	exit();
+}
+if (!isset($_SESSION['type'])) {
+	header('Location: newLogin.php');
+	exit();
+}
 
 $sql = "SELECT * FROM portfolio WHERE userId = ?";
 $result = prep_stmt($conn, $sql, "i", [$_SESSION['id']]);

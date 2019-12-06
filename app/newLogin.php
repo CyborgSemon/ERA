@@ -11,6 +11,9 @@ require_once 'includes/statement.php';
 if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 	header('Location: home.php');
 	exit();
+} else if (!isset($_SESSION['id'])) {
+	header('Location: index.php');
+	exit();
 }
 
 ?>
@@ -37,7 +40,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['type'])) {
 					<div class="inputBorder"></div>
 				</div>
 				<div class="inputField">
-					<input type="password" id="password" name="passwordRepeat" required autocomplete="off" placeholder="Repeat Password">
+					<input type="password" id="passwordRepeat" name="passwordRepeat" required autocomplete="off" placeholder="Repeat Password">
 					<label for="username">Repeat Password</label>
 					<div class="inputBorder"></div>
 				</div>
