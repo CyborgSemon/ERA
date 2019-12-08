@@ -16,7 +16,11 @@ if ($_SESSION['type'] == 'member') {
 		$result = prep_stmt($conn, $sql, "i", [$_GET['student']]);
 		if ($row = mysqli_fetch_assoc($result)) {
 			$userId = $_GET['student'];
-			$profile = $row['profileImage'];
+			if ($row['profileImage'] == NULL) {
+				$profile = 'images/default-profile.png';
+			} else {
+				$profile = $row['profileImage'];
+			}
 			$firstName = $row['firstName'];
 			$lastName = $row['lastName'];
 			$class = $row['class'];
@@ -30,7 +34,11 @@ if ($_SESSION['type'] == 'member') {
 	}
 } else {
 	$userId = $_SESSION['id'];
-	$profile = $_SESSION['profileImage'];
+	if ($row['profileImage'] == NULL) {
+		$profile = 'images/default-profile.png';
+	} else {
+		$profile = $row['profileImage'];
+	}
 	$firstName = $_SESSION['firstName'];
 	$lastName = $_SESSION['lastName'];
 	$class = $_SESSION['class'];

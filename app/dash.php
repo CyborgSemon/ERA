@@ -125,11 +125,15 @@ if ($row = mysqli_fetch_assoc($result)) {
 				echo "<h3>$msg</h3>";
 			} else {
 				for ($i=0; $i < count($data); $i++) {
-
+					if ($data[$i]['profileImage'] == NULL) {
+						$profile = 'images/default-profile.png';
+					} else {
+						$profile = $data[$i]['profileImage'];
+					}
 					echo '<div class="memberCard" data-id="'.$data[$i]['userId'].'" data-name="'.$data[$i]['firstName'].' '.$data[$i]['lastName'].'">
 						<div class="top">
 							<div class="profile">
-								<img src="'.$data[$i]['profileImage'].'">
+								<img src="'.$profile.'">
 							</div>
 							<div class="text">
 								<div class="name">

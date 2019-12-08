@@ -80,7 +80,7 @@ if (isset($status)) {
 			<div class="actions">
 				<div class="card">
 					<h2>Hey there <?php echo $_SESSION['firstName'] ?>!</h2>
-					<img id="profileImage" class="profileImage" src="<?php echo ($_SESSION['profileImage'] == NULL) ? '' : $_SESSION['profileImage']; ?>">
+					<img id="profileImage" class="profileImage" src="<?php echo ($_SESSION['profileImage'] == NULL) ? 'images/default-profile.png' : $_SESSION['profileImage']; ?>">
 					<div class="buttons">
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
 						<span id="draftStatus">Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>

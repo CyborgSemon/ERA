@@ -149,6 +149,15 @@ body {
 	}
 }
 
+.logo {
+	width: 60%;
+	margin: 24px auto;
+	text-align: center;
+	img {
+		width: 300px;
+	}
+}
+
 .container {
 	margin: 24px auto;
 	width: 1600px;
@@ -169,6 +178,14 @@ body {
 		.filter {
 			margin-bottom: 24px;
 			text-align: center;
+			@media (max-width: 700px) {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				button {
+					margin: 12px 24px !important;
+				}
+			}
 			button {
 				padding: 12px 24px;
 				background-color: $background;

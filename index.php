@@ -35,7 +35,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 			<div id="content"></div>
 		</div>
 		<div class="logo">
-
+			<img src="images/logo.png" alt="ERA Logo">
 		</div>
 		<div class="container">
 			<div class="topArea">
@@ -61,10 +61,15 @@ if ($row = mysqli_fetch_assoc($result)) {
 						$card = '';
 
 						for ($i=0; $i < count($data); $i++) {
+							if ($data[$i]['profileImage'] == NULL) {
+								$profile = 'images/default-profile.png';
+							} else {
+								$profile = $data[$i]['profileImage'];
+							}
 							$name = $data[$i]['firstName'] . ' ' . $data[$i]['lastName'];
 							$card .= '<div class="card '.$data[$i]['class'].'" data-id="'.$i.'">
 								<div class="cardContent">
-									<img src="'.$data[$i]['profileImage'].'" alt="Image of '.$name.'">
+									<img src="'.$profile.'" alt="Image of '.$name.'">
 									<div class="cardText">
 										<h2>'.$name.'</h2>
 										<p>'.ucfirst($data[$i]['class']).'</p>

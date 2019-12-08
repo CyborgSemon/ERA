@@ -21,8 +21,14 @@ $('#exit').addEventListener('click', ()=> {
 	e.addEventListener('click', ()=> {
 		let studentName = data[studentNum]['firstName'] + ' ' + data[studentNum]['lastName'];
 		let studentClass = data[studentNum]['class']
+		let profile;
+		if (data[studentNum]['profileImage'] == null) {
+			profile = 'images/default-profile.png';
+		} else {
+			profile = data[studentNum]['profileImage'];
+		}
 
-		$('#profile').innerHTML = `<img src="${data[studentNum]['profileImage']}" alt="Image of ${studentName}"><h2>${studentName}</h2><p class="${studentClass}">${studentClass.charAt(0).toUpperCase() + studentClass.slice(1)}</p>`;
+		$('#profile').innerHTML = `<img src="${profile}" alt="Image of ${studentName}"><h2>${studentName}</h2><p class="${studentClass}">${studentClass.charAt(0).toUpperCase() + studentClass.slice(1)}</p>`;
 
 		$('#content').innerHTML = renderContent(data[studentNum]['dataJSON']);
 
@@ -136,6 +142,16 @@ function checkStudents () {
 	if (!gameToggle && !graphicToggle && !webToggle) {
 		$('#studentError').innerText = 'No students';
 	} else {
-		$('#studentError').innerText = '';
+		let pendingCheck = false;
+		[].forEach.call(document.querySelectorAll('.card'), (e)=> {
+			if (e.style.display != 'none') {
+				pendingCheck = true;
+			}
+		});
+		if (pendingCheck) {
+			$('#studentError').innerText = '';
+		} else {
+			$('#studentError').innerText = 'No students';
+		}
 	}
 }
