@@ -85,7 +85,7 @@ if (isset($status)) {
 						<?php if (isset($subSpan)) echo '<span>Live portfolio status: '.$subSpan.'</span><br>'; ?>
 						<span id="draftStatus">Draft portfolio status: <?php echo (isset($mainSpan) ? $mainSpan : 'empty'); ?></span>
 						<br>
-						<button class="accountButton" id="uplaodImage">Uplaod Profile Picture</button>
+						<button class="accountButton" id="uplaodImage">Upload Profile Picture</button>
 						<br>
 						<?php if (isset($subSpan)) echo '<a class="accountButton" href="viewCurrent.php?type=live" target="_blank">View Live</a><br>'; ?>
 						<a class="accountButton" href="viewCurrent.php?type=draft" target="_blank">View Draft</a>
