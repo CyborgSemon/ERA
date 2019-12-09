@@ -34,10 +34,10 @@ if ($_SESSION['type'] == 'member') {
 	}
 } else {
 	$userId = $_SESSION['id'];
-	if ($row['profileImage'] == NULL) {
+	if ($_SESSION['profileImage'] == NULL) {
 		$profile = 'images/default-profile.png';
 	} else {
-		$profile = $row['profileImage'];
+		$profile = $_SESSION['profileImage'];
 	}
 	$firstName = $_SESSION['firstName'];
 	$lastName = $_SESSION['lastName'];
