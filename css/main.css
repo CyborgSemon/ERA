@@ -99,6 +99,8 @@ body {
       margin: 16px auto; }
       #footer #content .block.full {
         width: 100% !important; }
+      #footer #content .block a {
+        color: #df1d24; }
       #footer #content .block img {
         width: 100%;
         border-radius: 4px; }

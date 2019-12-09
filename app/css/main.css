@@ -103,6 +103,8 @@ body.theme {
       background-color: #2f2f2f; }
   .homeDash .ce-toolbar__settings-btn:not(.ce-toolbox__button--active), .homeDash .ce-toolbar__plus:not(.ce-toolbox__button--active), .homeDash .ce-toolbox__button:not(.ce-toolbox__button--active) {
     color: white; }
+  .homeDash .ce-paragraph a {
+    color: #df1d24; }
   .homeDash .ce-paragraph[data-placeholder]:empty::before {
     color: rgba(255, 255, 255, 0.7); }
   .homeDash .cdx-notify {
@@ -316,6 +318,8 @@ body.view {
       margin: 16px auto; }
       .section #content .block.full {
         width: 100% !important; }
+      .section #content .block a {
+        color: #df1d24; }
       .section #content .block img {
         width: 100%;
         border-radius: 4px; }
