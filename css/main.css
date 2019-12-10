@@ -103,7 +103,7 @@ body {
         width: 100%;
         border-radius: 4px; }
       #footer #content .block .caption {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(0, 0, 0, 0.5);
         font-style: italic;
         font-size: 0.9em;
         margin: 6px auto;
