@@ -264,7 +264,7 @@ div[data-tune="withBorder"], div[data-tune="withBackground"] {
     .header .profile h2 {
       margin-bottom: 4px; }
     .header .profile p {
-      color: rgba(255, 255, 255, 0.5); }
+      color: rgba(0, 0, 0, 0.5); }
 
 .section {
   position: fixed;
