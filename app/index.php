@@ -31,7 +31,7 @@ if (isset($_SESSION['id'])) {
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
-	<body class="theme">
+	<body>
 		<div id="snackbar">
 			<span id="snackbarMsg"></span>
 		</div>

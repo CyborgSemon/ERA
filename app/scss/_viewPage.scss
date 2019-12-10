@@ -4,10 +4,10 @@ $viewBreakPoint3: 800px;
 
 $headerHeight: 230px;
 
-body.view {
-	background-color: #222;
-	color: white;
-}
+// body.view {
+// 	background-color: #222;
+// 	color: white;
+// }
 
 .header {
 	height: $headerHeight;
@@ -78,9 +78,6 @@ body.view {
 			margin: 16px auto;
 			&.full {
 				width: 100% !important;
-			}
-			a {
-				color: rgb(223,29,36);
 			}
 			img {
 				width: 100%;

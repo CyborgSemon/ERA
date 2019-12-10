@@ -48,14 +48,14 @@ body.theme {
 			padding: 8px 24px;
 			border-radius: 4px;
 			border: none;
-			background-color: #366371;
+			background-color: #418499;
 			font-size: 1em;
 			color: white;
 			transition: 0.2s;
 			cursor: pointer;
 			outline: none;
 			&:hover {
-				background-color: lighten(#366371, 10%);
+				background-color: lighten(#418499, 10%);
 			}
 		}
 	}

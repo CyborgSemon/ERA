@@ -3,44 +3,8 @@ $breakPoint2: 1200px;
 $breakPoint3: 880px;
 
 .homeDash {
-	background-color: #222;
-	color: white;
-	.card {
-		border: none;
-		background-color: lighten(#222, 5%);
-	}
-	.cdx-button {
-		background-color: #222;
-		color: rgba(white, 0.7);
-		&:hover {
-			background-color: lighten(#222, 5%);
-		}
-	}
-	.ce-toolbar__settings-btn, .ce-toolbar__plus, .ce-toolbox__button {
-		&:not(.ce-toolbox__button--active) {
-			color: white;
-		}
-	}
-	.ce-paragraph {
-		a {
-			color: rgb(223,29,36);
-		}
-		&[data-placeholder]:empty::before {
-			color: rgba(white, 0.7);
-		}
-	}
-	.cdx-notify {
-		background-color: lighten(#222, 7%) !important;
-		.cdx-notify__cross {
-			margin-right: 8px;
-			&:before {
-				background-color: white;
-			}
-			&:after {
-				background-color: white;
-			}
-		}
-	}
+	background-color: white;
+	color: black;
 }
 
 #snackbar {
@@ -160,14 +124,14 @@ $breakPoint3: 880px;
 		padding: 8px 24px;
 		border-radius: 4px;
 		border: none;
-		background-color: #366371;
+		background-color: #418499;
 		font-size: 1em;
 		color: white;
 		transition: 0.2s;
 		cursor: pointer;
 		outline: none;
 		&:hover {
-			background-color: lighten(#366371, 10%);
+			background-color: lighten(#418499, 10%);
 		}
 	}
 }

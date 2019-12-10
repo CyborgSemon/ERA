@@ -24,6 +24,13 @@ if ($_SESSION['type'] == 'member') {
 			$firstName = $row['firstName'];
 			$lastName = $row['lastName'];
 			$class = $row['class'];
+			if ($class == 'web') {
+				$classType = 'Web & UX Design';
+			} else if ($class == 'game') {
+				$classType = 'Game Art & Development';
+			} else if ($class == 'graphic') {
+				$classType = 'Creative Digital Design';
+			}
 		} else {
 			echo 'Failed accessing the students work. Try again in a fiew minutes';
 			exit();
@@ -42,6 +49,13 @@ if ($_SESSION['type'] == 'member') {
 	$firstName = $_SESSION['firstName'];
 	$lastName = $_SESSION['lastName'];
 	$class = $_SESSION['class'];
+	if ($class == 'web') {
+		$classType = 'Web & UX Design';
+	} else if ($class == 'game') {
+		$classType = 'Game Art & Development';
+	} else if ($class == 'graphic') {
+		$classType = 'Creative Digital Design';
+	}
 }
 
 if ($_GET['type']) {
@@ -87,7 +101,7 @@ if ($row = mysqli_fetch_assoc($result)) {
 			<div class="profile">
 				<img src="<?php echo $profile; ?>" alt="Image of <?php echo $firstName . ' ' . $lastName; ?>">
 				<h2><?php echo $firstName . ' ' . $lastName; ?></h2>
-				<p class="<?php echo $class; ?>"><?php echo ucfirst($class); ?></p>
+				<p class="<?php echo $class; ?>"><?php echo $classType; ?></p>
 			</div>
 		</div>
 		<div class="section">

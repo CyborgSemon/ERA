@@ -38,14 +38,14 @@ body.theme {
       padding: 8px 24px;
       border-radius: 4px;
       border: none;
-      background-color: #366371;
+      background-color: #418499;
       font-size: 1em;
       color: white;
       transition: 0.2s;
       cursor: pointer;
       outline: none; }
       .loginBox .loginButtonBox .submitButton:hover {
-        background-color: #468194; }
+        background-color: #56a0b7; }
 
 .inputField {
   min-width: 250px;
@@ -91,30 +91,8 @@ body.theme {
     border: 1px solid rgba(0, 0, 0, 0.5); }
 
 .homeDash {
-  background-color: #222;
-  color: white; }
-  .homeDash .card {
-    border: none;
-    background-color: #2f2f2f; }
-  .homeDash .cdx-button {
-    background-color: #222;
-    color: rgba(255, 255, 255, 0.7); }
-    .homeDash .cdx-button:hover {
-      background-color: #2f2f2f; }
-  .homeDash .ce-toolbar__settings-btn:not(.ce-toolbox__button--active), .homeDash .ce-toolbar__plus:not(.ce-toolbox__button--active), .homeDash .ce-toolbox__button:not(.ce-toolbox__button--active) {
-    color: white; }
-  .homeDash .ce-paragraph a {
-    color: #df1d24; }
-  .homeDash .ce-paragraph[data-placeholder]:empty::before {
-    color: rgba(255, 255, 255, 0.7); }
-  .homeDash .cdx-notify {
-    background-color: #343434 !important; }
-    .homeDash .cdx-notify .cdx-notify__cross {
-      margin-right: 8px; }
-      .homeDash .cdx-notify .cdx-notify__cross:before {
-        background-color: white; }
-      .homeDash .cdx-notify .cdx-notify__cross:after {
-        background-color: white; }
+  background-color: white;
+  color: black; }
 
 #snackbar {
   min-width: 300px;
@@ -214,14 +192,14 @@ body.theme {
   padding: 8px 24px;
   border-radius: 4px;
   border: none;
-  background-color: #366371;
+  background-color: #418499;
   font-size: 1em;
   color: white;
   transition: 0.2s;
   cursor: pointer;
   outline: none; }
   .actions .accountButton:hover {
-    background-color: #468194; }
+    background-color: #56a0b7; }
 
 .instructions {
   order: 3;
@@ -250,10 +228,6 @@ div[data-tune="withBorder"], div[data-tune="withBackground"] {
 
 .image-tool__image {
   margin-top: 30px; }
-
-body.view {
-  background-color: #222;
-  color: white; }
 
 .header {
   height: 230px;
@@ -318,8 +292,6 @@ body.view {
       margin: 16px auto; }
       .section #content .block.full {
         width: 100% !important; }
-      .section #content .block a {
-        color: #df1d24; }
       .section #content .block img {
         width: 100%;
         border-radius: 4px; }

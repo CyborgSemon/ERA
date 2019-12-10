@@ -20,7 +20,15 @@ $('#exit').addEventListener('click', ()=> {
 	let studentNum = e.dataset.id;
 	e.addEventListener('click', ()=> {
 		let studentName = data[studentNum]['firstName'] + ' ' + data[studentNum]['lastName'];
-		let studentClass = data[studentNum]['class']
+		let studentClass = data[studentNum]['class'];
+		let studentClassString = '';
+		if (studentClass == 'web') {
+			studentClassString = 'Web & UX Design';
+		} else if (studentClass == 'game') {
+			studentClassString = 'Game Art & Development';
+		} else if (studentClass == 'graphic') {
+			studentClassString = 'Creative Digital Design';
+		}
 		let profile;
 		if (data[studentNum]['profileImage'] == null) {
 			profile = 'images/default-profile.png';
@@ -28,7 +36,7 @@ $('#exit').addEventListener('click', ()=> {
 			profile = data[studentNum]['profileImage'];
 		}
 
-		$('#profile').innerHTML = `<img src="${profile}" alt="Image of ${studentName}"><h2>${studentName}</h2><p class="${studentClass}">${studentClass.charAt(0).toUpperCase() + studentClass.slice(1)}</p>`;
+		$('#profile').innerHTML = `<img src="${profile}" alt="Image of ${studentName}"><h2>${studentName}</h2><p class="${studentClass}">${studentClassString}</p>`;
 
 		$('#content').innerHTML = renderContent(data[studentNum]['dataJSON']);
 

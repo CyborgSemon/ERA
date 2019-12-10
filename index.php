@@ -37,23 +37,23 @@ if ($row = mysqli_fetch_assoc($result)) {
 		<div class="logo">
 			<img src="images/logo.png" alt="ERA Logo">
 		</div>
-		<div class="container">
-			<div class="topArea">
-				<div class="filter">
-					<button id="graphicBtn" class="active">
-						Creative Digital
-						<div class="buttonBorder"></div>
-					</button>
-					<button id="gameBtn" class="active">
-						Game Development
-						<div class="buttonBorder"></div>
-					</button>
-					<button id="webBtn" class="active">
-						Web & UX
-						<div class="buttonBorder"></div>
-					</button>
-				</div>
+		<div class="topArea">
+			<div class="filter">
+				<button id="graphicBtn" class="active">
+					Creative Digital Design
+					<div class="buttonBorder"></div>
+				</button>
+				<button id="gameBtn" class="active">
+					Game Art & Development
+					<div class="buttonBorder"></div>
+				</button>
+				<button id="webBtn" class="active">
+					Web & UX Design
+					<div class="buttonBorder"></div>
+				</button>
 			</div>
+		</div>
+		<div class="container">
 			<div id="students">
 				<?php
 
@@ -66,13 +66,20 @@ if ($row = mysqli_fetch_assoc($result)) {
 							} else {
 								$profile = $data[$i]['profileImage'];
 							}
+							if ($data[$i]['class'] == 'web') {
+								$classType = 'Web & UX Design';
+							} else if ($data[$i]['class'] == 'game') {
+								$classType = 'Game Art & Development';
+							} else if ($data[$i]['class'] == 'graphic') {
+								$classType = 'Creative Digital Design';
+							}
 							$name = $data[$i]['firstName'] . ' ' . $data[$i]['lastName'];
 							$card .= '<div class="card '.$data[$i]['class'].'" data-id="'.$i.'">
 								<div class="cardContent">
 									<img src="'.$profile.'" alt="Image of '.$name.'">
 									<div class="cardText">
 										<h2>'.$name.'</h2>
-										<p>'.ucfirst($data[$i]['class']).'</p>
+										<p>'.$classType.'</p>
 									</div>
 								</div>
 								<div class="cardBorder"></div>
