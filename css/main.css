@@ -27,7 +27,7 @@ body {
     width: 100%;
     height: 100%;
     opacity: 0.05;
-    background-image: url("../images/lines.gif");
+    background-image: url("../images/lines.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; }
@@ -123,15 +123,28 @@ body {
   margin: 0 auto;
   text-align: center; }
   .topArea .filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 24px;
     text-align: center; }
-    @media (max-width: 754px) {
+    @media (max-width: 986px) {
+      .topArea .filter .group2 {
+        margin-top: 24px; } }
+    @media (max-width: 700px) {
       .topArea .filter {
-        display: flex;
-        flex-direction: column;
-        justify-content: center; }
-        .topArea .filter button {
-          margin: 12px 24px !important; } }
+        width: 80%;
+        margin: 0 auto; }
+        .topArea .filter .group1, .topArea .filter .group2 {
+          margin: 0;
+          width: 100%; }
+          .topArea .filter .group1 button, .topArea .filter .group2 button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin: 0 0 24px 0; }
+        .topArea .filter .group2 button:last-of-type {
+          margin-bottom: 0; } }
     .topArea .filter button {
       padding: 12px 24px;
       background-color: white;
@@ -144,9 +157,6 @@ body {
       position: relative;
       border: none;
       transition: background-color 0.5s ease, color 0.5s ease; }
-      @media (max-width: 828px) {
-        .topArea .filter button {
-          padding: 12px; } }
       .topArea .filter button .buttonBorder {
         position: absolute;
         top: 0;
@@ -159,16 +169,44 @@ body {
         pointer-events: none; }
       .topArea .filter button:hover .buttonBorder {
         border: 4px solid black; }
-      .topArea .filter button#graphicBtn.active {
-        background-color: #df1d24; }
-      .topArea .filter button#gameBtn.active {
-        background-color: #e3a6c2; }
-      .topArea .filter button#webBtn.active {
-        background-color: #db8b2d; }
-      .topArea .filter button.active {
-        color: white; }
-        .topArea .filter button.active .buttonBorder {
-          border: none; }
+      .topArea .filter button#allBtn {
+        color: #043673; }
+        .topArea .filter button#allBtn .buttonBorder {
+          border: 1px solid #043673; }
+        .topArea .filter button#allBtn:hover .buttonBorder {
+          border: 4px solid #043673; }
+        .topArea .filter button#allBtn.active {
+          background-color: #043673;
+          color: white; }
+      .topArea .filter button#graphicBtn {
+        color: #df1d24; }
+        .topArea .filter button#graphicBtn .buttonBorder {
+          border: 1px solid #df1d24; }
+        .topArea .filter button#graphicBtn:hover .buttonBorder {
+          border: 4px solid #df1d24; }
+        .topArea .filter button#graphicBtn.active {
+          background-color: #df1d24;
+          color: white; }
+      .topArea .filter button#gameBtn {
+        color: #e3a6c2; }
+        .topArea .filter button#gameBtn .buttonBorder {
+          border: 1px solid #e3a6c2; }
+        .topArea .filter button#gameBtn:hover .buttonBorder {
+          border: 4px solid #e3a6c2; }
+        .topArea .filter button#gameBtn.active {
+          background-color: #e3a6c2;
+          color: white; }
+      .topArea .filter button#webBtn {
+        color: #db8b2d; }
+        .topArea .filter button#webBtn .buttonBorder {
+          border: 1px solid #db8b2d; }
+        .topArea .filter button#webBtn:hover .buttonBorder {
+          border: 4px solid #db8b2d; }
+        .topArea .filter button#webBtn.active {
+          background-color: #db8b2d;
+          color: white; }
+      .topArea .filter button.active .buttonBorder {
+        border: none; }
 
 .container {
   margin: 24px auto;

@@ -91,58 +91,117 @@ function renderContent (jsonString) {
 	return content;
 }
 
+let allToggle = true;
 let webToggle = true;
 let graphicToggle = true;
 let gameToggle = true;
 
+$('#allBtn').addEventListener('click', ()=> {
+	if (!allToggle) {
+		if (!$('#allBtn').classList.contains('active')) {
+			$('#allBtn').classList.add('active');
+		}
+		if (!$('#webBtn').classList.contains('active')) {
+			$('#webBtn').classList.add('active');
+		}
+		if (!$('#graphicBtn').classList.contains('active')) {
+			$('#graphicBtn').classList.add('active');
+		}
+		if (!$('#gameBtn').classList.contains('active')) {
+			$('#gameBtn').classList.add('active');
+		}
+
+		[].forEach.call($('.card'), (e)=> {
+			if (e.style.display == 'none') {
+				e.style.display = 'flex';
+			}
+		});
+		allToggle = true;
+		webToggle = true;
+		graphicToggle = true;
+		gameToggle = true;
+		checkStudents();
+	}
+});
+
 $('#webBtn').addEventListener('click', ()=> {
-	if (webToggle) {
-		$('#webBtn').classList.remove('active');
-	} else {
+	if ($('#allBtn').classList.contains('active')) {
+		$('#allBtn').classList.remove('active');
+	}
+	if (!$('#webBtn').classList.contains('active')) {
 		$('#webBtn').classList.add('active');
 	}
-	[].forEach.call($('.web'), (e)=> {
-		if (webToggle) {
-			e.style.display = 'none';
-		} else {
+	if ($('#graphicBtn').classList.contains('active')) {
+		$('#graphicBtn').classList.remove('active');
+	}
+	if ($('#gameBtn').classList.contains('active')) {
+		$('#gameBtn').classList.remove('active');
+	}
+	[].forEach.call($('.card'), (e)=> {
+		if (e.classList.contains('web')) {
 			e.style.display = 'flex';
+		} else {
+			e.style.display = 'none';
 		}
 	});
-	webToggle = !webToggle;
+	allToggle = false;
+	webToggle = true;
+	graphicToggle = false;
+	gameToggle = false;
 	checkStudents();
 });
 
 $('#graphicBtn').addEventListener('click', ()=> {
-	if (graphicToggle) {
-		$('#graphicBtn').classList.remove('active');
-	} else {
+	if ($('#allBtn').classList.contains('active')) {
+		$('#allBtn').classList.remove('active');
+	}
+	if ($('#webBtn').classList.contains('active')) {
+		$('#webBtn').classList.remove('active');
+	}
+	if (!$('#graphicBtn').classList.contains('active')) {
 		$('#graphicBtn').classList.add('active');
 	}
-	[].forEach.call($('.graphic'), (e)=> {
-		if (graphicToggle) {
-			e.style.display = 'none';
-		} else {
+	if ($('#gameBtn').classList.contains('active')) {
+		$('#gameBtn').classList.remove('active');
+	}
+	[].forEach.call($('.card'), (e)=> {
+		if (e.classList.contains('graphic')) {
 			e.style.display = 'flex';
+		} else {
+			e.style.display = 'none';
 		}
 	});
-	graphicToggle = !graphicToggle;
+	allToggle = false;
+	webToggle = false;
+	graphicToggle = true;
+	gameToggle = false;
 	checkStudents();
 });
 
 $('#gameBtn').addEventListener('click', ()=> {
-	if (gameToggle) {
-		$('#gameBtn').classList.remove('active');
-	} else {
+	if ($('#allBtn').classList.contains('active')) {
+		$('#allBtn').classList.remove('active');
+	}
+	if ($('#webBtn').classList.contains('active')) {
+		$('#webBtn').classList.remove('active');
+	}
+	if ($('#graphicBtn').classList.contains('active')) {
+		$('#graphicBtn').classList.remove('active');
+	}
+	if (!$('#gameBtn').classList.contains('active')) {
 		$('#gameBtn').classList.add('active');
 	}
-	[].forEach.call($('.game'), (e)=> {
-		if (gameToggle) {
-			e.style.display = 'none';
-		} else {
+	[].forEach.call($('.card'), (e)=> {
+		if (e.classList.contains('game')) {
 			e.style.display = 'flex';
+		} else {
+			e.style.display = 'none';
 		}
 	});
-	gameToggle = !gameToggle;
+	allToggle = false;
+	webToggle = false;
+	graphicToggle = false;
+	gameToggle = true;
 	checkStudents();
 });
 
@@ -151,7 +210,7 @@ function checkStudents () {
 		$('#studentError').innerText = 'No students';
 	} else {
 		let pendingCheck = false;
-		[].forEach.call(document.querySelectorAll('.card'), (e)=> {
+		[].forEach.call($('.card'), (e)=> {
 			if (e.style.display != 'none') {
 				pendingCheck = true;
 			}

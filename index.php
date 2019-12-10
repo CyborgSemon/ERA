@@ -39,18 +39,26 @@ if ($row = mysqli_fetch_assoc($result)) {
 		</div>
 		<div class="topArea">
 			<div class="filter">
-				<button id="graphicBtn" class="active">
-					Creative Digital Design
-					<div class="buttonBorder"></div>
-				</button>
-				<button id="gameBtn" class="active">
-					Game Art & Development
-					<div class="buttonBorder"></div>
-				</button>
-				<button id="webBtn" class="active">
-					Web & UX Design
-					<div class="buttonBorder"></div>
-				</button>
+				<div class="group1">
+					<button id="allBtn" class="active">
+						View All
+						<div class="buttonBorder"></div>
+					</button>
+					<button id="graphicBtn" class="active">
+						Creative Digital Design
+						<div class="buttonBorder"></div>
+					</button>
+				</div>
+				<div class="group2">
+					<button id="gameBtn" class="active">
+						Game Art & Development
+						<div class="buttonBorder"></div>
+					</button>
+					<button id="webBtn" class="active">
+						Web & UX Design
+						<div class="buttonBorder"></div>
+					</button>
+				</div>
 			</div>
 		</div>
 		<div class="container">

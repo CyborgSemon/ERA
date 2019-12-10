@@ -1,33 +1,8 @@
 $transition: 0.15s;
 
-$background: #222;
-$backgroundCard: lighten($background, 5%);
-$textColor: white;
-
-body.theme {
-	background-color: $background;
-	color: $textColor;
-	.loginBox {
-		background-color: $backgroundCard;
-	}
-	.inputField {
-		input, label {
-			background-color: $backgroundCard;
-		}
-		input {
-			color: $textColor
-		}
-		input:focus ~ .inputBorder {
-			border: 2px solid $textColor;
-		}
-		.inputBorder {
-			border: 1px solid rgba($textColor, 0.2);
-		}
-		&:hover .inputBorder {
-			border: 1px solid rgba($textColor, 0.5);
-		}
-	}
-}
+$background: white;
+$backgroundCard: darken($background, 5%);
+$textColor: black;
 
 .loginBox {
 	padding: 24px;

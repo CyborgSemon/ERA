@@ -4,11 +4,6 @@ $viewBreakPoint3: 800px;
 
 $headerHeight: 230px;
 
-// body.view {
-// 	background-color: #222;
-// 	color: white;
-// }
-
 .header {
 	height: $headerHeight;
 	display: flex;
@@ -25,7 +20,7 @@ $headerHeight: 230px;
 		width: 100%;
 		height: 100%;
 		opacity: 0.05;
-		background-image: url('../images/lines.gif');
+		background-image: url('../images/lines.png');
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
